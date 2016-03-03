@@ -7,25 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EF9B61C5126683AC169DD88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD6ABBF4DA602B494901D4C /* libPods.a */; };
 		7AE250C21C8828D70090A951 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C11C8828D70090A951 /* main.m */; };
 		7AE250C51C8828D70090A951 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C41C8828D70090A951 /* AppDelegate.m */; };
-		7AE250C81C8828D70090A951 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C71C8828D70090A951 /* ViewController.m */; };
-		7AE250CB1C8828D70090A951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250C91C8828D70090A951 /* Main.storyboard */; };
 		7AE250CD1C8828D70090A951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250CC1C8828D70090A951 /* Assets.xcassets */; };
 		7AE250D01C8828D70090A951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250CE1C8828D70090A951 /* LaunchScreen.storyboard */; };
+		7AE250EA1C883AA40090A951 /* MianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250E91C883AA40090A951 /* MianViewController.m */; };
+		7AE250F01C88444D0090A951 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250EF1C88444D0090A951 /* HomeViewController.m */; };
+		7AE250F31C88445D0090A951 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250F21C88445D0090A951 /* MineViewController.m */; };
+		7AE250F51C88523E0090A951 /* MianVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250F41C88523E0090A951 /* MianVC.storyboard */; };
+		7AE250F91C8852DE0090A951 /* HomaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250F81C8852DE0090A951 /* HomaVC.storyboard */; };
+		7AE250FB1C8853060090A951 /* MineVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250FA1C8853060090A951 /* MineVC.storyboard */; };
+		7AE250FD1C88571B0090A951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250FC1C88571B0090A951 /* Main.storyboard */; };
+		7AE251001C8873950090A951 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250FF1C8873950090A951 /* ActivityViewController.m */; };
+		7AE251031C8873A50090A951 /* GoodReadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE251021C8873A50090A951 /* GoodReadController.m */; };
+		7AE251061C8873B70090A951 /* HotThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE251051C8873B70090A951 /* HotThemeController.m */; };
+		7AE251091C8873CC0090A951 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE251081C8873CC0090A951 /* TodayViewController.m */; };
+		7AE2510C1C8873D60090A951 /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE2510B1C8873D60090A951 /* StoryViewController.m */; };
+		7AE2510F1C8874090090A951 /* StrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE2510E1C8874090090A951 /* StrollViewController.m */; };
+		7AE251121C88741A0090A951 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE251111C88741A0090A951 /* LoginViewController.m */; };
+		7AE251151C8874290090A951 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE251141C8874290090A951 /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C4A1E285D641FDC9A16EE8C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		417748A60C9F56B7DD55A9D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7AE250BD1C8828D70090A951 /* SweetFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE250C11C8828D70090A951 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AE250C31C8828D70090A951 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AE250C41C8828D70090A951 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7AE250C61C8828D70090A951 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7AE250C71C8828D70090A951 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7AE250CA1C8828D70090A951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7AE250CC1C8828D70090A951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AE250CF1C8828D70090A951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AE250D11C8828D70090A951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AE250E81C883AA40090A951 /* MianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianViewController.h; sourceTree = "<group>"; };
+		7AE250E91C883AA40090A951 /* MianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianViewController.m; sourceTree = "<group>"; };
+		7AE250EE1C88444D0090A951 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		7AE250EF1C88444D0090A951 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		7AE250F11C88445D0090A951 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		7AE250F21C88445D0090A951 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		7AE250F41C88523E0090A951 /* MianVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MianVC.storyboard; sourceTree = "<group>"; };
+		7AE250F81C8852DE0090A951 /* HomaVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomaVC.storyboard; sourceTree = "<group>"; };
+		7AE250FA1C8853060090A951 /* MineVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MineVC.storyboard; sourceTree = "<group>"; };
+		7AE250FC1C88571B0090A951 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7AE250FE1C8873950090A951 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		7AE250FF1C8873950090A951 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		7AE251011C8873A50090A951 /* GoodReadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodReadController.h; sourceTree = "<group>"; };
+		7AE251021C8873A50090A951 /* GoodReadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodReadController.m; sourceTree = "<group>"; };
+		7AE251041C8873B70090A951 /* HotThemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotThemeController.h; sourceTree = "<group>"; };
+		7AE251051C8873B70090A951 /* HotThemeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotThemeController.m; sourceTree = "<group>"; };
+		7AE251071C8873CC0090A951 /* TodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		7AE251081C8873CC0090A951 /* TodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		7AE2510A1C8873D60090A951 /* StoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryViewController.h; sourceTree = "<group>"; };
+		7AE2510B1C8873D60090A951 /* StoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryViewController.m; sourceTree = "<group>"; };
+		7AE2510D1C8874090090A951 /* StrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrollViewController.h; sourceTree = "<group>"; };
+		7AE2510E1C8874090090A951 /* StrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrollViewController.m; sourceTree = "<group>"; };
+		7AE251101C88741A0090A951 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7AE251111C88741A0090A951 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7AE251131C8874290090A951 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		7AE251141C8874290090A951 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		9BD6ABBF4DA602B494901D4C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF9B61C5126683AC169DD88 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +85,8 @@
 			children = (
 				7AE250BF1C8828D70090A951 /* SweetFood */,
 				7AE250BE1C8828D70090A951 /* Products */,
+				F5223BB38FB45B2352A9AA9C /* Pods */,
+				D5E74F25FE07EE60371EEE81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,12 +101,11 @@
 		7AE250BF1C8828D70090A951 /* SweetFood */ = {
 			isa = PBXGroup;
 			children = (
+				7AE250D71C883A580090A951 /* Classes */,
 				7AE250C31C8828D70090A951 /* AppDelegate.h */,
 				7AE250C41C8828D70090A951 /* AppDelegate.m */,
-				7AE250C61C8828D70090A951 /* ViewController.h */,
-				7AE250C71C8828D70090A951 /* ViewController.m */,
-				7AE250C91C8828D70090A951 /* Main.storyboard */,
 				7AE250CC1C8828D70090A951 /* Assets.xcassets */,
+				7AE250FC1C88571B0090A951 /* Main.storyboard */,
 				7AE250CE1C8828D70090A951 /* LaunchScreen.storyboard */,
 				7AE250D11C8828D70090A951 /* Info.plist */,
 				7AE250C01C8828D70090A951 /* Supporting Files */,
@@ -79,6 +121,183 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7AE250D71C883A580090A951 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250E01C883A580090A951 /* Main */,
+				7AE250D81C883A580090A951 /* Home */,
+				7AE250E41C883A580090A951 /* Mine */,
+				7AE250DC1C883A580090A951 /* Login */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7AE250D81C883A580090A951 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250D91C883A580090A951 /* cell */,
+				7AE250DA1C883A580090A951 /* Model */,
+				7AE250DB1C883A580090A951 /* ViewController */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7AE250D91C883A580090A951 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250F81C8852DE0090A951 /* HomaVC.storyboard */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		7AE250DA1C883A580090A951 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7AE250DB1C883A580090A951 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250EE1C88444D0090A951 /* HomeViewController.h */,
+				7AE250EF1C88444D0090A951 /* HomeViewController.m */,
+				7AE251071C8873CC0090A951 /* TodayViewController.h */,
+				7AE251081C8873CC0090A951 /* TodayViewController.m */,
+				7AE2510A1C8873D60090A951 /* StoryViewController.h */,
+				7AE2510B1C8873D60090A951 /* StoryViewController.m */,
+				7AE2510D1C8874090090A951 /* StrollViewController.h */,
+				7AE2510E1C8874090090A951 /* StrollViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7AE250DC1C883A580090A951 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250DD1C883A580090A951 /* cell */,
+				7AE250DE1C883A580090A951 /* Model */,
+				7AE250DF1C883A580090A951 /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7AE250DD1C883A580090A951 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		7AE250DE1C883A580090A951 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7AE250DF1C883A580090A951 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE251101C88741A0090A951 /* LoginViewController.h */,
+				7AE251111C88741A0090A951 /* LoginViewController.m */,
+				7AE251131C8874290090A951 /* RegisterViewController.h */,
+				7AE251141C8874290090A951 /* RegisterViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7AE250E01C883A580090A951 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250E11C883A580090A951 /* cell */,
+				7AE250E21C883A580090A951 /* Model */,
+				7AE250E31C883A580090A951 /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7AE250E11C883A580090A951 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250F41C88523E0090A951 /* MianVC.storyboard */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		7AE250E21C883A580090A951 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7AE250E31C883A580090A951 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250E81C883AA40090A951 /* MianViewController.h */,
+				7AE250E91C883AA40090A951 /* MianViewController.m */,
+				7AE250FE1C8873950090A951 /* ActivityViewController.h */,
+				7AE250FF1C8873950090A951 /* ActivityViewController.m */,
+				7AE251011C8873A50090A951 /* GoodReadController.h */,
+				7AE251021C8873A50090A951 /* GoodReadController.m */,
+				7AE251041C8873B70090A951 /* HotThemeController.h */,
+				7AE251051C8873B70090A951 /* HotThemeController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7AE250E41C883A580090A951 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250E51C883A580090A951 /* cell */,
+				7AE250E61C883A580090A951 /* Model */,
+				7AE250E71C883A580090A951 /* ViewController */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		7AE250E51C883A580090A951 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250FA1C8853060090A951 /* MineVC.storyboard */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		7AE250E61C883A580090A951 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7AE250E71C883A580090A951 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE250F11C88445D0090A951 /* MineViewController.h */,
+				7AE250F21C88445D0090A951 /* MineViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D5E74F25FE07EE60371EEE81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6ABBF4DA602B494901D4C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5223BB38FB45B2352A9AA9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C4A1E285D641FDC9A16EE8C /* Pods.debug.xcconfig */,
+				417748A60C9F56B7DD55A9D0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +305,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7AE250D41C8828D70090A951 /* Build configuration list for PBXNativeTarget "SweetFood" */;
 			buildPhases = (
+				9712F003317957433A143892 /* Check Pods Manifest.lock */,
 				7AE250B91C8828D70090A951 /* Sources */,
 				7AE250BA1C8828D70090A951 /* Frameworks */,
 				7AE250BB1C8828D70090A951 /* Resources */,
+				B16424865EF869C94555D722 /* Embed Pods Frameworks */,
+				122561B6D6885CB12EB144BB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,34 +360,87 @@
 			files = (
 				7AE250D01C8828D70090A951 /* LaunchScreen.storyboard in Resources */,
 				7AE250CD1C8828D70090A951 /* Assets.xcassets in Resources */,
-				7AE250CB1C8828D70090A951 /* Main.storyboard in Resources */,
+				7AE250FB1C8853060090A951 /* MineVC.storyboard in Resources */,
+				7AE250FD1C88571B0090A951 /* Main.storyboard in Resources */,
+				7AE250F51C88523E0090A951 /* MianVC.storyboard in Resources */,
+				7AE250F91C8852DE0090A951 /* HomaVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		122561B6D6885CB12EB144BB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9712F003317957433A143892 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B16424865EF869C94555D722 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7AE250B91C8828D70090A951 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AE250C81C8828D70090A951 /* ViewController.m in Sources */,
+				7AE251091C8873CC0090A951 /* TodayViewController.m in Sources */,
+				7AE250EA1C883AA40090A951 /* MianViewController.m in Sources */,
+				7AE2510C1C8873D60090A951 /* StoryViewController.m in Sources */,
+				7AE251061C8873B70090A951 /* HotThemeController.m in Sources */,
+				7AE251001C8873950090A951 /* ActivityViewController.m in Sources */,
+				7AE251031C8873A50090A951 /* GoodReadController.m in Sources */,
 				7AE250C51C8828D70090A951 /* AppDelegate.m in Sources */,
+				7AE250F31C88445D0090A951 /* MineViewController.m in Sources */,
+				7AE251121C88741A0090A951 /* LoginViewController.m in Sources */,
+				7AE251151C8874290090A951 /* RegisterViewController.m in Sources */,
+				7AE2510F1C8874090090A951 /* StrollViewController.m in Sources */,
 				7AE250C21C8828D70090A951 /* main.m in Sources */,
+				7AE250F01C88444D0090A951 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7AE250C91C8828D70090A951 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7AE250CA1C8828D70090A951 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7AE250CE1C8828D70090A951 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -259,6 +534,7 @@
 		};
 		7AE250D51C8828D70090A951 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C4A1E285D641FDC9A16EE8C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SweetFood/Info.plist;
@@ -270,6 +546,7 @@
 		};
 		7AE250D61C8828D70090A951 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 417748A60C9F56B7DD55A9D0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SweetFood/Info.plist;
@@ -298,6 +575,7 @@
 				7AE250D61C8828D70090A951 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MianViewController.h
 //  SweetFood
 //
 //  Created by scjy on 16/3/3.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MianViewController : UIViewController
 
 @end
-

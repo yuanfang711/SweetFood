@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "MianViewController.h"
+#import "MineViewController.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +19,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //创建
+    self.tabbarC = [[UITabBarController alloc] init];
+    
+    //主页
+    UIStoryboard *mianB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+    UINavigationController *mainNAV = mianB.instantiateInitialViewController;
+    mainNAV.tabBarItem.title = @"主页";
+    
+    //到家
+    UIStoryboard *homeB = [UIStoryboard storyboardWithName:@"HomaVC" bundle:nil];
+    UINavigationController *homeNAV = homeB.instantiateInitialViewController;
+    homeNAV.tabBarItem.title = @"到家";
+    
+    
+    //我的
+    UIStoryboard *mineB = [UIStoryboard storyboardWithName:@"MineVC" bundle:nil];
+    UINavigationController *mineNAV = mineB.instantiateInitialViewController;
+    mineNAV.tabBarItem.title = @"我的";
+    
+    //将所见的主界面添加到tabbar的视图上
+    self.tabbarC.viewControllers = @[mainNAV,homeNAV,mineNAV];
+    self.tabbarC.tabBar.backgroundColor = [UIColor orangeColor];
+    self.window.rootViewController = self.tabbarC;
+    self.window.backgroundColor = [UIColor clearColor];
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
