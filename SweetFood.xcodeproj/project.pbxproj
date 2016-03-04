@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3EF9B61C5126683AC169DD88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD6ABBF4DA602B494901D4C /* libPods.a */; };
+		7A85B0171C8926140056C250 /* MianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A85B0151C8926140056C250 /* MianTableViewCell.m */; };
+		7A85B0181C8926140056C250 /* MianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A85B0161C8926140056C250 /* MianTableViewCell.xib */; };
+		7A85B0211C8984EE0056C250 /* Home.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A85B0201C8984EE0056C250 /* Home.plist */; };
+		7A85B0231C898C100056C250 /* Mian.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A85B0221C898C100056C250 /* Mian.plist */; };
+		7A85B0291C89A9640056C250 /* MianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A85B0281C89A9640056C250 /* MianModel.m */; };
 		7AE250C21C8828D70090A951 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C11C8828D70090A951 /* main.m */; };
 		7AE250C51C8828D70090A951 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C41C8828D70090A951 /* AppDelegate.m */; };
 		7AE250CD1C8828D70090A951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250CC1C8828D70090A951 /* Assets.xcassets */; };
@@ -32,6 +37,13 @@
 /* Begin PBXFileReference section */
 		3C4A1E285D641FDC9A16EE8C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		417748A60C9F56B7DD55A9D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7A85B0141C8926140056C250 /* MianTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianTableViewCell.h; sourceTree = "<group>"; };
+		7A85B0151C8926140056C250 /* MianTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianTableViewCell.m; sourceTree = "<group>"; };
+		7A85B0161C8926140056C250 /* MianTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MianTableViewCell.xib; sourceTree = "<group>"; };
+		7A85B0201C8984EE0056C250 /* Home.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Home.plist; sourceTree = "<group>"; };
+		7A85B0221C898C100056C250 /* Mian.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Mian.plist; sourceTree = "<group>"; };
+		7A85B0271C89A9640056C250 /* MianModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianModel.h; sourceTree = "<group>"; };
+		7A85B0281C89A9640056C250 /* MianModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianModel.m; sourceTree = "<group>"; };
 		7AE250BD1C8828D70090A951 /* SweetFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE250C11C8828D70090A951 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AE250C31C8828D70090A951 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +92,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A85B01C1C897B340056C250 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		7A85B01D1C897B340056C250 /* PHP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PHP;
+			sourceTree = "<group>";
+		};
 		7AE250B41C8828D70090A951 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +134,8 @@
 				7AE250FC1C88571B0090A951 /* Main.storyboard */,
 				7AE250CE1C8828D70090A951 /* LaunchScreen.storyboard */,
 				7AE250D11C8828D70090A951 /* Info.plist */,
+				7A85B01C1C897B340056C250 /* Library */,
+				7A85B01D1C897B340056C250 /* PHP */,
 				7AE250C01C8828D70090A951 /* Supporting Files */,
 			);
 			path = SweetFood;
@@ -221,6 +249,9 @@
 			isa = PBXGroup;
 			children = (
 				7AE250F41C88523E0090A951 /* MianVC.storyboard */,
+				7A85B0141C8926140056C250 /* MianTableViewCell.h */,
+				7A85B0151C8926140056C250 /* MianTableViewCell.m */,
+				7A85B0161C8926140056C250 /* MianTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -228,6 +259,10 @@
 		7AE250E21C883A580090A951 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7A85B0271C89A9640056C250 /* MianModel.h */,
+				7A85B0281C89A9640056C250 /* MianModel.m */,
+				7A85B0201C8984EE0056C250 /* Home.plist */,
+				7A85B0221C898C100056C250 /* Mian.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,11 +393,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A85B0231C898C100056C250 /* Mian.plist in Resources */,
 				7AE250D01C8828D70090A951 /* LaunchScreen.storyboard in Resources */,
+				7A85B0211C8984EE0056C250 /* Home.plist in Resources */,
 				7AE250CD1C8828D70090A951 /* Assets.xcassets in Resources */,
 				7AE250FB1C8853060090A951 /* MineVC.storyboard in Resources */,
 				7AE250FD1C88571B0090A951 /* Main.storyboard in Resources */,
 				7AE250F51C88523E0090A951 /* MianVC.storyboard in Resources */,
+				7A85B0181C8926140056C250 /* MianTableViewCell.xib in Resources */,
 				7AE250F91C8852DE0090A951 /* HomaVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +462,8 @@
 			files = (
 				7AE251091C8873CC0090A951 /* TodayViewController.m in Sources */,
 				7AE250EA1C883AA40090A951 /* MianViewController.m in Sources */,
+				7A85B0291C89A9640056C250 /* MianModel.m in Sources */,
+				7A85B0171C8926140056C250 /* MianTableViewCell.m in Sources */,
 				7AE2510C1C8873D60090A951 /* StoryViewController.m in Sources */,
 				7AE251061C8873B70090A951 /* HotThemeController.m in Sources */,
 				7AE251001C8873950090A951 /* ActivityViewController.m in Sources */,
