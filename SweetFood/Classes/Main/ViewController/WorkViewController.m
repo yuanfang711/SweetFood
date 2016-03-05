@@ -1,25 +1,24 @@
 //
-//  MineViewController.m
-//  SweetFood
+//  WorkViewController.m
+//  晒作品
 //
-//  Created by scjy on 16/3/3.
+//  Created by scjy on 16/3/5.
 //  Copyright © 2016年 范芳芳. All rights reserved.
 //
 
-#import "MineViewController.h"
+#import "WorkViewController.h"
 
-@interface MineViewController ()
+@interface WorkViewController ()
 
 @end
 
-@implementation MineViewController
+@implementation WorkViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"我的";
-
-    
+    self.title = @"晒作品";
+    self.view.backgroundColor = [UIColor magentaColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+
+ */
 /*
 #pragma mark - Navigation
 

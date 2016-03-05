@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3EF9B61C5126683AC169DD88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD6ABBF4DA602B494901D4C /* libPods.a */; };
+		7A76FB2A1C8AB76D00A63F3D /* ChufangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A76FB291C8AB76D00A63F3D /* ChufangViewController.m */; };
+		7A76FB2D1C8AB97300A63F3D /* WorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A76FB2C1C8AB97300A63F3D /* WorkViewController.m */; };
+		7A76FB2F1C8ABD4B00A63F3D /* main.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A76FB2E1C8ABD4B00A63F3D /* main.plist */; };
+		7A76FB3A1C8AE6CE00A63F3D /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A76FB391C8AE6CE00A63F3D /* HomeTableViewCell.m */; };
+		7A76FB3D1C8AEDBA00A63F3D /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A76FB3C1C8AEDBA00A63F3D /* HomeModel.m */; };
+		7A76FB3F1C8AEEBB00A63F3D /* Home.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A76FB3E1C8AEEBB00A63F3D /* Home.plist */; };
 		7A85B0171C8926140056C250 /* MianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A85B0151C8926140056C250 /* MianTableViewCell.m */; };
 		7A85B0181C8926140056C250 /* MianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A85B0161C8926140056C250 /* MianTableViewCell.xib */; };
-		7A85B0211C8984EE0056C250 /* Home.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A85B0201C8984EE0056C250 /* Home.plist */; };
-		7A85B0231C898C100056C250 /* Mian.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A85B0221C898C100056C250 /* Mian.plist */; };
 		7A85B0291C89A9640056C250 /* MianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A85B0281C89A9640056C250 /* MianModel.m */; };
 		7AE250C21C8828D70090A951 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C11C8828D70090A951 /* main.m */; };
 		7AE250C51C8828D70090A951 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C41C8828D70090A951 /* AppDelegate.m */; };
@@ -37,11 +41,20 @@
 /* Begin PBXFileReference section */
 		3C4A1E285D641FDC9A16EE8C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		417748A60C9F56B7DD55A9D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7A76FB281C8AB76D00A63F3D /* ChufangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChufangViewController.h; sourceTree = "<group>"; };
+		7A76FB291C8AB76D00A63F3D /* ChufangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChufangViewController.m; sourceTree = "<group>"; };
+		7A76FB2B1C8AB97300A63F3D /* WorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewController.h; sourceTree = "<group>"; };
+		7A76FB2C1C8AB97300A63F3D /* WorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewController.m; sourceTree = "<group>"; };
+		7A76FB2E1C8ABD4B00A63F3D /* main.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = main.plist; sourceTree = "<group>"; };
+		7A76FB371C8ADDE000A63F3D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = SweetFood/PCH/PrefixHeader.pch; sourceTree = SOURCE_ROOT; };
+		7A76FB381C8AE6CE00A63F3D /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		7A76FB391C8AE6CE00A63F3D /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		7A76FB3B1C8AEDBA00A63F3D /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
+		7A76FB3C1C8AEDBA00A63F3D /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
+		7A76FB3E1C8AEEBB00A63F3D /* Home.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Home.plist; sourceTree = "<group>"; };
 		7A85B0141C8926140056C250 /* MianTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianTableViewCell.h; sourceTree = "<group>"; };
 		7A85B0151C8926140056C250 /* MianTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianTableViewCell.m; sourceTree = "<group>"; };
 		7A85B0161C8926140056C250 /* MianTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MianTableViewCell.xib; sourceTree = "<group>"; };
-		7A85B0201C8984EE0056C250 /* Home.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Home.plist; sourceTree = "<group>"; };
-		7A85B0221C898C100056C250 /* Mian.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Mian.plist; sourceTree = "<group>"; };
 		7A85B0271C89A9640056C250 /* MianModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianModel.h; sourceTree = "<group>"; };
 		7A85B0281C89A9640056C250 /* MianModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianModel.m; sourceTree = "<group>"; };
 		7AE250BD1C8828D70090A951 /* SweetFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +115,7 @@
 		7A85B01D1C897B340056C250 /* PHP */ = {
 			isa = PBXGroup;
 			children = (
+				7A76FB371C8ADDE000A63F3D /* PrefixHeader.pch */,
 			);
 			path = PHP;
 			sourceTree = "<group>";
@@ -174,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				7AE250F81C8852DE0090A951 /* HomaVC.storyboard */,
+				7A76FB381C8AE6CE00A63F3D /* HomeTableViewCell.h */,
+				7A76FB391C8AE6CE00A63F3D /* HomeTableViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -181,6 +197,9 @@
 		7AE250DA1C883A580090A951 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7A76FB3E1C8AEEBB00A63F3D /* Home.plist */,
+				7A76FB3B1C8AEDBA00A63F3D /* HomeModel.h */,
+				7A76FB3C1C8AEDBA00A63F3D /* HomeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,8 +280,7 @@
 			children = (
 				7A85B0271C89A9640056C250 /* MianModel.h */,
 				7A85B0281C89A9640056C250 /* MianModel.m */,
-				7A85B0201C8984EE0056C250 /* Home.plist */,
-				7A85B0221C898C100056C250 /* Mian.plist */,
+				7A76FB2E1C8ABD4B00A63F3D /* main.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +290,10 @@
 			children = (
 				7AE250E81C883AA40090A951 /* MianViewController.h */,
 				7AE250E91C883AA40090A951 /* MianViewController.m */,
+				7A76FB281C8AB76D00A63F3D /* ChufangViewController.h */,
+				7A76FB291C8AB76D00A63F3D /* ChufangViewController.m */,
+				7A76FB2B1C8AB97300A63F3D /* WorkViewController.h */,
+				7A76FB2C1C8AB97300A63F3D /* WorkViewController.m */,
 				7AE250FE1C8873950090A951 /* ActivityViewController.h */,
 				7AE250FF1C8873950090A951 /* ActivityViewController.m */,
 				7AE251011C8873A50090A951 /* GoodReadController.h */,
@@ -393,10 +415,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A85B0231C898C100056C250 /* Mian.plist in Resources */,
 				7AE250D01C8828D70090A951 /* LaunchScreen.storyboard in Resources */,
-				7A85B0211C8984EE0056C250 /* Home.plist in Resources */,
+				7A76FB2F1C8ABD4B00A63F3D /* main.plist in Resources */,
 				7AE250CD1C8828D70090A951 /* Assets.xcassets in Resources */,
+				7A76FB3F1C8AEEBB00A63F3D /* Home.plist in Resources */,
 				7AE250FB1C8853060090A951 /* MineVC.storyboard in Resources */,
 				7AE250FD1C88571B0090A951 /* Main.storyboard in Resources */,
 				7AE250F51C88523E0090A951 /* MianVC.storyboard in Resources */,
@@ -466,6 +488,7 @@
 				7A85B0171C8926140056C250 /* MianTableViewCell.m in Sources */,
 				7AE2510C1C8873D60090A951 /* StoryViewController.m in Sources */,
 				7AE251061C8873B70090A951 /* HotThemeController.m in Sources */,
+				7A76FB2D1C8AB97300A63F3D /* WorkViewController.m in Sources */,
 				7AE251001C8873950090A951 /* ActivityViewController.m in Sources */,
 				7AE251031C8873A50090A951 /* GoodReadController.m in Sources */,
 				7AE250C51C8828D70090A951 /* AppDelegate.m in Sources */,
@@ -473,7 +496,10 @@
 				7AE251121C88741A0090A951 /* LoginViewController.m in Sources */,
 				7AE251151C8874290090A951 /* RegisterViewController.m in Sources */,
 				7AE2510F1C8874090090A951 /* StrollViewController.m in Sources */,
+				7A76FB3A1C8AE6CE00A63F3D /* HomeTableViewCell.m in Sources */,
+				7A76FB2A1C8AB76D00A63F3D /* ChufangViewController.m in Sources */,
 				7AE250C21C8828D70090A951 /* main.m in Sources */,
+				7A76FB3D1C8AEDBA00A63F3D /* HomeModel.m in Sources */,
 				7AE250F01C88444D0090A951 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +603,8 @@
 			baseConfigurationReference = 3C4A1E285D641FDC9A16EE8C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SweetFood/PCH/PrefixHeader.pch";
 				INFOPLIST_FILE = SweetFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MangoiOS.SweetFood;
@@ -589,6 +617,8 @@
 			baseConfigurationReference = 417748A60C9F56B7DD55A9D0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SweetFood/PCH/PrefixHeader.pch";
 				INFOPLIST_FILE = SweetFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MangoiOS.SweetFood;

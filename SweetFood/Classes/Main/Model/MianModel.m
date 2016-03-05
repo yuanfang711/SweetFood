@@ -9,13 +9,6 @@
 #import "MianModel.h"
 
 @implementation MianModel
-
-//
-//- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
-//
-//
-//
-//}
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic{
     self = [super init];
     if (self) {

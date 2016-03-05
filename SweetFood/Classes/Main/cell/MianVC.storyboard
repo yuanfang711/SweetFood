@@ -19,14 +19,14 @@
         <!--Navigation Controller-->
         <scene sceneID="9tY-2w-bjN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q7o-9Q-wNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jcS-D9-VDW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A1S-iL-XZt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.13230294970000001" blue="0.092886911749999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.38330652570000001" green="0.79657366650000005" blue="0.59731833310000004" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -36,6 +36,7 @@
                         <segue destination="xUM-UY-S4O" kind="relationship" relationship="rootViewController" id="bmd-aP-jdo"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q7o-9Q-wNm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="227" y="462"/>
         </scene>

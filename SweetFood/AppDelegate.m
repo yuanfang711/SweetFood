@@ -26,17 +26,23 @@
     //主页
     UIStoryboard *mianB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
     UINavigationController *mainNAV = mianB.instantiateInitialViewController;
+    mainNAV.tabBarItem.image = [UIImage imageNamed:@"ft_home_normal_ic.png"];
+
     mainNAV.tabBarItem.title = @"主页";
     
     //到家
     UIStoryboard *homeB = [UIStoryboard storyboardWithName:@"HomaVC" bundle:nil];
     UINavigationController *homeNAV = homeB.instantiateInitialViewController;
+    homeNAV.tabBarItem.image = [UIImage imageNamed:@"home.png"];
+
     homeNAV.tabBarItem.title = @"到家";
     
     
     //我的
     UIStoryboard *mineB = [UIStoryboard storyboardWithName:@"MineVC" bundle:nil];
     UINavigationController *mineNAV = mineB.instantiateInitialViewController;
+    mineNAV.tabBarItem.image = [UIImage imageNamed:@"ft_person_normal_ic"];
+
     mineNAV.tabBarItem.title = @"我的";
     
     //将所见的主界面添加到tabbar的视图上
@@ -45,6 +51,7 @@
     self.window.rootViewController = self.tabbarC;
     self.window.backgroundColor = [UIColor clearColor];
     [self.window makeKeyAndVisible];
+    
     // Override point for customization after application launch.
     return YES;
 }

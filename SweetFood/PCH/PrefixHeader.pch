@@ -1,0 +1,37 @@
+//
+//  PrefixHeader.pch
+//  SweetFood
+//
+//  Created by scjy on 16/3/5.
+//  Copyright © 2016年 范芳芳. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define kScreenWitch [UIScreen mainScreen].bounds.size.width
+#define kScreenhight [UIScreen mainScreen].bounds.size.height
+
+#define kColor [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:0.5]
+
+
+#define kMainDatd @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1456977770070&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Index.index"
+
+#define kHomeData @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457170712784&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=idx.index&virtual=&signmethod=md5&v=2&timestamp=1457170723&nonce=0.35607344538067065&appsign=8228ed846add576e52b15547f7f7c482"
+
+#define kChuData @" http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457163440053&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Wiki.getListByType&virtual=&signmethod=md5&v=2&timestamp=1457163451&nonce=0.9222451786717586&appsign=7bd439e4338eaea2fcf93f582147576f"
+
+#define kWorkData @" http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457163440053&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Show.discovery"
+
+#define kStory @"http://m.haodou.com/mall/index.php?r=wap/brand/home-page-recommend"
+
+
+
+
+#define kG @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457170712784&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2&timestamp=1457170872&nonce=0.7028983577100131&appsign=df8f568ca2e884f3b18455a56ae9ecef"
+#define kd @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457170712784&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2&timestamp=1457170925&nonce=0.9917699359674427&appsign=74ba7b10cdb277cca1c3c66cfce4616f"
+
+#endif /* PrefixHeader_pch */
