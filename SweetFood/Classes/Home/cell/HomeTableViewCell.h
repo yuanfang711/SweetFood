@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeModel.h"
+
 @interface HomeTableViewCell : UITableViewCell
+
 @property (nonatomic, strong) HomeModel *model;
 
 @end

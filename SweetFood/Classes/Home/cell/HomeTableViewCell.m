@@ -55,21 +55,21 @@
 
 - (UIImageView *)iconView{
     if (_iconView == nil) {
-        self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 30, 30)];
+        _iconView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 30, 30)];
         self.iconView.backgroundColor = [UIColor redColor];
     }
     return _iconView;
 }
 - (UILabel *)titleL{
     if (_titleL == nil) {
-        self.titleL = [[UILabel alloc] initWithFrame:CGRectMake(38, 5, 60, 30)];
+        _titleL = [[UILabel alloc] initWithFrame:CGRectMake(38, 5, 60, 30)];
         self.titleL.backgroundColor = [UIColor cyanColor];
     }
     return _titleL;
 }
 - (UILabel *)priceL{
     if (_priceL == nil) {
-        self.priceL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch - 80, 5, 50, 30)];
+        _priceL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch - 80, 5, 50, 30)];
         self.priceL.backgroundColor = [UIColor grayColor];
     }
     return _priceL;
@@ -77,7 +77,7 @@
 
 - (UIImageView *)imageViewS{
     if (_imageViewS == nil) {
-        self.imageViewS = [[UIImageView alloc] initWithFrame:CGRectMake(5, 38,kScreenWitch - 10 , 185)];
+        _imageViewS = [[UIImageView alloc] initWithFrame:CGRectMake(5, 38,kScreenWitch - 10 , 185)];
         self.imageViewS.backgroundColor = [UIColor blackColor];
     }
     return _imageViewS;
@@ -85,7 +85,7 @@
 
 - (UILabel *)nameL{
     if (_nameL == nil) {
-        self.nameL = [[UILabel alloc] initWithFrame:CGRectMake(10, 165, kScreenWitch - 20, 30)];
+        _nameL = [[UILabel alloc] initWithFrame:CGRectMake(10, 165, kScreenWitch - 20, 30)];
         self.nameL.font = [UIFont systemFontOfSize:17.0];
         self.nameL.backgroundColor = [UIColor grayColor];
     }
@@ -94,7 +94,7 @@
 
 - (UILabel *)introL{
     if (_introL == nil) {
-        self.introL = [[UILabel alloc] initWithFrame:CGRectMake(10, 195, kScreenWitch - 20, 25)];
+        _introL = [[UILabel alloc] initWithFrame:CGRectMake(10, 195, kScreenWitch - 20, 25)];
         self.introL.font = [UIFont systemFontOfSize:15.0];
         self.introL.backgroundColor = [UIColor magentaColor];
     }

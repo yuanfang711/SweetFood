@@ -15,16 +15,20 @@
 #define kScreenWitch [UIScreen mainScreen].bounds.size.width
 #define kScreenhight [UIScreen mainScreen].bounds.size.height
 
-#define kColor [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:0.5]
+#define kViewColor [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:0.5]
 
 
-#define kMainDatd @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1456977770070&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Index.index"
+#define kMainDatd @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Index.index&virtual=&signmethod=md5&v=2&timestamp=1457268061&nonce=0.5292684029496022&appsign=ce45fd6250c3e6096bcf7ab2dd7d2cd5"
 
-#define kHomeData @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457170712784&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=idx.index&virtual=&signmethod=md5&v=2&timestamp=1457170723&nonce=0.35607344538067065&appsign=8228ed846add576e52b15547f7f7c482"
+#define kHomeData @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=idx.index&virtual=&signmethod=md5&v=2&timestamp=1457268115&nonce=0.42788400519398184&appsign=137edbb7d5e08638d8bb38f9be8214c0"
 
-#define kChuData @" http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457163440053&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Wiki.getListByType&virtual=&signmethod=md5&v=2&timestamp=1457163451&nonce=0.9222451786717586&appsign=7bd439e4338eaea2fcf93f582147576f"
+#define kChuData @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Wiki.getListByType&virtual=&signmethod=md5&v=2&timestamp=1457268168&nonce=0.7743921596121534&appsign=c858109cda6d799262536cfe6136caa8"
 
-#define kWorkData @" http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457163440053&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Show.discovery"
+//
+//http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457252257683&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Wiki.getListByType&virtual=&signmethod=md5&v=2&timestamp=1457252330&nonce=0.43213799779260875&appsign=0cc16601c080e476b9cba5693dbe32f0
+
+
+#define kMovieData @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Video.index&virtual=&signmethod=md5&v=2&timestamp=1457268210&nonce=0.7941609064670728&appsign=830961c2f7e70400bc852c215d182ae8"
 
 #define kStory @"http://m.haodou.com/mall/index.php?r=wap/brand/home-page-recommend"
 
@@ -33,5 +37,15 @@
 
 #define kG @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457170712784&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2&timestamp=1457170872&nonce=0.7028983577100131&appsign=df8f568ca2e884f3b18455a56ae9ecef"
 #define kd @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457170712784&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2&timestamp=1457170925&nonce=0.9917699359674427&appsign=74ba7b10cdb277cca1c3c66cfce4616f"
+
+/*
+ 逛逛
+ 1
+ http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=goods.view&virtual=&signmethod=md5&v=2&timestamp=1457268285&nonce=0.28013332556673776&appsign=be494afc90155d8dc51ca403d98ac59b
+ 2http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=goods.view&virtual=&signmethod=md5&v=2&timestamp=1457268354&nonce=0.379964246408236&appsign=3901994bb32566b4a0ce22d3d0b8d458
+ 3http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=goods.view&virtual=&signmethod=md5&v=2&timestamp=1457268373&nonce=0.02564946330347606&appsign=a795476572731e758cf639133f1de064
+ */
+
+
 
 #endif /* PrefixHeader_pch */

@@ -1,6 +1,6 @@
 //
 //  HotThemeController.m
-//  热门专辑
+//  活动详情---网页
 //
 //  Created by scjy on 16/3/3.
 //  Copyright © 2016年 范芳芳. All rights reserved.
@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    
+    [self.view addSubview:webView];
 }
 
 - (void)didReceiveMemoryWarning {

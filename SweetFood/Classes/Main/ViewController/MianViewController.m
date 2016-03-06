@@ -8,32 +8,31 @@
 
 #import "MianViewController.h"
 #import "MianTableViewCell.h"
-#import "HotThemeController.h"
 #import "HomeViewController.h"
-#import "WorkViewController.h"
+#import "MovieViewController.h"
 #import "ChufangViewController.h"
 #import "GoodReadController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface MianViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 //tableview的头视图
 @property (strong, nonatomic) UIView *headView;
-//广告的滚动视图
-@property (strong, nonatomic) UIScrollView *headScrollView;
+//广告的视图
+@property (strong, nonatomic) UIView *headSView;
 //列表视图
 @property (strong, nonatomic) UIView *toolView;
 //热门专辑视图
 @property (strong, nonatomic) UIView *hotView;
-//页
-@property (nonatomic, strong) UIPageControl *pageC;
-@property (nonatomic, strong) UIImageView *scrollView;
+
+
 
 //数据 ：热门专辑
 @property (nonatomic, strong) NSMutableArray *cellArray;
-@property (nonatomic, strong) NSMutableArray *NewArray;
+@property (nonatomic, strong) NSMutableArray *goodArray;
 @property (nonatomic, strong) NSMutableArray *cellTwoArray;
 @property (nonatomic, strong) NSMutableArray *listArray;
 @property (nonatomic, strong) NSMutableArray *hotArray;
@@ -48,7 +47,6 @@
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"MianTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    [self.headScrollView addSubview:self.pageC];
     //设置tableView的头视图
     [self setTableViewHeadView];
     
@@ -71,14 +69,14 @@
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];
         //广告数据
-        NSDictionary *recipeDic = result[@"recipe"];
-        NSArray *adArray = recipeDic[@"list"];
-        NSMutableArray *groupNew = [NSMutableArray new];
-        for (NSDictionary *listDic in adArray) {
-            [groupNew addObject:listDic];
-        }
-        [self.NewArray addObject:groupNew];
-        
+//        NSDictionary *recipeDic = result[@"goods"];
+//        NSArray *adArray = recipeDic[@"list"];
+//
+//        for (NSDictionary *listDic in adArray) {
+//
+//            [self.goodArray addObject:listDic];
+//        }
+
         //热门专辑
         NSDictionary *alDic = result[@"album"];
         NSArray *alArray = alDic[@"list"];
@@ -142,89 +140,90 @@
             goodVC.navigationController.title = @"精品活动";
             [self.navigationController pushViewController:goodVC animated:YES];
         }else{
-            HotThemeController *hotvc = [[HotThemeController alloc] init];
-            hotvc.navigationController.title = @"热门活动";
-            [self.navigationController pushViewController:hotvc animated:YES];}
+            
+        }
     }
     if (indexPath.section == 1) {
-        HotThemeController *hotvc = [[HotThemeController alloc] init];
-        hotvc.navigationController.title = @"热门活动";
-        [self.navigationController pushViewController:hotvc animated:YES];
+        
     }
 }
+
 #pragma mark -----------  设置区头
 - (void)setTableViewHeadView{
-    self.headView.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:0.5];
-    //广告轮播图
-    self.scrollView.backgroundColor = [UIColor cyanColor];
-    self.scrollView.frame = CGRectMake(0, 0, kScreenhight, 150);
-    for (int i = 0; i < self.NewArray.count; i ++) {
-        [self.scrollView sd_setImageWithURL:[NSURL URLWithString:self.NewArray[i][@"Img"]] placeholderImage:nil];
-    }
+    self.headView.backgroundColor = kViewColor;
     
-    [self.headScrollView addSubview:self.scrollView];
-    [self.headView addSubview:self.headScrollView];
+    UIImageView *views = [[UIImageView alloc] initWithFrame:self.headSView.frame];
+    [views sd_setImageWithURL:[NSURL URLWithString:@"http://img1.hoto.cn/haodou/recipe_mobile_ad/2016/03/1457058057.jpg"] placeholderImage:nil];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = self.headSView.frame;
+    [button addTarget:self action:@selector(LoveAction) forControlEvents:UIControlEventTouchUpOutside];
+    [button addSubview:views];
+    [self.headSView addSubview:button];
+    [self.headView addSubview:self.headSView];
     
     //列表
     [self toolViewChange];
     //热门专辑
     [self hotTheme];
     
-    //打开用户交互
-    self.headView.userInteractionEnabled = YES;
-
     [self.headView addSubview:self.toolView];
     [self.headView addSubview:self.hotView];
+    
     self.tableView.tableHeaderView = self.headView;
 }
+
+- (void)LoveAction{
+    /*http://m.haodou.com/mall/index.php?r=wap/weixin/womenday*/
+}
+
 //列表内容
 - (void)toolViewChange{
     //列表
     UIButton *foodButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    foodButton.frame = CGRectMake(5, 3, kScreenWitch / 3 - 10, 55);
+    foodButton.frame = CGRectMake(5, 0, kScreenWitch / 3 - 10, 55);
     [foodButton addTarget:self action:@selector(toolAction:) forControlEvents:UIControlEventTouchUpInside];
     foodButton.tag = 100;
-    UIImageView *food = [[UIImageView alloc] initWithFrame:CGRectMake(foodButton.frame.size.width/3 - 5, 0, foodButton.frame.size.width/3 + 10, 35)];
+    UIImageView *food = [[UIImageView alloc] initWithFrame:CGRectMake(foodButton.frame.size.width/3 - 5, 0, 40, 40)];
     food.image = [UIImage imageNamed:@"meishi.png"];
-    UILabel *foodLable = [[UILabel alloc] initWithFrame:CGRectMake(foodButton.frame.size.width/3 - 5, 35, foodButton.frame.size.width/3 + 10, 20)];
+    UILabel *foodLable = [[UILabel alloc] initWithFrame:CGRectMake(foodButton.frame.size.width/3 - 8, 40, foodButton.frame.size.width/3 + 8, 15)];
     foodLable.text = @"美食汇";
-    foodLable.textColor = [UIColor greenColor];
+    foodLable.textColor = [UIColor orangeColor];
     foodLable.textAlignment = NSTextAlignmentCenter;
     foodLable.font = [UIFont systemFontOfSize:13.0];
     [foodButton addSubview:food];
     [foodButton addSubview:foodLable];
     
-    UIButton *workButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    workButton.frame = CGRectMake(kScreenWitch / 3 + 5, 3, kScreenWitch / 3 - 10 , 55);
-    [workButton addTarget:self action:@selector(toolAction:) forControlEvents:UIControlEventTouchUpInside];
-    workButton.tag = 101;
-    UIImageView *work = [[UIImageView alloc] initWithFrame:CGRectMake(workButton.frame.size.width/3 - 5, 0, workButton.frame.size.width/3 + 10, 35)];
-    work.image = [UIImage imageNamed:@"xiangji.png"];
-    UILabel *workLable = [[UILabel alloc] initWithFrame:CGRectMake(workButton.frame.size.width/3 - 5, 35, workButton.frame.size.width/3 + 10, 20)];
-    workLable.text = @"晒作品";
-    workLable.textColor = [UIColor orangeColor];
-    workLable.textAlignment = NSTextAlignmentCenter;
-    workLable.font = [UIFont systemFontOfSize:13.0];
-    [workButton addSubview:work];
-    [workButton addSubview:workLable];
+    UIButton *movieButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    movieButton.frame = CGRectMake(kScreenWitch / 3 + 5, 3, kScreenWitch / 3 - 10,55);
+    [movieButton addTarget:self action:@selector(toolAction:) forControlEvents:UIControlEventTouchUpInside];
+    movieButton.tag = 101;
+    UIImageView *movie = [[UIImageView alloc] initWithFrame:CGRectMake(movieButton.frame.size.width/3 - 5, 0,40, 40)];
+    movie.image = [UIImage imageNamed:@"shiping.png"];
+    UILabel *movieL = [[UILabel alloc] initWithFrame:CGRectMake(movieButton.frame.size.width/3 - 8, 40, movieButton.frame.size.width/3 + 8, 15)];
+    movieL.text = @"视频";
+    movieL.textColor = [UIColor greenColor];
+    movieL.textAlignment = NSTextAlignmentCenter;
+    movieL.font = [UIFont systemFontOfSize:13.0];
+    [movieButton addSubview:movieL];
+    [movieButton addSubview:movie];
     
     
     UIButton *chuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    chuButton.frame = CGRectMake(kScreenWitch / 3 * 2 + 5, 3, kScreenWitch / 3  - 10, 55);
+    chuButton.frame = CGRectMake(kScreenWitch / 3 * 2 + 5, 2, kScreenWitch / 3  - 10, 55);
     [chuButton addTarget:self action:@selector(toolAction:) forControlEvents:UIControlEventTouchUpInside];
     chuButton.tag = 102;
-    UIImageView *chu = [[UIImageView alloc] initWithFrame:CGRectMake(chuButton.frame.size.width/3 - 5, 0, chuButton.frame.size.width/3 + 10, 35)];
+    UIImageView *chu = [[UIImageView alloc] initWithFrame:CGRectMake(chuButton.frame.size.width/3 - 5, 0, 40, 40)];
     chu.image = [UIImage imageNamed:@"chufang.png"];
-    UILabel *chuLable = [[UILabel alloc] initWithFrame:CGRectMake(chuButton.frame.size.width/3 - 5, 35, chuButton.frame.size.width/3 + 10, 20)];
+    UILabel *chuLable = [[UILabel alloc] initWithFrame:CGRectMake(chuButton.frame.size.width/3 - 10, 40, chuButton.frame.size.width/3 + 10, 15)];
     chuLable.text = @"厨房宝典";
-    chuLable.textColor = [UIColor magentaColor];
+    chuLable.textColor = [UIColor orangeColor];
     chuLable.textAlignment = NSTextAlignmentCenter;
     chuLable.font = [UIFont systemFontOfSize:12.0];
     [chuButton addSubview:chu];
     [chuButton addSubview:chuLable];
     
     [self.toolView addSubview:foodButton];
-    [self.toolView addSubview:workButton];
+    [self.toolView addSubview:movieButton];
     [self.toolView addSubview:chuButton];
 }
 //热门专辑
@@ -254,8 +253,8 @@
         [self.navigationController pushViewController:homeVC animated:YES];
     }
     if (button.tag == 101) {
-        WorkViewController *workVC = [[WorkViewController alloc] init];
-        [self.navigationController pushViewController:workVC animated:YES];
+        MovieViewController *movieVC = [[MovieViewController alloc] init];
+        [self.navigationController pushViewController:movieVC animated:YES];
     }
     if (button.tag == 102) {
         ChufangViewController *chuVC = [[ChufangViewController alloc] init];
@@ -264,11 +263,9 @@
     }
 }
 - (void)zhuanjiAction{
-    HotThemeController *hotVC = [[HotThemeController alloc] init];
-    //    hotVC.title = self.hotArray[@"Title"];
-    
-    [self.navigationController pushViewController:hotVC animated:YES];
+    ;
 }
+
 #pragma mark -------- 懒加载
 -(UITableView *)tableView{
     if (_tableView == nil) {
@@ -282,65 +279,36 @@
 
 - (UIView *)headView{
     if (_headView == nil) {
-        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 340)];
-        self.headView.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1.0];
+        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 320)];
     }
     return _headView;
 }
 
-- (UIScrollView *)headScrollView{
-    if (_headScrollView == nil) {
-        _headScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 150)];
-        //划到边界，不在动
-        self.headScrollView.bounces = NO;
-        self.headScrollView.delegate = self;
-        //是否显示水平条
-        self.headScrollView.showsHorizontalScrollIndicator = NO;
-        //内容大小
-        self.headScrollView.contentSize = CGSizeMake(kScreenWitch * self.NewArray.count, 150);
-        //整屏滑动
-        self.headScrollView.pagingEnabled = YES;
-        self.headScrollView.backgroundColor = [UIColor grayColor];
-        self.headScrollView.scrollEnabled = YES;
+- (UIView *)headSView{
+    if (_headSView == nil) {
+        _headSView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, kScreenWitch - 10, 145)];
     }
-    return _headScrollView;
+    return _headSView;
 }
-- (UIPageControl *)pageC{
-    if (_pageC == nil) {
-        _pageC = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 120, kScreenWitch, 20)];
-        self.pageC.numberOfPages = self.NewArray.count;
-        self.pageC.currentPage = 0;
-        self.pageC.currentPageIndicatorTintColor = [UIColor cyanColor];
-        [self.pageC addTarget:self action:@selector(pageAction) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _pageC;
-}
-- (UIImageView *)scrollView{
-    if (_scrollView == nil) {
-        self.scrollView = [[UIImageView alloc] init];
-        
-    }
-    return _scrollView;
-}
-
 - (UIView *)toolView{
     if (_toolView == nil) {
-        _toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 152, kScreenWitch, 55)];
+        _toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 150, kScreenWitch, 55)];
         self.toolView.backgroundColor = [UIColor whiteColor];
     }
     return _toolView;
 }
 - (UIView *)hotView{
     if (_hotView == nil) {
-        _hotView = [[UIView alloc] initWithFrame:CGRectMake(0, 210, kScreenWitch, 125)];
+        _hotView = [[UIView alloc] initWithFrame:CGRectMake(0, 205, kScreenWitch, 125)];
     }
     return _hotView;
 }
-- (NSMutableArray *)NewArray{
-    if (_NewArray == nil) {
-        _NewArray = [NSMutableArray new];
+
+- (NSMutableArray *)goodArray{
+    if (_goodArray == nil) {
+        _goodArray = [NSMutableArray new];
     }
-    return _NewArray;
+    return _goodArray;
 }
 - (NSMutableArray *)cellArray{
     if (_cellArray == nil) {
@@ -366,9 +334,7 @@
     }
     return _hotArray;
 }
-- (void)pageAction{
-    
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
