@@ -8,6 +8,8 @@
 
 #import "GoodReadController.h"
 #import "GoodTableViewCell.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headView;
@@ -20,13 +22,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self showBackButtonWithImage:@"back"];
     
     
     [self.view addSubview:self.tableView];
     
 }
 #pragma mark ---------- 数据请求
+
+
+
+
 
 #pragma mark ---------- 代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -1,14 +1,24 @@
 //
-//  HotWebView.m
+//  HotView.m
 //  SweetFood
 //
-//  Created by scjy on 16/3/6.
+//  Created by scjy on 16/3/7.
 //  Copyright © 2016年 范芳芳. All rights reserved.
 //
 
-#import "HotWebView.h"
+#import "HotView.h"
 
-@implementation HotWebView
+@implementation HotView
+
+
+
+
+
+
+
+
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

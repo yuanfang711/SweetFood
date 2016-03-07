@@ -10,7 +10,7 @@
 #import "ChuTableViewCell.h"
 #import "ChuModer.h"
 #import "HotThemeController.h"
-#import "HotWebView.h"
+#import "UIViewController+Common.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
 
@@ -29,6 +29,7 @@
     // Do any additional setup after loading the view.
     self.title = @"厨房宝典";
     self.view.backgroundColor = [UIColor cyanColor];
+    [self showBackButtonWithImage:@"back"];
     
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"ChuTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
@@ -76,17 +77,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-//    HotWebView *hotWebView = [[HotWebView alloc] init];
-//    ChuModer *model = [ChuModer init];
-//    NSURL *url = [NSURL URLWithString:model.cellUrl];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    [webview loadRequest:request];
+    HotThemeController *hotVC = [[HotThemeController alloc] init];
+    ChuModer *model = self.listArray[indexPath.row];
+    hotVC.title = model.title;
+    hotVC.htmlUrl = model.cellUrl;
+    hotVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:hotVC animated:YES];
 }
 
 
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight - 44) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.rowHeight = 110;

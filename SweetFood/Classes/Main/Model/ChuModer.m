@@ -18,6 +18,7 @@
         self.date = dic[@"Collection"];
         self.intro = dic[@"Content"];
         self.cellUrl = dic[@"Url"];
+
     }
     return self;
 }

@@ -12,8 +12,10 @@
 #import "MovieViewController.h"
 #import "ChufangViewController.h"
 #import "GoodReadController.h"
+#import "HotThemeController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
 
 
 @interface MianViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
@@ -43,7 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"主页";
+    self.title = @"菜谱";
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"MianTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -69,23 +71,21 @@
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];
         //广告数据
-//        NSDictionary *recipeDic = result[@"goods"];
-//        NSArray *adArray = recipeDic[@"list"];
-//
-//        for (NSDictionary *listDic in adArray) {
-//
-//            [self.goodArray addObject:listDic];
-//        }
-
+        //        NSDictionary *recipeDic = result[@"goods"];
+        //        NSArray *adArray = recipeDic[@"list"];
+        //
+        //        for (NSDictionary *listDic in adArray) {
+        //
+        //            [self.goodArray addObject:listDic];
+        //        }
+        
         //热门专辑
         NSDictionary *alDic = result[@"album"];
         NSArray *alArray = alDic[@"list"];
-        NSMutableArray *groupAlbum = [NSMutableArray new];
         for (NSDictionary *listDic in alArray) {
             MianModel *model = [[MianModel alloc] initWithNSDictionary:listDic];
-            [groupAlbum addObject:model];
+            [self.hotArray addObject:model];
         }
-        [self.hotArray addObject:groupAlbum];
         
         //table数据
         NSDictionary *read = result[@"read"];
@@ -104,6 +104,7 @@
         }
         [self.listArray addObject:self.cellTwoArray];
         [self.tableView reloadData];
+        [self hotTheme];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -139,12 +140,15 @@
             GoodReadController *goodVC = [[GoodReadController alloc] init];
             goodVC.navigationController.title = @"精品活动";
             [self.navigationController pushViewController:goodVC animated:YES];
-        }else{
-            
+        }if (indexPath.row == 0 || indexPath.row == 0) {
+            HotThemeController *hotVC = [[HotThemeController alloc] init];
+            [self.navigationController pushViewController:hotVC animated:YES];
         }
     }
     if (indexPath.section == 1) {
-        
+        HotThemeController *hotVC = [[HotThemeController alloc] init];
+        hotVC.navigationController.title = @"ghj";
+        [self.navigationController pushViewController:hotVC animated:YES];
     }
 }
 
@@ -234,12 +238,31 @@
     left.frame = CGRectMake(15, 35, kScreenWitch /2 - 15, 98);
     [left addTarget:self action:@selector(zhuanjiAction) forControlEvents:UIControlEventTouchUpInside];
     left.tag = 0;
-    [left setImage:[UIImage imageNamed:@"left.png"] forState:UIControlStateNormal];
+    
     UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
     right.frame = CGRectMake(kScreenWitch /2 + 10, 35, kScreenWitch /2 - 25, 98);
     [right addTarget:self action:@selector(zhuanjiAction) forControlEvents:UIControlEventTouchUpInside];
     right.tag = 1;
-    [right setImage:[UIImage imageNamed:@"you.png"] forState:UIControlStateNormal];
+    
+    UIImageView *imageView = [[UIImageView alloc] init];
+    
+    for (int i = 0; i< self.hotArray.count; i++) {
+//        MianModel *model= self.hotArray[i];
+        if (i == 0) {
+            //            [imageView sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:nil];
+            imageView.backgroundColor = [UIColor redColor];
+            imageView.frame = left.frame;
+            [left addSubview:imageView];
+        }
+        if (i == 1) {
+            //            [imageView sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:nil];
+            imageView.backgroundColor = [UIColor grayColor];
+            imageView.frame = right.frame;
+            [right addSubview:imageView];
+        }
+        
+    }
+    
     [self.hotView addSubview:title];
     [self.hotView addSubview:left];
     [self.hotView addSubview:right];
@@ -254,16 +277,18 @@
     }
     if (button.tag == 101) {
         MovieViewController *movieVC = [[MovieViewController alloc] init];
+        movieVC.hidesBottomBarWhenPushed = YES;
+        movieVC.title = @"视频菜谱";
         [self.navigationController pushViewController:movieVC animated:YES];
     }
     if (button.tag == 102) {
         ChufangViewController *chuVC = [[ChufangViewController alloc] init];
-        
+        chuVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:chuVC animated:YES];
     }
 }
 - (void)zhuanjiAction{
-    ;
+    
 }
 
 #pragma mark -------- 懒加载
@@ -330,7 +355,7 @@
 }
 - (NSMutableArray *)hotArray{
     if (_hotArray == nil) {
-        self.hotArray = [NSMutableArray new];
+        _hotArray = [NSMutableArray new];
     }
     return _hotArray;
 }

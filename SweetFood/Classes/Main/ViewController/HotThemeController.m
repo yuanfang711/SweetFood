@@ -7,9 +7,9 @@
 //
 
 #import "HotThemeController.h"
-
-@interface HotThemeController ()
-
+#import "UIViewController+Common.h"
+@interface HotThemeController ()<UIWebViewDelegate>
+//@property (nonatomic, strong) UIWebView *webView;
 @end
 
 @implementation HotThemeController
@@ -17,11 +17,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+        [self showBackButtonWithImage:@"back"];
     
+    self.view.backgroundColor = [UIColor clearColor];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-    
+//    webView.frame = CGRectMake(0, 0, kScreenWitch, kScreenhight );
+    NSURL *url = [NSURL URLWithString:self.htmlUrl];
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
+    webView.delegate = self;
     [self.view addSubview:webView];
+    
 }
+
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+//    
+//}
+//
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -29,7 +40,8 @@
 }
 
 /*
- http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457163440053&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Info.getAlbumInfo&virtual=&signmethod=md5&v=2&timestamp=1457163727&nonce=0.6727581131086602&appsign=fc9b15b5efc9128b51fcdf9f67e496c3
+http://m.haodou.com/topic-428563.html?_v=nohead
+ http://m.haodou.com/topic-431111.html?_v=nohead
  */
 
 /*

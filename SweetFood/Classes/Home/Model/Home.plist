@@ -78,76 +78,76 @@ Price = "\Uffe50.00";
 Title = "\U60ca\U4eba\U798f\U5229\Uff01";
 };
 DailySpecialGoods =         {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457059550.jpg";
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457316391.jpg";
 IsAuto = 0;
 Label = "";
 OpenUrl = "haodourecipe://haodou.com/goods/subjectlist/?id=359";
-Price = "\Uffe510.00";
+Price = "\Uffe59.90";
 Title = "\U4eca\U65e5\U7279\U4ef7";
 };
 FoodieFavoriteGoods =         (
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457074390.jpg";
-GoodsId = 329;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314567.jpg";
+GoodsId = 3029;
 HomePosition = 1;
-Price = "\Uffe526.00";
-Title = "\U8fa3\U5473\U8c5a\U9c7c\U5e72";
+Price = "\Uffe525.90";
+Title = "\U9999\U83c7\U725b\U8089\U9171";
 },
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457054897.jpg";
-GoodsId = 3803;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314656.jpg";
+GoodsId = 1909;
 HomePosition = 2;
-Price = "\Uffe549.90";
-Title = "\U9ebb\U8fa3\U9999\U80a0";
+Price = "\Uffe522.90";
+Title = "\U8513\U8d8a\U8393\U6843\U9165";
 },
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1456976831.jpg";
-GoodsId = 4836;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314683.jpg";
+GoodsId = 3030;
 HomePosition = 3;
-Price = "\Uffe513.80";
-Title = "\U5c71\U6942\U5168\U5bb6\U6876";
+Price = "\Uffe512.80";
+Title = "\U6c5f\U897f\U7c73\U7c89";
 },
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457054870.jpg";
-GoodsId = 2957;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314706.jpg";
+GoodsId = 1314;
 HomePosition = 4;
-Price = "\Uffe517.50";
-Title = "\U624b\U5de5\U867e\U9171";
+Price = "\Uffe538.00";
+Title = "\U8098\U5b50";
 },
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457054845.jpg";
-GoodsId = 2102;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314731.jpg";
+GoodsId = 337;
 HomePosition = 5;
-Price = "\Uffe525.00";
-Title = "\U624b\U5de5\U829d\U9ebb\U7cca";
+Price = "\Uffe512.80";
+Title = "\U624b\U5de5\U8106\U76ae\U80a0";
 },
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457054824.jpg";
-GoodsId = 1452;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314770.jpg";
+GoodsId = 1210;
 HomePosition = 6;
-Price = "\Uffe529.90";
-Title = "\U9999\U8349\U6c99\U5e03\U857e";
+Price = "\Uffe544.00";
+Title = "\U624b\U5de5\U9ed1\U7cd6";
 },
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457054804.jpg";
-GoodsId = 1403;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314800.jpg";
+GoodsId = 3266;
 HomePosition = 7;
-Price = "\Uffe526.00";
-Title = "\U9ebb\U8fa3\U725b\U8089\U5e72";
+Price = "\Uffe538.80";
+Title = "\U5927\U67a3\U5939\U6838\U6843";
 },
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457054790.jpg";
-GoodsId = 591;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314842.jpg";
+GoodsId = 4724;
 HomePosition = 8;
-Price = "\Uffe549.00";
-Title = "\U624b\U4f5c\U5496\U5561";
+Price = "\Uffe515.00";
+Title = "\U624b\U4f5c\U9999\U8549\U7247";
 },
 {
-CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457054762.jpg";
-GoodsId = 567;
+CoverUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457314865.jpg";
+GoodsId = 3717;
 HomePosition = 9;
-Price = "\Uffe526.80";
-Title = "\U7ea2\U7cd6\U71d5\U9ea6\U9165";
+Price = "\Uffe519.90";
+Title = "\U624b\U5de5\U725b\U8089\U5e72";
 }
 );
 NewsRecommendGood =         {
@@ -176,37 +176,37 @@ Title = "\U9ebb\U5a46\U8089\U60d1";
 };
 ad =         (
 {
-ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457056981.jpg";
+ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457316582.jpg";
 Intro = "";
 Title = "";
 Url = "haodourecipe://haodou.com/openurl/?url=http%3A%2F%2Fm.haodou.com%2Fmall%2Findex.php%3Fr%3Dwap%2Fweixin%2Fwomenday";
 },
 {
-ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457055661.jpg";
+ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457315179.jpg";
 Intro = "";
 Title = "";
 Url = "haodourecipe://haodou.com/goods/subjectlist/?id=354";
 },
 {
-ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457055823.jpg";
+ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457315106.jpg";
 Intro = "";
 Title = "";
 Url = "haodourecipe://haodou.com/goods/subjectlist/?id=353";
 },
 {
-ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457056039.jpg";
+ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457315731.jpg";
 Intro = "";
 Title = "";
 Url = "haodourecipe://haodou.com/goods/subjectlist/?id=355";
 },
 {
-ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457055949.jpg";
+ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457316455.jpg";
 Intro = "";
 Title = "";
 Url = "haodourecipe://haodou.com/goods/subjectlist/?id=356";
 },
 {
-ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457055725.jpg";
+ImgUrl = "http://img1.hoto.cn/mall/mall_ad/2016/03/1457315898.jpg";
 Intro = "";
 Title = "";
 Url = "haodourecipe://haodou.com/goods/subjectlist/?id=352";
@@ -216,73 +216,73 @@ count = 200;
 list =         (
 {
 CartNum = 0;
-CoverUrl = "http://pimg2.hoto.cn/goods/2015/10/15/607_561f59ef28ce7_680_450.jpg";
-DealPrice = "\Uffe521.50";
-GoodsId = 607;
+CoverUrl = "http://pimg2.hoto.cn/goods/2015/12/15/1543_56700fc0c65a2_680_450.jpg";
+DealPrice = "\Uffe529.00";
+GoodsId = 1543;
+IsLike = 0;
+IsShippingFree = 1;
+Labels =                 (
+);
+LikeCount = 15;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=1543";
+Price = "\Uffe535.00";
+ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
+Stock = 100;
+StoreId = 4216;
+StoreLogoUrl = "http://pimg2.hoto.cn/store/2015/11/11/5642b63b0dc4f.jpg";
+StoreTitle = "\U8fa3\U5988\U5409\U7965";
+SubTitle = "\U8fa3\U6912\U53e3\U5473\Uff0c\U82a5\U672b\U53e3\U5473\Uff0c\U8513\U8d8a\U8393\U53e3\U5473\Uff0c\U82b1\U751f\U53e3\U5473";
+Title = "\U7a81\U7136\U597d\U60f3\U4f60\U624b\U5de5\U725b\U8f67\U7cd6";
+UserId = 7803314;
+UserName = Bunnyao;
+Weight = "200\U514b";
+},
+{
+CartNum = 0;
+CoverUrl = "http://pimg3.hoto.cn/goods/2015/10/20/719_56262912cbdef_680_450.jpg";
+DealPrice = "\Uffe514.80";
+GoodsId = 719;
 IsLike = 0;
 IsShippingFree = 2;
 Labels =                 (
 "\U5305\U90ae"
 );
-LikeCount = 88;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=607";
-Price = "\Uffe535.00";
+LikeCount = 238;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=719";
+Price = "\Uffe516.80";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 56;
-StoreId = 2792;
-StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/10/08/5616212c7503f.jpg";
-StoreTitle = "\U61d2\U4eba\U6c64\U6599";
-SubTitle = "\U4f7f\U70f9\U996a\U7684\U5de5\U4f5c\U53d8\U5f97\U6781\U5176\U7b80\U6613\Uff0c\U4e3a\U7231\U4eba\U505a\U83dc\U4e0d\U518d\U545b\U6cb9\U70df\U4e0d\U518d\U624b\U5fd9\U811a\U4e71\Uff01";
-Title = "\U79d8\U5236\U6f6e\U6c55\U5364\U6599";
-UserId = 8708859;
-UserName = "\U6797\U8bb066";
-Weight = "75\U514b";
-},
-{
-CartNum = 0;
-CoverUrl = "http://pimg2.hoto.cn/goods/2015/08/01/298_55bce2a9db1ce_680_450.jpg";
-DealPrice = "\Uffe568.00";
-GoodsId = 298;
-IsLike = 0;
-IsShippingFree = 1;
-Labels =                 (
-);
-LikeCount = 784;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=298";
-Price = "\Uffe588.00";
-ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 20;
-StoreId = 162;
-StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/08/01/55bcb2c01906a.jpg";
-StoreTitle = "\U5947\U5947\U57ce\U5821";
-SubTitle = "\U5947\U5999\U53e3\U611f\U7684\U7cef\U7c73\U5947\U5e26\U6765\U65b0\U610f\U3002";
-Title = "\U7cef\U7c73\U5947";
-UserId = 8133659;
-UserName = "\U8d3e\U4e59";
+Stock = 99;
+StoreId = 2114;
+StoreLogoUrl = "http://pimg2.hoto.cn/store/2015/10/20/562632df3799e.jpg";
+StoreTitle = "\U8001\U95eb\U9762\U98df";
+SubTitle = "\U8584\U5982\U8749\U7ffc \U8fd9\U662f\U5988\U5988\U7684\U5473\U9053";
+Title = "\U3010\U4eca\U65e5\U7279\U4ef7\U3011\U9984\U9968\U76ae\U78b1\U5473\U4e91\U541e\U76ae\U4e00\U65a4";
+UserId = 8578057;
+UserName = "\U95eb\U5146\U4f1f";
 Weight = "500\U514b";
 },
 {
 CartNum = 0;
-CoverUrl = "http://pimg1.hoto.cn/goods/2016/01/05/360_568aa7f3db62c_680_450.jpg";
-DealPrice = "\Uffe525.00";
-GoodsId = 360;
+CoverUrl = "http://pimg2.hoto.cn/goods/2015/10/30/718_5633440d2cf00_680_450.jpg";
+DealPrice = "\Uffe554.90";
+GoodsId = 718;
 IsLike = 0;
 IsShippingFree = 1;
 Labels =                 (
 );
-LikeCount = 1757;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=360";
-Price = "\Uffe535.00";
+LikeCount = 21;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=718";
+Price = "\Uffe568.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 183;
-StoreId = 610;
-StoreLogoUrl = "http://pimg1.hoto.cn/store/2016/01/05/568aa92bc2fdc.jpg";
-StoreTitle = "\U4fca\U54e5\U7684\U5c0f\U5e97\U513f";
-SubTitle = "\U5403\U4e86\U4fca\U54e5\U74dc\U3001\U5fd8\U4e86\U90a3\U4e2a\U4ed6\Uff08\U5979\Uff09\Uff01";
-Title = "\U3010\U5f53\U5bb6\U83dc\U3011\U4fca\U54e5\U724c\U4fca\U5c11\U8106\U76ae\U9ec4\U74dc\Uff08\U8350\Uff09\Uff08400\U514b\Uff09";
-UserId = 8307326;
-UserName = "\U4fca\U54e5\U9ec4\U74dc";
-Weight = "400\U514b";
+Stock = 200;
+StoreId = 3101;
+StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/10/20/562627fd25185.jpg";
+StoreTitle = "\U7687\U5bab\U2014\U539f\U718f\U7cfb\U5217";
+SubTitle = "\U67f4\U6c9f\U5821\U718f\U8089";
+Title = "\U3010\U5468\U672b\U8d2d\U3011\U8001\U8336\U718f\U8089 300\U514b";
+UserId = 8762231;
+UserName = "\U5170\U4ead\U805a\U8d24";
+Weight = "300\U514b";
 },
 {
 CartNum = 0;
@@ -293,11 +293,11 @@ IsLike = 0;
 IsShippingFree = 1;
 Labels =                 (
 );
-LikeCount = 108;
+LikeCount = 111;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=942";
 Price = "\Uffe539.00";
 ShippingInfo = "\U5168\U56fd\U5feb\U9012";
-Stock = 159;
+Stock = 162;
 StoreId = 3390;
 StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/10/23/5629a08c668fe.jpg";
 StoreTitle = "\U597d\U597d\U559d\U8336";
@@ -316,7 +316,7 @@ IsLike = 0;
 IsShippingFree = 1;
 Labels =                 (
 );
-LikeCount = 3277;
+LikeCount = 3281;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=337";
 Price = "\Uffe513.80";
 ShippingInfo = "\U5168\U56fd\U5feb\U9012";
@@ -344,7 +344,7 @@ LikeCount = 240;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=3079";
 Price = "\Uffe518.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 323;
+Stock = 316;
 StoreId = 5212;
 StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/12/06/5663ec06f2b0b.jpg";
 StoreTitle = "\U67e0\U6aac\U9a7f\U7ad9";
@@ -368,7 +368,7 @@ LikeCount = 2746;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=307";
 Price = "\Uffe520.90";
 ShippingInfo = "\U5168\U56fd\U5feb\U9012";
-Stock = 20;
+Stock = 17;
 StoreId = 174;
 StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/08/01/55bcead500a41.jpg";
 StoreTitle = "\U8001\U6768\U7684\U53a8\U623f";
@@ -413,11 +413,11 @@ IsShippingFree = 2;
 Labels =                 (
 "\U5305\U90ae"
 );
-LikeCount = 1445;
+LikeCount = 1449;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=465";
 Price = "\Uffe540.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 42;
+Stock = 45;
 StoreId = 166;
 StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/08/09/55c6ba6389638.jpg";
 StoreTitle = "\U7136\U5988\U70d8\U7119";
@@ -437,7 +437,7 @@ IsShippingFree = 2;
 Labels =                 (
 "\U5305\U90ae"
 );
-LikeCount = 135;
+LikeCount = 136;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=1348";
 Price = "\Uffe578.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
@@ -445,8 +445,8 @@ Stock = 3349;
 StoreId = 3976;
 StoreLogoUrl = "http://pimg2.hoto.cn/store/2015/11/05/563afb18a8936.jpg";
 StoreTitle = "\U6dfc\U5189\U5988\U4e03\U5f69\U9762\U70b9\U624b\U5de5\U574a";
-SubTitle = "\U4e2a\U5927\Uff0c\U76ae\U8584\Uff0c\U8089\U9c9c\Uff01";
-Title = "\U65b0\U7586\U8584\U76ae\U6838\U68431000\U514b";
+SubTitle = "\U624b\U53ef\U4ee5\U76f4\U63a5\U5265\U5f00\U98df\U7528\U54e6\Uff01\U4e2a\U5927\Uff0c\U76ae\U8584\Uff0c\U8089\U9c9c\Uff01";
+Title = "\U624b\U5265\U6838\U6843\U8584\U76ae\U6838\U68431000\U514b";
 UserId = 8111886;
 UserName = "\U6dfc\U5189\U5988";
 Weight = "1000\U514b";
@@ -454,18 +454,19 @@ Weight = "1000\U514b";
 {
 CartNum = 0;
 CoverUrl = "http://pimg2.hoto.cn/goods/2016/01/19/1309_569ded18ecc46_680_450.jpg";
-DealPrice = "\Uffe520.00";
+DealPrice = "\Uffe513.80";
 GoodsId = 1309;
 IsLike = 0;
 IsShippingFree = 2;
 Labels =                 (
+"\U6d3b\U52a8\U4ef7",
 "\U5305\U90ae"
 );
-LikeCount = 266;
+LikeCount = 267;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=1309";
 Price = "\Uffe540.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 4587;
+Stock = 4577;
 StoreId = 3976;
 StoreLogoUrl = "http://pimg2.hoto.cn/store/2015/11/05/563afb18a8936.jpg";
 StoreTitle = "\U6dfc\U5189\U5988\U4e03\U5f69\U9762\U70b9\U624b\U5de5\U574a";
@@ -485,11 +486,11 @@ IsShippingFree = 2;
 Labels =                 (
 "\U5305\U90ae"
 );
-LikeCount = 1322;
+LikeCount = 1323;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=705";
 Price = "\Uffe560.00";
 ShippingInfo = "\U5168\U56fd\U5feb\U9012";
-Stock = 113;
+Stock = 111;
 StoreId = 1645;
 StoreLogoUrl = "http://pimg1.hoto.cn/store/2016/01/08/568f2605e81bd.jpg";
 StoreTitle = "\U9ebb\U8fa3\U5c0f\U9762";
@@ -508,7 +509,7 @@ IsLike = 0;
 IsShippingFree = 1;
 Labels =                 (
 );
-LikeCount = 2381;
+LikeCount = 2383;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=338";
 ShippingInfo = "\U5168\U56fd\U5feb\U9012";
 Stock = 100;
@@ -523,6 +524,29 @@ Weight = "100\U514b";
 },
 {
 CartNum = 0;
+CoverUrl = "http://pimg1.hoto.cn/goods/2016/01/05/360_568aa7f3db62c_680_450.jpg";
+DealPrice = "\Uffe525.00";
+GoodsId = 360;
+IsLike = 0;
+IsShippingFree = 1;
+Labels =                 (
+);
+LikeCount = 1760;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=360";
+Price = "\Uffe535.00";
+ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
+Stock = 189;
+StoreId = 610;
+StoreLogoUrl = "http://pimg1.hoto.cn/store/2016/01/05/568aa92bc2fdc.jpg";
+StoreTitle = "\U4fca\U54e5\U7684\U5c0f\U5e97\U513f";
+SubTitle = "\U5403\U4e86\U4fca\U54e5\U74dc\U3001\U5fd8\U4e86\U90a3\U4e2a\U4ed6\Uff08\U5979\Uff09\Uff01";
+Title = "\U3010\U5f53\U5bb6\U83dc\U3011\U4fca\U54e5\U724c\U4fca\U5c11\U8106\U76ae\U9ec4\U74dc\Uff08\U8350\Uff09\Uff08400\U514b\Uff09";
+UserId = 8307326;
+UserName = "\U4fca\U54e5\U9ec4\U74dc";
+Weight = "400\U514b";
+},
+{
+CartNum = 0;
 CoverUrl = "http://pimg2.hoto.cn/goods/2015/11/06/886_563c0b0e0e280_680_450.jpg";
 DealPrice = "\Uffe545.20";
 GoodsId = 886;
@@ -532,11 +556,11 @@ Labels =                 (
 "\U65b0\U4eba\U4ef7",
 "\U5305\U90ae"
 );
-LikeCount = 261;
+LikeCount = 262;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=886";
 Price = "\Uffe580.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 738;
+Stock = 735;
 StoreId = 3475;
 StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/12/04/5661243a1b012.jpg";
 StoreTitle = "\U7ea2\U86cb\U86cb";
@@ -544,7 +568,7 @@ SubTitle = "\U9ad8\U90ae\U87f9\U9ec4\U54b8\U9e2d\U86cb\Uff0c\U53e3\U611f\U6c99\U
 Title = "\U9ad8\U90ae\U7ea2\U6cb9\U87f9\U9ec4\U54b8\U9e2d\U86cb20\U53ea";
 UserId = 3729569;
 UserName = "\U7ea2\U86cb\U86cb\U6765\U4e5f";
-Weight = "1600\U514b";
+Weight = "1400\U514b";
 },
 {
 CartNum = 0;
@@ -556,7 +580,7 @@ IsShippingFree = 1;
 Labels =                 (
 "\U6d3b\U52a8\U4ef7"
 );
-LikeCount = 140;
+LikeCount = 142;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=2402";
 Price = "\Uffe525.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
@@ -585,7 +609,7 @@ LikeCount = 151;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=1354";
 Price = "\Uffe538.00";
 ShippingInfo = "\U5168\U56fd\U5feb\U9012";
-Stock = 46;
+Stock = 43;
 StoreId = 2920;
 StoreLogoUrl = "http://pimg2.hoto.cn/store/2015/11/17/564ae6c5c982b.jpg";
 StoreTitle = "\U6d77\U9614\U51ed\U9c7c\U8dc3";
@@ -598,19 +622,17 @@ Weight = "100\U514b";
 {
 CartNum = 0;
 CoverUrl = "http://pimg3.hoto.cn/goods/2015/11/04/1139_56396b3c5b251_680_450.jpg";
-DealPrice = "\Uffe59.90";
+DealPrice = "\Uffe58.90";
 GoodsId = 1139;
 IsLike = 0;
-IsShippingFree = 2;
+IsShippingFree = 1;
 Labels =                 (
-"\U6d3b\U52a8\U4ef7",
-"\U5305\U90ae"
 );
-LikeCount = 439;
+LikeCount = 440;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=1139";
 Price = "\Uffe515.90";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 487;
+Stock = 486;
 StoreId = 3872;
 StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/11/03/5638a32b7ea6c.jpg";
 StoreTitle = "\U989c\U5927\U53d4";
@@ -623,19 +645,18 @@ Weight = "500\U514b";
 {
 CartNum = 0;
 CoverUrl = "http://pimg3.hoto.cn/goods/2015/11/14/1643_5646c85a9318e_680_450.jpg";
-DealPrice = "\Uffe515.80";
+DealPrice = "\Uffe525.00";
 GoodsId = 1643;
 IsLike = 0;
 IsShippingFree = 2;
 Labels =                 (
-"\U6d3b\U52a8\U4ef7",
 "\U5305\U90ae"
 );
 LikeCount = 94;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=1643";
 Price = "\Uffe538.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 300;
+Stock = 299;
 StoreId = 4269;
 StoreLogoUrl = "http://pimg1.hoto.cn/store/2015/11/12/564477720cb86.jpg";
 StoreTitle = "\U4e61\U4e0b\U5bb6\U6e90";
@@ -660,7 +681,7 @@ LikeCount = 93;
 OpenUrl = "haodourecipe://haodou.com/goods/detail?id=1656";
 Price = "\Uffe545.00";
 ShippingInfo = "\U914d\U9001\U4e0a\U95e8/\U5168\U56fd\U5feb\U9012";
-Stock = 1824;
+Stock = 1822;
 StoreId = 4269;
 StoreLogoUrl = "http://pimg1.hoto.cn/store/2015/11/12/564477720cb86.jpg";
 StoreTitle = "\U4e61\U4e0b\U5bb6\U6e90";
@@ -669,31 +690,6 @@ Title = "\U519c\U5bb6\U81ea\U5236\U7eaf\U7ea2\U85af\U7c89\U6761\U5168\U56fd\U530
 UserId = 8931711;
 UserName = "\U4e61\U4e0b\U5bb6\U6e90";
 Weight = "1400\U514b";
-},
-{
-CartNum = 0;
-CoverUrl = "http://pimg2.hoto.cn/goods/2015/12/06/2554_5663e382317b4_680_450.jpg";
-DealPrice = "\Uffe519.90";
-GoodsId = 2554;
-IsLike = 0;
-IsShippingFree = 2;
-Labels =                 (
-"\U6d3b\U52a8\U4ef7",
-"\U5305\U90ae"
-);
-LikeCount = 178;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=2554";
-Price = "\Uffe540.00";
-ShippingInfo = "\U5168\U56fd\U5feb\U9012";
-Stock = 132;
-StoreId = 4987;
-StoreLogoUrl = "http://pimg3.hoto.cn/store/2015/11/30/565bbaf65e7e7.jpg";
-StoreTitle = "\U820c\U5c16\U4e0a\U7684\U5ef6\U8fb9";
-SubTitle = "\U5403\U4e00\U6b21\U5c31\U4e0a\U763e\U7684\U671d\U9c9c\U65cf\U7f8e\U98df";
-Title = "\U9999\U751c\U8c46\U4e1d";
-UserId = 9066100;
-UserName = "\U820c\U5c16\U4e0a\U7684\U5ef6\U8fb9";
-Weight = "250\U514b";
 }
 );
 tags =         (
@@ -711,11 +707,11 @@ Url = "haodourecipe://haodou.com/goods/searchResult/?tagName=\U732a\U8089&TagId=
 },
 {
 Goods =                 {
-CoverUrl = "http://pimg2.hoto.cn/goods/2016/03/04/5089_56d95229e6319_336_336.jpg";
-DealPrice = "22.00";
-GoodsId = 5089;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5089";
-Title = "\U3010Emily\U7684\U7f8e\U597d\U65f6\U5149\U3011\U8170\U679c\U725b\U8f67\U7cd6";
+CoverUrl = "http://pimg1.hoto.cn/goods/2016/03/05/5118_56daac4820e7f_336_336.jpg";
+DealPrice = "8.80";
+GoodsId = 5118;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5118";
+Title = "\U7eaf\U624b\U5de5\U5236\U4f5c\U7684\U9ebb\U82b1\U3010\U54b8\U5473\U3011\U3010\U751c\U5473\U3011\U3010\U4e702\U888b\U5305\U90ae\U3011";
 };
 Id = 42;
 Title = "\U997c\U5e72";
@@ -723,11 +719,11 @@ Url = "haodourecipe://haodou.com/goods/searchResult/?tagName=\U997c\U5e72&TagId=
 },
 {
 Goods =                 {
-CoverUrl = "http://pimg1.hoto.cn/goods/2016/03/02/4998_56d631f31ffa8_336_336.jpg";
-DealPrice = "148.00";
-GoodsId = 4998;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=4998";
-Title = "\U65b0\U9c9c\U725b\U8089\U5e72\Uff08\U9ebb\U8fa3\U5473\Uff09100\U514b+\U4efb\U610f\U4e00\U6b3e\U67e0\U6aac\U818f500\U514b\U7279\U4ef7\U5957\U9910";
+CoverUrl = "http://pimg2.hoto.cn/goods/2016/03/06/5134_56dc2dd6195f4_336_336.jpg";
+DealPrice = "55.00";
+GoodsId = 5134;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5134";
+Title = "\U3010Wong\U8fa3\U5b50\U3011\U9ebb\U8fa3\U725b\U8089\U6761 \U79c1\U623f\U79d8\U5236 \U5f00\U888b\U5373\U98df";
 };
 Id = 37;
 Title = "\U725b\U7f8a\U8089";
@@ -735,11 +731,11 @@ Url = "haodourecipe://haodou.com/goods/searchResult/?tagName=\U725b\U7f8a\U8089&
 },
 {
 Goods =                 {
-CoverUrl = "http://pimg2.hoto.cn/goods/2016/03/03/5056_56d82e565737d_336_336.jpg";
-DealPrice = "29.80";
-GoodsId = 5056;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5056";
-Title = "\U3010\U5305\U90ae\U3011\U7476\U6e58\U519c\U5e84\U7eaf\U624b\U5de5\U81ea\U5236\U5241\U8fa3\U6912\U9171500g";
+CoverUrl = "http://pimg2.hoto.cn/goods/2016/03/06/5137_56dc526348acc_336_336.jpg";
+DealPrice = "33.00";
+GoodsId = 5137;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5137";
+Title = "\U9ebb\U8fa3\U9e21\U4e1d \U767d\U5bb6\U5c0f\U5b50 \U6e05\U771f \U767d\U5bb6\U5c0f\U5b50 \U98df\U5473\U4e45\U4e45";
 };
 Id = 34;
 Title = "\U8fa3\U6912\U9171";
@@ -747,11 +743,11 @@ Url = "haodourecipe://haodou.com/goods/searchResult/?tagName=\U8fa3\U6912\U9171&
 },
 {
 Goods =                 {
-CoverUrl = "http://pimg1.hoto.cn/goods/2016/03/04/5073_56d921cb8f82f_336_336.jpg";
-DealPrice = "16.80";
-GoodsId = 5073;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5073";
-Title = "\U6c55\U5934\U7535\U89c6\U53f0\U63a8\U8350\U5357\U59dc\U6885\U7c89230\U514b/\U74f6";
+CoverUrl = "http://pimg3.hoto.cn/goods/2016/03/06/5135_56dc2ecdd381a_336_336.jpg";
+DealPrice = "30.00";
+GoodsId = 5135;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5135";
+Title = "\U3010Wong\U8fa3\U5b50\U3011\U79d8\U5236\U6ce1\U9e21\U811a \U4f20\U7edf\U6ce1\U6cd5 \U9c9c\U5ae9\U5165\U5473";
 };
 Id = 57;
 Title = "\U814c\U5236\U54c1";
@@ -771,11 +767,11 @@ Url = "haodourecipe://haodou.com/goods/searchResult/?tagName=\U8783\U87f9&TagId=
 },
 {
 Goods =                 {
-CoverUrl = "http://pimg3.hoto.cn/goods/2016/03/04/5087_56d9423cef1cf_336_336.jpg";
-DealPrice = "29.90";
-GoodsId = 5087;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5087";
-Title = "\U91ce\U751f\U65e0\U7cd6\U845b\U6839\U7c89";
+CoverUrl = "http://pimg3.hoto.cn/goods/2016/03/07/5138_56dcc6b0cde7e_336_336.jpg";
+DealPrice = "65.00";
+GoodsId = 5138;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5138";
+Title = "\U6842\U82b1\U67e0\U6aac\U818f\Uff08\U8bd5\U7528\U88c5\Uff09";
 };
 Id = 64;
 Title = "\U517b\U989c";
@@ -783,11 +779,11 @@ Url = "haodourecipe://haodou.com/goods/searchResult/?tagName=\U517b\U989c&TagId=
 },
 {
 Goods =                 {
-CoverUrl = "http://pimg2.hoto.cn/goods/2016/03/04/5071_56d91d417d41b_336_336.jpg";
-DealPrice = "36.00";
-GoodsId = 5071;
-OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5071";
-Title = "\U9ec4\U91d1\U7cef\U7c73\U86cb1\U76d26\U7c92\U53562\U76d2\U90012\U7c92";
+CoverUrl = "http://pimg3.hoto.cn/goods/2016/03/06/5135_56dc2ecdd381a_336_336.jpg";
+DealPrice = "30.00";
+GoodsId = 5135;
+OpenUrl = "haodourecipe://haodou.com/goods/detail?id=5135";
+Title = "\U3010Wong\U8fa3\U5b50\U3011\U79d8\U5236\U6ce1\U9e21\U811a \U4f20\U7edf\U6ce1\U6cd5 \U9c9c\U5ae9\U5165\U5473";
 };
 Id = 43;
 Title = "\U9e21\U9e2d\U9c7c\U8089";

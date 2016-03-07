@@ -8,6 +8,10 @@
 
 #import "HomeModel.h"
 
+@interface HomeModel ()
+
+@end
+
 @implementation HomeModel
 
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic{
@@ -15,10 +19,11 @@
     if (self) {
         self.icon = dic[@"StoreLogoUrl"];
         self.title = dic[@"StoreTitle"];
-         self.pricate = dic[@"DealPrice"];
-         self.imageSting = dic[@"CoverUrl"];
-         self.name = dic[@"Title"];
-         self.introduce = dic[@"SubTitle"];
+        self.pricate = dic[@"DealPrice"];
+        self.imageSting = dic[@"CoverUrl"];
+        self.name = dic[@"Title"];
+        self.introduce = dic[@"SubTitle"];
+        self.storeId = dic[@"UserId"];
     }
     return self;
 }

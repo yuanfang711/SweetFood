@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3EF9B61C5126683AC169DD88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD6ABBF4DA602B494901D4C /* libPods.a */; };
+		7A63F60F1C8D63C600505C5B /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A63F60E1C8D63C600505C5B /* UIViewController+Common.m */; };
+		7A63F6161C8D6BEE00505C5B /* Movie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A63F6151C8D6BEE00505C5B /* Movie.plist */; };
+		7A63F6191C8D722900505C5B /* MovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A63F6181C8D722900505C5B /* MovieModel.m */; };
+		7A63F6201C8D7D8F00505C5B /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A63F61F1C8D7D8F00505C5B /* MovieViewController.m */; };
+		7A63F62C1C8DA4F800505C5B /* HeadCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A63F62A1C8DA4F800505C5B /* HeadCollectionView.m */; };
+		7A63F62D1C8DA4F800505C5B /* HeadCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A63F62B1C8DA4F800505C5B /* HeadCollectionView.xib */; };
 		7A76FB2A1C8AB76D00A63F3D /* ChufangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A76FB291C8AB76D00A63F3D /* ChufangViewController.m */; };
 		7A76FB2F1C8ABD4B00A63F3D /* main.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A76FB2E1C8ABD4B00A63F3D /* main.plist */; };
 		7A76FB3A1C8AE6CE00A63F3D /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A76FB391C8AE6CE00A63F3D /* HomeTableViewCell.m */; };
@@ -21,15 +27,17 @@
 		7A9F16881C8C1772000ACBAD /* ChuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A9F16861C8C1772000ACBAD /* ChuTableViewCell.xib */; };
 		7A9F168B1C8C1906000ACBAD /* ChuModer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F168A1C8C1906000ACBAD /* ChuModer.m */; };
 		7A9F168E1C8C2AB8000ACBAD /* HotThemeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F168D1C8C2AB8000ACBAD /* HotThemeController.m */; };
-		7A9F16911C8C2B59000ACBAD /* HotWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F16901C8C2B59000ACBAD /* HotWebView.m */; };
-		7A9F16941C8C3453000ACBAD /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F16931C8C3453000ACBAD /* MovieViewController.m */; };
 		7A9F16971C8C38AC000ACBAD /* GoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F16961C8C38AC000ACBAD /* GoodTableViewCell.m */; };
+		7ABD72AE1C8D15F40063AAC7 /* HotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD72AD1C8D15F40063AAC7 /* HotView.m */; };
+		7ABD72B01C8D16FF0063AAC7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD72AF1C8D16FF0063AAC7 /* HomeViewController.m */; };
+		7ABD72B41C8D30EC0063AAC7 /* TodayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD72B21C8D30EC0063AAC7 /* TodayTableViewCell.m */; };
+		7ABD72B51C8D30EC0063AAC7 /* TodayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ABD72B31C8D30EC0063AAC7 /* TodayTableViewCell.xib */; };
+		7ABD72B81C8D33C00063AAC7 /* TodayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD72B71C8D33C00063AAC7 /* TodayModel.m */; };
 		7AE250C21C8828D70090A951 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C11C8828D70090A951 /* main.m */; };
 		7AE250C51C8828D70090A951 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250C41C8828D70090A951 /* AppDelegate.m */; };
 		7AE250CD1C8828D70090A951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250CC1C8828D70090A951 /* Assets.xcassets */; };
 		7AE250D01C8828D70090A951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250CE1C8828D70090A951 /* LaunchScreen.storyboard */; };
 		7AE250EA1C883AA40090A951 /* MianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250E91C883AA40090A951 /* MianViewController.m */; };
-		7AE250F01C88444D0090A951 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250EF1C88444D0090A951 /* HomeViewController.m */; };
 		7AE250F31C88445D0090A951 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE250F21C88445D0090A951 /* MineViewController.m */; };
 		7AE250F51C88523E0090A951 /* MianVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250F41C88523E0090A951 /* MianVC.storyboard */; };
 		7AE250F91C8852DE0090A951 /* HomaVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE250F81C8852DE0090A951 /* HomaVC.storyboard */; };
@@ -47,6 +55,15 @@
 /* Begin PBXFileReference section */
 		3C4A1E285D641FDC9A16EE8C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		417748A60C9F56B7DD55A9D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7A63F60D1C8D63C600505C5B /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
+		7A63F60E1C8D63C600505C5B /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
+		7A63F6151C8D6BEE00505C5B /* Movie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Movie.plist; sourceTree = "<group>"; };
+		7A63F6171C8D722900505C5B /* MovieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieModel.h; sourceTree = "<group>"; };
+		7A63F6181C8D722900505C5B /* MovieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieModel.m; sourceTree = "<group>"; };
+		7A63F61F1C8D7D8F00505C5B /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
+		7A63F6291C8DA4F800505C5B /* HeadCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadCollectionView.h; sourceTree = "<group>"; };
+		7A63F62A1C8DA4F800505C5B /* HeadCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadCollectionView.m; sourceTree = "<group>"; };
+		7A63F62B1C8DA4F800505C5B /* HeadCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadCollectionView.xib; sourceTree = "<group>"; };
 		7A76FB281C8AB76D00A63F3D /* ChufangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChufangViewController.h; sourceTree = "<group>"; };
 		7A76FB291C8AB76D00A63F3D /* ChufangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChufangViewController.m; sourceTree = "<group>"; };
 		7A76FB2E1C8ABD4B00A63F3D /* main.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = main.plist; sourceTree = "<group>"; };
@@ -69,12 +86,17 @@
 		7A9F168A1C8C1906000ACBAD /* ChuModer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChuModer.m; sourceTree = "<group>"; };
 		7A9F168C1C8C2AB8000ACBAD /* HotThemeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotThemeController.h; sourceTree = "<group>"; };
 		7A9F168D1C8C2AB8000ACBAD /* HotThemeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotThemeController.m; sourceTree = "<group>"; };
-		7A9F168F1C8C2B59000ACBAD /* HotWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotWebView.h; sourceTree = "<group>"; };
-		7A9F16901C8C2B59000ACBAD /* HotWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotWebView.m; sourceTree = "<group>"; };
 		7A9F16921C8C3453000ACBAD /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
-		7A9F16931C8C3453000ACBAD /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
 		7A9F16951C8C38AC000ACBAD /* GoodTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodTableViewCell.h; sourceTree = "<group>"; };
 		7A9F16961C8C38AC000ACBAD /* GoodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodTableViewCell.m; sourceTree = "<group>"; };
+		7ABD72AC1C8D15F40063AAC7 /* HotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotView.h; sourceTree = "<group>"; };
+		7ABD72AD1C8D15F40063AAC7 /* HotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotView.m; sourceTree = "<group>"; };
+		7ABD72AF1C8D16FF0063AAC7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		7ABD72B11C8D30EC0063AAC7 /* TodayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTableViewCell.h; sourceTree = "<group>"; };
+		7ABD72B21C8D30EC0063AAC7 /* TodayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTableViewCell.m; sourceTree = "<group>"; };
+		7ABD72B31C8D30EC0063AAC7 /* TodayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayTableViewCell.xib; sourceTree = "<group>"; };
+		7ABD72B61C8D33C00063AAC7 /* TodayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayModel.h; sourceTree = "<group>"; };
+		7ABD72B71C8D33C00063AAC7 /* TodayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayModel.m; sourceTree = "<group>"; };
 		7AE250BD1C8828D70090A951 /* SweetFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE250C11C8828D70090A951 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AE250C31C8828D70090A951 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,7 +107,6 @@
 		7AE250E81C883AA40090A951 /* MianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianViewController.h; sourceTree = "<group>"; };
 		7AE250E91C883AA40090A951 /* MianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianViewController.m; sourceTree = "<group>"; };
 		7AE250EE1C88444D0090A951 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		7AE250EF1C88444D0090A951 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		7AE250F11C88445D0090A951 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		7AE250F21C88445D0090A951 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		7AE250F41C88523E0090A951 /* MianVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MianVC.storyboard; sourceTree = "<group>"; };
@@ -124,6 +145,8 @@
 		7A85B01C1C897B340056C250 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7A63F60D1C8D63C600505C5B /* UIViewController+Common.h */,
+				7A63F60E1C8D63C600505C5B /* UIViewController+Common.m */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -182,8 +205,8 @@
 		7AE250D71C883A580090A951 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7AE250E01C883A580090A951 /* Main */,
 				7AE250D81C883A580090A951 /* Home */,
+				7AE250E01C883A580090A951 /* Main */,
 				7AE250E41C883A580090A951 /* Mine */,
 				7AE250DC1C883A580090A951 /* Login */,
 			);
@@ -206,6 +229,9 @@
 				7AE250F81C8852DE0090A951 /* HomaVC.storyboard */,
 				7A76FB381C8AE6CE00A63F3D /* HomeTableViewCell.h */,
 				7A76FB391C8AE6CE00A63F3D /* HomeTableViewCell.m */,
+				7ABD72B11C8D30EC0063AAC7 /* TodayTableViewCell.h */,
+				7ABD72B21C8D30EC0063AAC7 /* TodayTableViewCell.m */,
+				7ABD72B31C8D30EC0063AAC7 /* TodayTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -216,6 +242,8 @@
 				7A76FB3E1C8AEEBB00A63F3D /* Home.plist */,
 				7A76FB3B1C8AEDBA00A63F3D /* HomeModel.h */,
 				7A76FB3C1C8AEDBA00A63F3D /* HomeModel.m */,
+				7ABD72B61C8D33C00063AAC7 /* TodayModel.h */,
+				7ABD72B71C8D33C00063AAC7 /* TodayModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				7AE250EE1C88444D0090A951 /* HomeViewController.h */,
-				7AE250EF1C88444D0090A951 /* HomeViewController.m */,
+				7ABD72AF1C8D16FF0063AAC7 /* HomeViewController.m */,
 				7AE251071C8873CC0090A951 /* TodayViewController.h */,
 				7AE251081C8873CC0090A951 /* TodayViewController.m */,
 				7AE2510A1C8873D60090A951 /* StoryViewController.h */,
@@ -283,6 +311,9 @@
 		7AE250E11C883A580090A951 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				7A63F6291C8DA4F800505C5B /* HeadCollectionView.h */,
+				7A63F62A1C8DA4F800505C5B /* HeadCollectionView.m */,
+				7A63F62B1C8DA4F800505C5B /* HeadCollectionView.xib */,
 				7AE250F41C88523E0090A951 /* MianVC.storyboard */,
 				7A85B0141C8926140056C250 /* MianTableViewCell.h */,
 				7A85B0151C8926140056C250 /* MianTableViewCell.m */,
@@ -290,8 +321,10 @@
 				7A9F16841C8C1772000ACBAD /* ChuTableViewCell.h */,
 				7A9F16851C8C1772000ACBAD /* ChuTableViewCell.m */,
 				7A9F16861C8C1772000ACBAD /* ChuTableViewCell.xib */,
-				7A9F16951C8C38AC000ACBAD /* GoodTableViewCell.h */,
+				7ABD72AC1C8D15F40063AAC7 /* HotView.h */,
+				7ABD72AD1C8D15F40063AAC7 /* HotView.m */,
 				7A9F16961C8C38AC000ACBAD /* GoodTableViewCell.m */,
+				7A9F16951C8C38AC000ACBAD /* GoodTableViewCell.h */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -301,9 +334,12 @@
 			children = (
 				7A85B0271C89A9640056C250 /* MianModel.h */,
 				7A85B0281C89A9640056C250 /* MianModel.m */,
+				7A63F6171C8D722900505C5B /* MovieModel.h */,
+				7A63F6181C8D722900505C5B /* MovieModel.m */,
 				7A9F16891C8C1906000ACBAD /* ChuModer.h */,
 				7A9F168A1C8C1906000ACBAD /* ChuModer.m */,
 				7A76FB2E1C8ABD4B00A63F3D /* main.plist */,
+				7A63F6151C8D6BEE00505C5B /* Movie.plist */,
 				7A9F16821C8C15F2000ACBAD /* Chu.plist */,
 			);
 			path = Model;
@@ -317,15 +353,13 @@
 				7A76FB281C8AB76D00A63F3D /* ChufangViewController.h */,
 				7A76FB291C8AB76D00A63F3D /* ChufangViewController.m */,
 				7A9F16921C8C3453000ACBAD /* MovieViewController.h */,
-				7A9F16931C8C3453000ACBAD /* MovieViewController.m */,
+				7A63F61F1C8D7D8F00505C5B /* MovieViewController.m */,
 				7AE250FE1C8873950090A951 /* ActivityViewController.h */,
 				7AE250FF1C8873950090A951 /* ActivityViewController.m */,
 				7AE251011C8873A50090A951 /* GoodReadController.h */,
 				7AE251021C8873A50090A951 /* GoodReadController.m */,
 				7A9F168C1C8C2AB8000ACBAD /* HotThemeController.h */,
 				7A9F168D1C8C2AB8000ACBAD /* HotThemeController.m */,
-				7A9F168F1C8C2B59000ACBAD /* HotWebView.h */,
-				7A9F16901C8C2B59000ACBAD /* HotWebView.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -444,8 +478,11 @@
 				7AE250D01C8828D70090A951 /* LaunchScreen.storyboard in Resources */,
 				7A9F16831C8C15F2000ACBAD /* Chu.plist in Resources */,
 				7A76FB2F1C8ABD4B00A63F3D /* main.plist in Resources */,
+				7ABD72B51C8D30EC0063AAC7 /* TodayTableViewCell.xib in Resources */,
+				7A63F62D1C8DA4F800505C5B /* HeadCollectionView.xib in Resources */,
 				7AE250CD1C8828D70090A951 /* Assets.xcassets in Resources */,
 				7A76FB3F1C8AEEBB00A63F3D /* Home.plist in Resources */,
+				7A63F6161C8D6BEE00505C5B /* Movie.plist in Resources */,
 				7AE250FB1C8853060090A951 /* MineVC.storyboard in Resources */,
 				7AE250FD1C88571B0090A951 /* Main.storyboard in Resources */,
 				7AE250F51C88523E0090A951 /* MianVC.storyboard in Resources */,
@@ -512,27 +549,32 @@
 			files = (
 				7A9F168E1C8C2AB8000ACBAD /* HotThemeController.m in Sources */,
 				7AE251091C8873CC0090A951 /* TodayViewController.m in Sources */,
+				7ABD72AE1C8D15F40063AAC7 /* HotView.m in Sources */,
+				7ABD72B41C8D30EC0063AAC7 /* TodayTableViewCell.m in Sources */,
 				7AE250EA1C883AA40090A951 /* MianViewController.m in Sources */,
 				7A85B0291C89A9640056C250 /* MianModel.m in Sources */,
 				7A85B0171C8926140056C250 /* MianTableViewCell.m in Sources */,
 				7AE2510C1C8873D60090A951 /* StoryViewController.m in Sources */,
-				7A9F16911C8C2B59000ACBAD /* HotWebView.m in Sources */,
+				7ABD72B81C8D33C00063AAC7 /* TodayModel.m in Sources */,
 				7AE251001C8873950090A951 /* ActivityViewController.m in Sources */,
+				7A63F6201C8D7D8F00505C5B /* MovieViewController.m in Sources */,
 				7AE251031C8873A50090A951 /* GoodReadController.m in Sources */,
+				7ABD72B01C8D16FF0063AAC7 /* HomeViewController.m in Sources */,
 				7AE250C51C8828D70090A951 /* AppDelegate.m in Sources */,
 				7AE250F31C88445D0090A951 /* MineViewController.m in Sources */,
-				7A9F16941C8C3453000ACBAD /* MovieViewController.m in Sources */,
 				7AE251121C88741A0090A951 /* LoginViewController.m in Sources */,
+				7A63F6191C8D722900505C5B /* MovieModel.m in Sources */,
 				7A9F16971C8C38AC000ACBAD /* GoodTableViewCell.m in Sources */,
 				7AE251151C8874290090A951 /* RegisterViewController.m in Sources */,
 				7AE2510F1C8874090090A951 /* StrollViewController.m in Sources */,
 				7A76FB3A1C8AE6CE00A63F3D /* HomeTableViewCell.m in Sources */,
 				7A76FB2A1C8AB76D00A63F3D /* ChufangViewController.m in Sources */,
 				7A9F16871C8C1772000ACBAD /* ChuTableViewCell.m in Sources */,
+				7A63F62C1C8DA4F800505C5B /* HeadCollectionView.m in Sources */,
 				7AE250C21C8828D70090A951 /* main.m in Sources */,
 				7A76FB3D1C8AEDBA00A63F3D /* HomeModel.m in Sources */,
 				7A9F168B1C8C1906000ACBAD /* ChuModer.m in Sources */,
-				7AE250F01C88444D0090A951 /* HomeViewController.m in Sources */,
+				7A63F60F1C8D63C600505C5B /* UIViewController+Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 
 #import "HomeTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+
+
 @interface HomeTableViewCell ()
 
 @property (strong, nonatomic)  UIImageView *iconView;
@@ -20,11 +22,6 @@
 
 @implementation HomeTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-    
-    
-}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -34,6 +31,30 @@
     return self;
 }
 - (void)settingS{
+    
+    self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 30, 30)];
+    self.iconView.layer.cornerRadius = 15;
+    self.iconView.clipsToBounds = YES;
+    
+    self.titleL = [[UILabel alloc] initWithFrame:CGRectMake(40, 5, 100, 30)];
+
+
+    self.priceL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch - 80, 5, 80, 30)];
+    
+    
+    self.imageViewS = [[UIImageView alloc] initWithFrame:CGRectMake(5, 38,kScreenWitch - 10 , 185)];
+    
+    self.nameL = [[UILabel alloc] initWithFrame:CGRectMake(20, 165, kScreenWitch - 20, 30)];
+    self.nameL.textColor = [UIColor whiteColor];
+    
+    self.nameL.font = [UIFont systemFontOfSize:17.0];
+    
+    self.introL.textColor = [UIColor whiteColor];
+    
+    self.introL = [[UILabel alloc] initWithFrame:CGRectMake(20, 195, kScreenWitch - 20, 25)];
+    self.introL.font = [UIFont systemFontOfSize:15.0];
+
+    
     [self addSubview:self.iconView];
     [self addSubview:self.titleL];
     [self addSubview:self.priceL];
@@ -53,53 +74,45 @@
 
 
 
-- (UIImageView *)iconView{
-    if (_iconView == nil) {
-        _iconView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 30, 30)];
-        self.iconView.backgroundColor = [UIColor redColor];
-    }
-    return _iconView;
-}
-- (UILabel *)titleL{
-    if (_titleL == nil) {
-        _titleL = [[UILabel alloc] initWithFrame:CGRectMake(38, 5, 60, 30)];
-        self.titleL.backgroundColor = [UIColor cyanColor];
-    }
-    return _titleL;
-}
-- (UILabel *)priceL{
-    if (_priceL == nil) {
-        _priceL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch - 80, 5, 50, 30)];
-        self.priceL.backgroundColor = [UIColor grayColor];
-    }
-    return _priceL;
-}
-
-- (UIImageView *)imageViewS{
-    if (_imageViewS == nil) {
-        _imageViewS = [[UIImageView alloc] initWithFrame:CGRectMake(5, 38,kScreenWitch - 10 , 185)];
-        self.imageViewS.backgroundColor = [UIColor blackColor];
-    }
-    return _imageViewS;
-}
-
-- (UILabel *)nameL{
-    if (_nameL == nil) {
-        _nameL = [[UILabel alloc] initWithFrame:CGRectMake(10, 165, kScreenWitch - 20, 30)];
-        self.nameL.font = [UIFont systemFontOfSize:17.0];
-        self.nameL.backgroundColor = [UIColor grayColor];
-    }
-    return _nameL;
-}
-
-- (UILabel *)introL{
-    if (_introL == nil) {
-        _introL = [[UILabel alloc] initWithFrame:CGRectMake(10, 195, kScreenWitch - 20, 25)];
-        self.introL.font = [UIFont systemFontOfSize:15.0];
-        self.introL.backgroundColor = [UIColor magentaColor];
-    }
-    return _introL;
-}
+//- (UIImageView *)iconView{
+//    if (_iconView == nil) {
+//       
+//    }
+//    return _iconView;
+//}
+//- (UILabel *)titleL{
+//    if (_titleL == nil) {
+//       
+//    }
+//    return _titleL;
+//}
+//- (UILabel *)priceL{
+//    if (_priceL == nil) {
+//
+//    }
+//    return _priceL;
+//}
+//
+//- (UIImageView *)imageViewS{
+//    if (_imageViewS == nil) {
+//
+//    }
+//    return _imageViewS;
+//}
+//
+//- (UILabel *)nameL{
+//    if (_nameL == nil) {
+//    
+//    }
+//    return _nameL;
+//}
+//
+//- (UILabel *)introL{
+//    if (_introL == nil) {
+// 
+//    }
+//    return _introL;
+//}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -10,7 +10,7 @@
 
 @interface HotThemeController : UIViewController
 
-//@property (nonatomic, strong)
+@property (nonatomic,copy) NSString *htmlUrl;
 
 
 @end

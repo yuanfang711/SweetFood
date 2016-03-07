@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface HomeModel : NSObject
+
 @property (nonatomic, strong) NSString *icon;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *pricate;
 @property (nonatomic, strong) NSString *imageSting;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *introduce;
+@property (nonatomic, strong) NSString *storeId;
 
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic;
 

@@ -28,7 +28,7 @@
     UINavigationController *mainNAV = mianB.instantiateInitialViewController;
     mainNAV.tabBarItem.image = [UIImage imageNamed:@"ft_home_normal_ic.png"];
 
-    mainNAV.tabBarItem.title = @"主页";
+    mainNAV.tabBarItem.title = @"菜谱";
     
     //到家
     UIStoryboard *homeB = [UIStoryboard storyboardWithName:@"HomaVC" bundle:nil];
