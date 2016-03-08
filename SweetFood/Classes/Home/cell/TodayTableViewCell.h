@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TodayModel.h"
 @interface TodayTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) TodayModel *model;
 
 @end

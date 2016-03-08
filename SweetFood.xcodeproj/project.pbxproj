@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3EF9B61C5126683AC169DD88 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD6ABBF4DA602B494901D4C /* libPods.a */; };
+		7A186C411C8E6CF000E421DF /* Today.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A186C401C8E6CF000E421DF /* Today.plist */; };
+		7A186C491C8EA64E00E421DF /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A186C481C8EA64E00E421DF /* MainModel.m */; };
+		7A186C501C8EC4C900E421DF /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A186C4F1C8EC4C900E421DF /* Menu.plist */; };
+		7A186C531C8ECDCE00E421DF /* MenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A186C521C8ECDCE00E421DF /* MenuModel.m */; };
+		7A186C611C8EF3DE00E421DF /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A186C591C8EF3DE00E421DF /* ProgressHUD.bundle */; };
+		7A186C621C8EF3DE00E421DF /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A186C5B1C8EF3DE00E421DF /* ProgressHUD.m */; };
 		7A63F60F1C8D63C600505C5B /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A63F60E1C8D63C600505C5B /* UIViewController+Common.m */; };
 		7A63F6161C8D6BEE00505C5B /* Movie.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A63F6151C8D6BEE00505C5B /* Movie.plist */; };
 		7A63F6191C8D722900505C5B /* MovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A63F6181C8D722900505C5B /* MovieModel.m */; };
@@ -20,7 +26,6 @@
 		7A76FB3D1C8AEDBA00A63F3D /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A76FB3C1C8AEDBA00A63F3D /* HomeModel.m */; };
 		7A76FB3F1C8AEEBB00A63F3D /* Home.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A76FB3E1C8AEEBB00A63F3D /* Home.plist */; };
 		7A85B0171C8926140056C250 /* MianTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A85B0151C8926140056C250 /* MianTableViewCell.m */; };
-		7A85B0181C8926140056C250 /* MianTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A85B0161C8926140056C250 /* MianTableViewCell.xib */; };
 		7A85B0291C89A9640056C250 /* MianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A85B0281C89A9640056C250 /* MianModel.m */; };
 		7A9F16831C8C15F2000ACBAD /* Chu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9F16821C8C15F2000ACBAD /* Chu.plist */; };
 		7A9F16871C8C1772000ACBAD /* ChuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9F16851C8C1772000ACBAD /* ChuTableViewCell.m */; };
@@ -55,6 +60,15 @@
 /* Begin PBXFileReference section */
 		3C4A1E285D641FDC9A16EE8C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		417748A60C9F56B7DD55A9D0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7A186C401C8E6CF000E421DF /* Today.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Today.plist; sourceTree = "<group>"; };
+		7A186C471C8EA64E00E421DF /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
+		7A186C481C8EA64E00E421DF /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
+		7A186C4F1C8EC4C900E421DF /* Menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Menu.plist; sourceTree = "<group>"; };
+		7A186C511C8ECDCE00E421DF /* MenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuModel.h; sourceTree = "<group>"; };
+		7A186C521C8ECDCE00E421DF /* MenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuModel.m; sourceTree = "<group>"; };
+		7A186C591C8EF3DE00E421DF /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		7A186C5A1C8EF3DE00E421DF /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		7A186C5B1C8EF3DE00E421DF /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		7A63F60D1C8D63C600505C5B /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
 		7A63F60E1C8D63C600505C5B /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
 		7A63F6151C8D6BEE00505C5B /* Movie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Movie.plist; sourceTree = "<group>"; };
@@ -75,7 +89,6 @@
 		7A76FB3E1C8AEEBB00A63F3D /* Home.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Home.plist; sourceTree = "<group>"; };
 		7A85B0141C8926140056C250 /* MianTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianTableViewCell.h; sourceTree = "<group>"; };
 		7A85B0151C8926140056C250 /* MianTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianTableViewCell.m; sourceTree = "<group>"; };
-		7A85B0161C8926140056C250 /* MianTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MianTableViewCell.xib; sourceTree = "<group>"; };
 		7A85B0271C89A9640056C250 /* MianModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianModel.h; sourceTree = "<group>"; };
 		7A85B0281C89A9640056C250 /* MianModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianModel.m; sourceTree = "<group>"; };
 		7A9F16821C8C15F2000ACBAD /* Chu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Chu.plist; sourceTree = "<group>"; };
@@ -142,9 +155,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A186C581C8EF3DE00E421DF /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7A186C591C8EF3DE00E421DF /* ProgressHUD.bundle */,
+				7A186C5A1C8EF3DE00E421DF /* ProgressHUD.h */,
+				7A186C5B1C8EF3DE00E421DF /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		7A85B01C1C897B340056C250 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7A186C581C8EF3DE00E421DF /* ProgressHUD */,
 				7A63F60D1C8D63C600505C5B /* UIViewController+Common.h */,
 				7A63F60E1C8D63C600505C5B /* UIViewController+Common.m */,
 			);
@@ -205,8 +229,8 @@
 		7AE250D71C883A580090A951 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7AE250D81C883A580090A951 /* Home */,
 				7AE250E01C883A580090A951 /* Main */,
+				7AE250D81C883A580090A951 /* Home */,
 				7AE250E41C883A580090A951 /* Mine */,
 				7AE250DC1C883A580090A951 /* Login */,
 			);
@@ -241,6 +265,7 @@
 			children = (
 				7A76FB3E1C8AEEBB00A63F3D /* Home.plist */,
 				7A76FB3B1C8AEDBA00A63F3D /* HomeModel.h */,
+				7A186C401C8E6CF000E421DF /* Today.plist */,
 				7A76FB3C1C8AEDBA00A63F3D /* HomeModel.m */,
 				7ABD72B61C8D33C00063AAC7 /* TodayModel.h */,
 				7ABD72B71C8D33C00063AAC7 /* TodayModel.m */,
@@ -317,14 +342,13 @@
 				7AE250F41C88523E0090A951 /* MianVC.storyboard */,
 				7A85B0141C8926140056C250 /* MianTableViewCell.h */,
 				7A85B0151C8926140056C250 /* MianTableViewCell.m */,
-				7A85B0161C8926140056C250 /* MianTableViewCell.xib */,
 				7A9F16841C8C1772000ACBAD /* ChuTableViewCell.h */,
 				7A9F16851C8C1772000ACBAD /* ChuTableViewCell.m */,
 				7A9F16861C8C1772000ACBAD /* ChuTableViewCell.xib */,
 				7ABD72AC1C8D15F40063AAC7 /* HotView.h */,
 				7ABD72AD1C8D15F40063AAC7 /* HotView.m */,
-				7A9F16961C8C38AC000ACBAD /* GoodTableViewCell.m */,
 				7A9F16951C8C38AC000ACBAD /* GoodTableViewCell.h */,
+				7A9F16961C8C38AC000ACBAD /* GoodTableViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -336,10 +360,15 @@
 				7A85B0281C89A9640056C250 /* MianModel.m */,
 				7A63F6171C8D722900505C5B /* MovieModel.h */,
 				7A63F6181C8D722900505C5B /* MovieModel.m */,
+				7A186C471C8EA64E00E421DF /* MainModel.h */,
+				7A186C481C8EA64E00E421DF /* MainModel.m */,
+				7A186C511C8ECDCE00E421DF /* MenuModel.h */,
+				7A186C521C8ECDCE00E421DF /* MenuModel.m */,
 				7A9F16891C8C1906000ACBAD /* ChuModer.h */,
 				7A9F168A1C8C1906000ACBAD /* ChuModer.m */,
 				7A76FB2E1C8ABD4B00A63F3D /* main.plist */,
 				7A63F6151C8D6BEE00505C5B /* Movie.plist */,
+				7A186C4F1C8EC4C900E421DF /* Menu.plist */,
 				7A9F16821C8C15F2000ACBAD /* Chu.plist */,
 			);
 			path = Model;
@@ -475,7 +504,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A186C611C8EF3DE00E421DF /* ProgressHUD.bundle in Resources */,
 				7AE250D01C8828D70090A951 /* LaunchScreen.storyboard in Resources */,
+				7A186C411C8E6CF000E421DF /* Today.plist in Resources */,
 				7A9F16831C8C15F2000ACBAD /* Chu.plist in Resources */,
 				7A76FB2F1C8ABD4B00A63F3D /* main.plist in Resources */,
 				7ABD72B51C8D30EC0063AAC7 /* TodayTableViewCell.xib in Resources */,
@@ -486,9 +517,9 @@
 				7AE250FB1C8853060090A951 /* MineVC.storyboard in Resources */,
 				7AE250FD1C88571B0090A951 /* Main.storyboard in Resources */,
 				7AE250F51C88523E0090A951 /* MianVC.storyboard in Resources */,
-				7A85B0181C8926140056C250 /* MianTableViewCell.xib in Resources */,
 				7A9F16881C8C1772000ACBAD /* ChuTableViewCell.xib in Resources */,
 				7AE250F91C8852DE0090A951 /* HomaVC.storyboard in Resources */,
+				7A186C501C8EC4C900E421DF /* Menu.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A186C491C8EA64E00E421DF /* MainModel.m in Sources */,
 				7A9F168E1C8C2AB8000ACBAD /* HotThemeController.m in Sources */,
 				7AE251091C8873CC0090A951 /* TodayViewController.m in Sources */,
 				7ABD72AE1C8D15F40063AAC7 /* HotView.m in Sources */,
@@ -560,6 +592,7 @@
 				7A63F6201C8D7D8F00505C5B /* MovieViewController.m in Sources */,
 				7AE251031C8873A50090A951 /* GoodReadController.m in Sources */,
 				7ABD72B01C8D16FF0063AAC7 /* HomeViewController.m in Sources */,
+				7A186C621C8EF3DE00E421DF /* ProgressHUD.m in Sources */,
 				7AE250C51C8828D70090A951 /* AppDelegate.m in Sources */,
 				7AE250F31C88445D0090A951 /* MineViewController.m in Sources */,
 				7AE251121C88741A0090A951 /* LoginViewController.m in Sources */,
@@ -568,6 +601,7 @@
 				7AE251151C8874290090A951 /* RegisterViewController.m in Sources */,
 				7AE2510F1C8874090090A951 /* StrollViewController.m in Sources */,
 				7A76FB3A1C8AE6CE00A63F3D /* HomeTableViewCell.m in Sources */,
+				7A186C531C8ECDCE00E421DF /* MenuModel.m in Sources */,
 				7A76FB2A1C8AB76D00A63F3D /* ChufangViewController.m in Sources */,
 				7A9F16871C8C1772000ACBAD /* ChuTableViewCell.m in Sources */,
 				7A63F62C1C8DA4F800505C5B /* HeadCollectionView.m in Sources */,

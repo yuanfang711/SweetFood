@@ -13,10 +13,8 @@
 #import "ChufangViewController.h"
 #import "GoodReadController.h"
 #import "HotThemeController.h"
-#import <AFNetworking/AFHTTPSessionManager.h>
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <SDWebImage/UIButton+WebCache.h>
-
+#import "MainModel.h"
+#import "MianModel.h"
 
 @interface MianViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
@@ -46,12 +44,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"菜谱";
-    //注册cell
-    [self.tableView registerNib:[UINib nibWithNibName:@"MianTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    //    //注册cell
+    //    [self.tableView registerNib:[UINib nibWithNibName:@"MianTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     //设置tableView的头视图
     [self setTableViewHeadView];
     
+    self.view.userInteractionEnabled  = YES;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -65,9 +64,10 @@
 - (void)getDataLoad{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    
+    [ProgressHUD show:@"正在为你加载数据"];
     [manager GET:kMainDatd parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [ProgressHUD showSuccess:@"加载成功"];
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];
         //广告数据
@@ -83,28 +83,28 @@
         NSDictionary *alDic = result[@"album"];
         NSArray *alArray = alDic[@"list"];
         for (NSDictionary *listDic in alArray) {
-            MianModel *model = [[MianModel alloc] initWithNSDictionary:listDic];
-            [self.hotArray addObject:model];
+            [self.hotArray addObject:listDic[@"Img"]];
         }
-        
+        //
         //table数据
-        NSDictionary *read = result[@"read"];
-        NSArray *raedArray = read[@"list"];
-        for (NSDictionary *listdic in raedArray) {
+        
+        NSDictionary *event = result[@"recipe"];
+        NSArray *listArray = event[@"list"];
+        for (NSDictionary *listdic in listArray) {
+            MainModel *model = [[MainModel alloc] initWithNSDictionary:listdic];
+            [self.cellTwoArray  addObject:model];
+        }
+        [self.listArray addObject:self.cellTwoArray];
+        NSDictionary *person = result[@"person"];
+        NSArray *sonArray = person[@"tag"];
+        for (NSDictionary *listdic in sonArray) {
             MianModel *model = [[MianModel alloc] initWithNSDictionary:listdic];
             [self.cellArray addObject:model];
         }
         [self.listArray addObject:self.cellArray];
         
-        NSDictionary *event = result[@"event"];
-        NSArray *listArray = event[@"list"];
-        for (NSDictionary *listdic in listArray) {
-            MianModel *model = [[MianModel alloc] initWithNSDictionary:listdic];
-            [self.cellTwoArray  addObject:model];
-        }
-        [self.listArray addObject:self.cellTwoArray];
         [self.tableView reloadData];
-        [self hotTheme];
+        [self setTableViewHeadView];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -113,42 +113,58 @@
 
 #pragma mark ********** 代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MianTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor clearColor];
-    NSMutableArray *group = self.listArray[indexPath.section];
-    if (indexPath.row < group.count) {
-        cell.model = group[indexPath.row];
+    static NSString *cellstring = @"ios";
+    MianTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellstring];
+    if (cell == nil) {
+        cell = [[MianTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellstring];
+    }
+    NSMutableArray *groip = self.listArray[indexPath.section];
+    if (indexPath.section == 0) {
+        if (indexPath.row < groip.count ) {
+            MainModel*model = groip[indexPath.row];
+            cell.mainModel = model;
+        }
+    }
+    if (indexPath.section == 1) {
+        if (indexPath.row < groip.count ) {
+            MianModel*mainModel = groip[indexPath.row];
+            cell.model = mainModel;
+        }
     }
     return cell;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSMutableArray *group = self.listArray[section];
     return group.count;
+    //    return 5;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.listArray.count;
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return @"精品阅读";
-    }else
         return @"热门活动";
+    }else
+        return @"猜你喜欢";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        ChufangViewController *chuVC = [[ChufangViewController alloc] init];
+        chuVC.getUrl = @"";
+        chuVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:chuVC animated:YES];
+    }
     if (indexPath.section == 0) {
-        if (indexPath.row == 1) {
-            GoodReadController *goodVC = [[GoodReadController alloc] init];
-            goodVC.navigationController.title = @"精品活动";
-            [self.navigationController pushViewController:goodVC animated:YES];
-        }if (indexPath.row == 0 || indexPath.row == 0) {
+        if (indexPath.row == 0||indexPath.row == 5||indexPath.row == 6||indexPath.row == 7) {
             HotThemeController *hotVC = [[HotThemeController alloc] init];
+            hotVC.navigationController.title = @"ghj";
             [self.navigationController pushViewController:hotVC animated:YES];
         }
-    }
-    if (indexPath.section == 1) {
-        HotThemeController *hotVC = [[HotThemeController alloc] init];
-        hotVC.navigationController.title = @"ghj";
-        [self.navigationController pushViewController:hotVC animated:YES];
+        if (indexPath.row == 2||indexPath.row == 3||indexPath.row == 4||indexPath.row == 1) {
+            GoodReadController *GoodVC = [[GoodReadController alloc] init];
+            GoodVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:GoodVC animated:YES];
+        }
     }
 }
 
@@ -168,20 +184,60 @@
     //列表
     [self toolViewChange];
     //热门专辑
-    [self hotTheme];
+    //    [self hotTheme];
+    self.hotView = [[UIView alloc] initWithFrame:CGRectMake(0, 205, kScreenWitch, 125)];
+    
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, kScreenWitch - 20, 20)];
+    title.text = @"热门专辑";
+    [self.hotView addSubview:title];
+    
+    UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
+    left.frame = CGRectMake(15, 35, kScreenWitch /2 - 15, 98);
+    [left addTarget:self action:@selector(zhuanjiAction) forControlEvents:UIControlEventTouchUpInside];
+//    [left setBackgroundColor:[UIColor redColor]];
+    left.tag = 0;
+    [self.hotView addSubview:left];
+    
+    UIImageView *viewIcon = [[UIImageView alloc] init];
+    
+    UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
+    right.frame = CGRectMake(kScreenWitch /2 + 10, 35, kScreenWitch /2 - 25, 98);
+    [right addTarget:self action:@selector(zhuanjiAction) forControlEvents:UIControlEventTouchUpInside];
+//    [right setBackgroundColor:[UIColor redColor]];
+    right.tag = 1;
+    
+    for (int i = 0; i< self.hotArray.count; i++) {
+        //        MianModel *model= self.hotArray[i];
+        if (i == 0) {
+            [viewIcon sd_setImageWithURL:[NSURL URLWithString:self.hotArray[i]] placeholderImage:nil];
+            viewIcon.backgroundColor = [UIColor orangeColor];
+            viewIcon.frame = left.frame;
+            [left addSubview:viewIcon];
+            
+        }
+        if (i == 1) {
+            [viewIcon sd_setImageWithURL:[NSURL URLWithString:self.hotArray[i]] placeholderImage:nil];
+                viewIcon.backgroundColor = [UIColor orangeColor];
+            viewIcon.frame = right.frame;
+            [right addSubview:viewIcon];
+        }
+    }
+    
+    [self.hotView addSubview:right];
+    
+    [self.headView addSubview:self.hotView];
     
     [self.headView addSubview:self.toolView];
-    [self.headView addSubview:self.hotView];
+
     
     self.tableView.tableHeaderView = self.headView;
 }
 
-- (void)LoveAction{
-    /*http://m.haodou.com/mall/index.php?r=wap/weixin/womenday*/
-}
-
 //列表内容
 - (void)toolViewChange{
+    self.toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 150, kScreenWitch, 55)];
+    self.toolView.backgroundColor = [UIColor whiteColor];
+    
     //列表
     UIButton *foodButton = [UIButton buttonWithType:UIButtonTypeCustom];
     foodButton.frame = CGRectMake(5, 0, kScreenWitch / 3 - 10, 55);
@@ -231,42 +287,9 @@
     [self.toolView addSubview:chuButton];
 }
 //热门专辑
-- (void)hotTheme{
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, kScreenWitch - 20, 20)];
-    title.text = @"热门专辑";
-    UIButton *left = [UIButton buttonWithType:UIButtonTypeCustom];
-    left.frame = CGRectMake(15, 35, kScreenWitch /2 - 15, 98);
-    [left addTarget:self action:@selector(zhuanjiAction) forControlEvents:UIControlEventTouchUpInside];
-    left.tag = 0;
-    
-    UIButton *right = [UIButton buttonWithType:UIButtonTypeCustom];
-    right.frame = CGRectMake(kScreenWitch /2 + 10, 35, kScreenWitch /2 - 25, 98);
-    [right addTarget:self action:@selector(zhuanjiAction) forControlEvents:UIControlEventTouchUpInside];
-    right.tag = 1;
-    
-    UIImageView *imageView = [[UIImageView alloc] init];
-    
-    for (int i = 0; i< self.hotArray.count; i++) {
-//        MianModel *model= self.hotArray[i];
-        if (i == 0) {
-            //            [imageView sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:nil];
-            imageView.backgroundColor = [UIColor redColor];
-            imageView.frame = left.frame;
-            [left addSubview:imageView];
-        }
-        if (i == 1) {
-            //            [imageView sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:nil];
-            imageView.backgroundColor = [UIColor grayColor];
-            imageView.frame = right.frame;
-            [right addSubview:imageView];
-        }
-        
-    }
-    
-    [self.hotView addSubview:title];
-    [self.hotView addSubview:left];
-    [self.hotView addSubview:right];
-}
+//- (void)hotTheme{
+//
+//}
 
 #pragma mark -------- 点击方法
 - (void)toolAction:(UIButton *)button{
@@ -283,6 +306,9 @@
     }
     if (button.tag == 102) {
         ChufangViewController *chuVC = [[ChufangViewController alloc] init];
+        chuVC.getUrl = kChuData;
+        
+        chuVC.title = @"厨房宝典";
         chuVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:chuVC animated:YES];
     }
@@ -294,17 +320,16 @@
 #pragma mark -------- 懒加载
 -(UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight -44)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight)];
         self.tableView.separatorColor = [UIColor brownColor];
-        
-        self.tableView.rowHeight = 115;
+        self.tableView.rowHeight = 160;
     }
     return _tableView;
 }
 
 - (UIView *)headView{
     if (_headView == nil) {
-        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 320)];
+        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 340)];
     }
     return _headView;
 }
@@ -317,14 +342,13 @@
 }
 - (UIView *)toolView{
     if (_toolView == nil) {
-        _toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 150, kScreenWitch, 55)];
-        self.toolView.backgroundColor = [UIColor whiteColor];
+        _toolView = [[UIView alloc] init];
     }
     return _toolView;
 }
 - (UIView *)hotView{
     if (_hotView == nil) {
-        _hotView = [[UIView alloc] initWithFrame:CGRectMake(0, 205, kScreenWitch, 125)];
+        _hotView = [[UIView alloc] init];
     }
     return _hotView;
 }

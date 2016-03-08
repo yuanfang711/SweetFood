@@ -9,16 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface TodayModel : NSObject
-//@property (nonatomic, strong) NSString *img;
-//@property (nonatomic, strong) NSString *title;
-//@property (nonatomic, strong) NSString *agoP;
-//@property (nonatomic, strong)
-//NSString *price;
-//@property (nonatomic,strong) NSString *haveM;
-//@property (nonatomic, strong) NSString *activity;
-//@property (nonatomic, strong) NSString *postN;
-//
-//- (instancetype)initWithNSDicetionary:(NSDictionary *)dic;
+@property (nonatomic, strong) NSString *img;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *agoP;
+@property (nonatomic, strong)
+NSString *price;
+@property (nonatomic,strong) NSString *haveM;
+
+
+- (instancetype)initWithNSDicetionary:(NSDictionary *)dic;
 
 
 @end

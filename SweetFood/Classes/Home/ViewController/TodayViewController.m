@@ -11,13 +11,13 @@
 #import "TodayViewController.h"
 #import "TodayTableViewCell.h"
 #import "TodayModel.h"
-
-#import <SDWebImage/UIImageView+WebCache.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface TodayViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *ListArray;
 @end
 
 @implementation TodayViewController
@@ -26,9 +26,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"今日特价";
-    
+        [self showBackButtonWithImage:@"back"];
     
     [self.view addSubview:self.tableView];
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:@"TodayTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self getDateload];
+    
 }
 
 
@@ -36,21 +40,23 @@
 - (void)getDateload{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    
-    [manager GET:kChuData parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [ProgressHUD show:@"正在请求"];
+    [manager GET:kToday parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [ProgressHUD showSuccess:@"请求成功"];
         NSDictionary *dic = responseObject;
-//        NSDictionary *result = dic[@"result"];
-//        NSArray *list = result[@"list"];
-//        
-//        for (NSDictionary *listDic in list) {
-//            ChuModer *model = [[ChuModer alloc] initWithNSDictionary:listDic];
-//            [self.listArray addObject:model];
-//        }
-//        [self.tableView reloadData];
+        
+        NSDictionary *result = dic[@"result"];
+        NSArray *list = result[@"list"];
+        for (NSDictionary *dic  in list) {
+            TodayModel *model = [[TodayModel alloc] initWithNSDicetionary:dic];
+            [self.ListArray addObject:model];
+        }
+        [self.tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [ProgressHUD showError:@"请求失败"];
         NSLog(@"%@",error);
     }];
 }
@@ -59,32 +65,41 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     TodayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-//    cell.model = self.listArray[indexPath.row];
+  
+    if (indexPath.row < self.ListArray.count) {
+        cell.model = self.ListArray[indexPath.row];
+    }
     
     return cell;
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.ListArray.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
 }
 
 
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight - 44) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.rowHeight = 105;
+        self.tableView.rowHeight = 130;
+        self.tableView.sectionIndexColor = [UIColor blackColor];
+        
     }
     return _tableView;
 }
 
-
+- (NSMutableArray *)ListArray{
+    if (_ListArray == nil) {
+        _ListArray = [NSMutableArray new];
+    }
+    return _ListArray;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -92,13 +107,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

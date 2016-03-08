@@ -33,10 +33,11 @@
 - (void)settingS{
     
     self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 30, 30)];
+    
     self.iconView.layer.cornerRadius = 15;
     self.iconView.clipsToBounds = YES;
     
-    self.titleL = [[UILabel alloc] initWithFrame:CGRectMake(40, 5, 100, 30)];
+    self.titleL = [[UILabel alloc] initWithFrame:CGRectMake(40, 5, 200, 30)];
 
 
     self.priceL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch - 80, 5, 80, 30)];
@@ -48,10 +49,11 @@
     self.nameL.textColor = [UIColor whiteColor];
     
     self.nameL.font = [UIFont systemFontOfSize:17.0];
+
+    self.introL = [[UILabel alloc] initWithFrame:CGRectMake(20, 195, kScreenWitch - 20, 25)];
     
     self.introL.textColor = [UIColor whiteColor];
     
-    self.introL = [[UILabel alloc] initWithFrame:CGRectMake(20, 195, kScreenWitch - 20, 25)];
     self.introL.font = [UIFont systemFontOfSize:15.0];
 
     

@@ -1,22 +1,21 @@
 //
-//  MianModel.m
+//  MainModel.m
 //  SweetFood
 //
-//  Created by scjy on 16/3/4.
+//  Created by scjy on 16/3/8.
 //  Copyright © 2016年 范芳芳. All rights reserved.
 //
 
-#import "MianModel.h"
+#import "MainModel.h"
 
-@implementation MianModel
+@implementation MainModel
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic{
     self = [super init];
     if (self) {
-        self.title = dic[@"CateName"];
-        self.icon = dic[@"Cover"];
+        self.title = dic[@"Title"];
+        self.icon = dic[@"Img"];
     }
     return self;
 }
-
 
 @end

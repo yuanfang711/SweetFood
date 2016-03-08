@@ -6,14 +6,10 @@
 //  Copyright © 2016年 范芳芳. All rights reserved.
 //
 
-
-
 #import "MovieViewController.h"
 #import "MovieModel.h"
 #import "HeadCollectionView.h"
-#import "UIViewController+Common.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <AFNetworking/AFHTTPSessionManager.h>
+
 
 static NSString *cellString = @"iOS";
 static NSString *headCellString = @"food";
@@ -47,10 +43,12 @@ static NSString *headCellString = @"food";
 - (void)getDateload{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    
+    [ProgressHUD show:@"正在请求"];
     [manager GET:kMovieData parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [ProgressHUD showSuccess:@"请求成功"];
+
         NSDictionary *dic = responseObject;
         NSDictionary *result = dic[@"result"];
         NSArray *cateList = result[@"CateList"];
@@ -66,6 +64,7 @@ static NSString *headCellString = @"food";
         }
         [self.collectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [ProgressHUD showError:@"请求失败"];
         NSLog(@"%@",error);
     }];
 }

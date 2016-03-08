@@ -7,7 +7,7 @@
 //
 
 #import "HotThemeController.h"
-#import "UIViewController+Common.h"
+
 @interface HotThemeController ()<UIWebViewDelegate>
 //@property (nonatomic, strong) UIWebView *webView;
 @end
@@ -26,7 +26,6 @@
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
     webView.delegate = self;
     [self.view addSubview:webView];
-    
 }
 
 //- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

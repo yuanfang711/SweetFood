@@ -8,6 +8,11 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIViewController+Common.h"
+#import "ProgressHUD.h"
+
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
@@ -30,22 +35,11 @@
 
 #define kStory @"http://m.haodou.com/mall/index.php?r=wap/brand/home-page-recommend"
 
+#define kToday @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457422065942&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2&timestamp=1457422134&nonce=0.12902401998969681&appsign=b26cfe0ca18e2434ffcca809ef2b5f25"
 
 
-
-#define kG @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457170712784&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2"
-#define kd @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457170712784&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2"
-
-
-
-/*
- 逛逛
- 1
- http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=goods.view&virtual=&signmethod=md5&v=2&timestamp=1457268285&nonce=0.28013332556673776&appsign=be494afc90155d8dc51ca403d98ac59b
- 2http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=goods.view&virtual=&signmethod=md5&v=2&timestamp=1457268354&nonce=0.379964246408236&appsign=3901994bb32566b4a0ce22d3d0b8d458
- 3http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=goods.view&virtual=&signmethod=md5&v=2&timestamp=1457268373&nonce=0.02564946330347606&appsign=a795476572731e758cf639133f1de064
- */
-
+#define kMenuGoodData @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457422065942&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Info.getAlbumInfo&virtual=&signmethod=md5&v=2&timestamp=1457426294&nonce=0.26271020078698604&appsign=147a8bf075155bd3dfe2c41008770013"
+#define kd @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457422065942&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Info.getAlbumInfo&virtual=&signmethod=md5&v=2&timestamp=1457426429&nonce=0.09014728738779076&appsign=4ea2f1008a0af238bf9121e12269064b"
 
 
 #endif /* PrefixHeader_pch */

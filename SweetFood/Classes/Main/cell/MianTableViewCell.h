@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MianModel.h"
+#import "MainModel.h"
 @interface MianTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) MianModel *model;
-
+@property (nonatomic, strong) MainModel *mainModel;
 @end

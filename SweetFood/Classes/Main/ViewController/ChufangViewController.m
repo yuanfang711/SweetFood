@@ -11,8 +11,7 @@
 #import "ChuModer.h"
 #import "HotThemeController.h"
 #import "UIViewController+Common.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <AFNetworking/AFHTTPSessionManager.h>
+
 
 @interface ChufangViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -27,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"厨房宝典";
     self.view.backgroundColor = [UIColor cyanColor];
     [self showBackButtonWithImage:@"back"];
     
@@ -42,10 +40,11 @@
 - (void)getDateload{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    
-    [manager GET:kChuData parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [ProgressHUD show:@"为你加载数据"];
+    [manager GET:self.getUrl parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [ProgressHUD showSuccess:@"成功加载"];
         NSDictionary *dic = responseObject;
         NSDictionary *result = dic[@"result"];
         NSArray *list = result[@"list"];
@@ -57,6 +56,7 @@
         [self.tableView reloadData];
     
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [ProgressHUD showError:@"出错"];
         NSLog(@"%@",error);
     }];
 }

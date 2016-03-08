@@ -9,14 +9,17 @@
 #import "TodayModel.h"
 
 @implementation TodayModel
-
-//-(instancetype)initWithNSDicetionary:(NSDictionary *)dic{
-//    //    self.img = dic[];
-//    //    self.title = dic[];
-//    //    self.agoP = dic[];
-//    //    self.postN = dic[];
-//    //    self.price = dic[];
-//    //    self.activity = dic[];
-//}
+//
+-(instancetype)initWithNSDicetionary:(NSDictionary *)dic{
+    self = [super init];
+    if (self) {
+        self.img = dic[@"CoverUrl"];
+        self.title = dic[@"Title"];
+        self.agoP = dic[@"Price"];
+        self.price = dic[@"DealPrice"];
+        self.haveM = dic[@"Stock"];
+    }
+    return self;
+}
 
 @end

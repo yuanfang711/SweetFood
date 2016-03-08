@@ -10,4 +10,7 @@
 
 @interface ChufangViewController : UIViewController
 
+
+@property (nonatomic, strong) NSString *getUrl;
+
 @end
