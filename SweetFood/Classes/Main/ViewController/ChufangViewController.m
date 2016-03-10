@@ -11,7 +11,8 @@
 #import "ChuModer.h"
 #import "HotThemeController.h"
 #import "UIViewController+Common.h"
-
+#import "LoveModel.h"
+#import "ActivityViewController.h"
 
 @interface ChufangViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -34,15 +35,26 @@
     
     [self.view addSubview:self.tableView];
     
-    [self getDateload];
+    if ([self.modelNum intValue] == 0) {
+        [self getDateload];
+    }
+    if ([self.modelNum intValue] == 1) {
+        [self getLoveData];
+    }
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [ProgressHUD dismiss];
+}
+
 #pragma mark -------- 请求数据
 - (void)getDateload{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [ProgressHUD show:@"为你加载数据"];
     [manager GET:self.getUrl parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"成功加载"];
         NSDictionary *dic = responseObject;
@@ -50,11 +62,37 @@
         NSArray *list = result[@"list"];
         
         for (NSDictionary *listDic in list) {
+            
             ChuModer *model = [[ChuModer alloc] initWithNSDictionary:listDic];
             [self.listArray addObject:model];
+            
         }
         [self.tableView reloadData];
-    
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [ProgressHUD showError:@"出错"];
+        NSLog(@"%@",error);
+    }];
+}
+
+- (void)getLoveData{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    [ProgressHUD show:@"为你加载数据"];
+    [manager GET:[NSString stringWithFormat:@"%@%@",kTodayAction,self.modelId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [ProgressHUD showSuccess:@"成功加载"];
+        NSDictionary *dic = responseObject;
+        NSDictionary *result = dic[@"result"];
+        NSArray *list = result[@"list"];
+        
+        for (NSDictionary *listDic in list) {
+            LoveModel *mModel = [[LoveModel alloc] initWithNSDictionary:listDic];
+            [self.listArray addObject:mModel];
+        }
+        [self.tableView reloadData];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [ProgressHUD showError:@"出错"];
         NSLog(@"%@",error);
@@ -76,13 +114,22 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    HotThemeController *hotVC = [[HotThemeController alloc] init];
-    ChuModer *model = self.listArray[indexPath.row];
-    hotVC.title = model.title;
-    hotVC.htmlUrl = model.cellUrl;
-    hotVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:hotVC animated:YES];
+    if ([self.modelNum intValue] == 0) {
+        HotThemeController *hotVC = [[HotThemeController alloc] init];
+        ChuModer *model = self.listArray[indexPath.row];
+        hotVC.title = model.title;
+        hotVC.htmlUrl = model.cellUrl;
+        hotVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:hotVC animated:YES];
+    }
+    if ([self.modelNum intValue] == 1) {
+        ActivityViewController *activytyVC = [[ActivityViewController alloc] init];
+//        LoveModel *model = self.listArray[indexPath.row];
+        //        activytyVC.rid = model.
+        activytyVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:activytyVC animated:YES];
+    }
+    
 }
 
 
@@ -108,17 +155,17 @@
     // Dispose of any resources that can be recreated.
 }
 /*
-
+ 
  */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

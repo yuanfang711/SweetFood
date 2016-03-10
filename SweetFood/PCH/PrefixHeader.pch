@@ -22,24 +22,32 @@
 
 #define kViewColor [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:0.5]
 
-
+//主页
 #define kMainDatd @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Index.index&virtual=&signmethod=md5&v=2"
-
+//到家
 #define kHomeData @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=idx.index&virtual=&signmethod=md5&v=2"
-
+//厨房
 #define kChuData @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Wiki.getListByType&virtual=&signmethod=md5&v=2"
 
-
-
+//视频
 #define kMovieData @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457337599320&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Video.getRecipeVideoList&virtual=&signmethod=md5&v=2"
+//视频点击
+#define kMovieAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457493456063&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Comment.getList&virtual=&signmethod=md5&v=2&appsign=94419a2f2808b904890b230e91085b56"
 
-#define kStory @"http://m.haodou.com/mall/index.php?r=wap/brand/home-page-recommend"
+//今日特价
+#define kToday @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457422065942&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2&timestamp=1457422134&nonce=0.12902401998969681&appsign=b26cfe0ca18e2434ffcca809ef2b5f25&id="
+//今日
+#define kMovieAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457493456063&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Comment.getList&virtual=&signmethod=md5&v=2&appsign=94419a2f2808b904890b230e91085b56&rid="
 
-#define kToday @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457422065942&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2&timestamp=1457422134&nonce=0.12902401998969681&appsign=b26cfe0ca18e2434ffcca809ef2b5f25"
+//猜你喜欢
+#define kTodayAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457436095933&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Search.getList&virtual=&signmethod=md5&v=2&rid="
 
+//活动详情
+#define KActivity @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457436095933&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Info.getInfo&virtual=&signmethod=md5&v=2&appsign=54f84479566b4b7eeaa7a691c5507470&rid=52317"
 
-#define kMenuGoodData @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457422065942&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Info.getAlbumInfo&virtual=&signmethod=md5&v=2&timestamp=1457426294&nonce=0.26271020078698604&appsign=147a8bf075155bd3dfe2c41008770013"
-#define kd @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457422065942&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Info.getAlbumInfo&virtual=&signmethod=md5&v=2&timestamp=1457426429&nonce=0.09014728738779076&appsign=4ea2f1008a0af238bf9121e12269064b"
-
+//视频标签
+#define kToolMovie @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457500816794&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Video.getVideoListByCate&virtual=&signmethod=md5&v=2&appsign=9e721eaa6e1d4e196700116132256a68"
+//菜单列表
+#define kGoodTool @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457500816794&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Info.getAlbumInfo&virtual=&signmethod=md5&v=2&appsign=50cd1f747b10b272bb41bcaea0a4d608&aid="
 
 #endif /* PrefixHeader_pch */

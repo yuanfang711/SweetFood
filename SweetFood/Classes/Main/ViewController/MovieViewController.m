@@ -9,17 +9,18 @@
 #import "MovieViewController.h"
 #import "MovieModel.h"
 #import "HeadCollectionView.h"
+#import "ActivityViewController.h"
+#import "LoveModel.h"
+#import "StrollViewController.h"
+#import "VOSegmentedControl.h"
 
 
 static NSString *cellString = @"iOS";
 static NSString *headCellString = @"food";
-@interface MovieViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface MovieViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 @property (strong, nonatomic) UICollectionView *collectionView;
-
-@property (nonatomic, strong) HeadCollectionView *headView;
-
-@property (strong, nonatomic) UIView *toolView;
-
+@property (nonatomic, strong) VOSegmentedControl *vosC;
+@property (strong, nonatomic) UIScrollView *toolView;
 @property (nonatomic, strong) NSMutableArray *CateArray;
 @property (nonatomic, strong) NSMutableArray *VideoArray;
 @property (nonatomic, strong) NSMutableArray *name;
@@ -33,11 +34,15 @@ static NSString *headCellString = @"food";
     self.title = @"菜谱视频";
     [self showBackButtonWithImage:@"back"];
     self.view.backgroundColor = kViewColor;
-    
     [self getDateload];
+    //    self.toolView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.toolView];
     [self.view addSubview:self.collectionView];
     
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [ProgressHUD dismiss];
 }
 #pragma mark -------- 请求数据
 - (void)getDateload{
@@ -48,7 +53,7 @@ static NSString *headCellString = @"food";
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"请求成功"];
-
+        
         NSDictionary *dic = responseObject;
         NSDictionary *result = dic[@"result"];
         NSArray *cateList = result[@"CateList"];
@@ -59,20 +64,21 @@ static NSString *headCellString = @"food";
         for (NSDictionary *listDic in video) {
             [self.name addObject:listDic];
             NSArray *array = listDic[@"List"];
-                [self.VideoArray addObject:array];
-
+            [self.VideoArray addObject:array];
+            
         }
         [self.collectionView reloadData];
+        [self SettingToolButton];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [ProgressHUD showError:@"请求失败"];
         NSLog(@"%@",error);
     }];
 }
 
-- (void)HeadViewSetting{
-    
-    
-}
+//- (void)HeadViewSetting{
+//
+//
+//}
 //
 ////设置每个分区的区头
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
@@ -83,11 +89,34 @@ static NSString *headCellString = @"food";
 //    self.headView.titleL.text = self.name[indexPath.section];
 //    return _headView;
 //}
+
+
+- (void)SettingToolButton{
+    for (int i = 0; i < self.CateArray.count; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(100 * i + 0, -64, 100, 44);
+        //        NSLog(@"%@", NSStringFromCGRect(button.frame));
+        [button setTitle:self.CateArray[i][@"CateName"] forState:UIControlStateNormal];
+        button.tag = 100 + i;
+        [button setBackgroundColor:[UIColor cyanColor]];
+        [button addTarget:self action:@selector(ButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.toolView addSubview:button];
+    }
+}
+
+- (void)ButtonAction:(UIButton *)button{
+    StrollViewController *strollVC = [[StrollViewController alloc] init];
+    strollVC.movieId = self.CateArray[    button.tag- 100][@"CateId"];
+    strollVC.title = self.CateArray[    button.tag- 100][@"CateName"];
+    [self.navigationController pushViewController:strollVC animated:YES];
+}
+
+
 #pragma mark ********** 代理
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellString forIndexPath:indexPath];
-
+    
     NSMutableArray *group = self.VideoArray[indexPath.section];
     if (indexPath.row < group.count) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, cell.frame.size.width - 10, cell.frame.size.height-30)];
@@ -96,12 +125,12 @@ static NSString *headCellString = @"food";
         
         UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(5, cell.frame.size.height - 20,cell.frame.size.width - 10,20)];
         lable.textAlignment = NSTextAlignmentCenter;
-
+        
         lable.text =group[indexPath.row][@"Title"];
-
+        
         [cell.contentView addSubview:lable];
         [cell.contentView addSubview:imageView];
-                cell.backgroundColor = [UIColor whiteColor];
+        cell.backgroundColor = [UIColor whiteColor];
     }
     return cell;
 }
@@ -117,17 +146,36 @@ static NSString *headCellString = @"food";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //    ActivityViewController *activytyVC = [[ActivityViewController alloc] init];
+    //    //            LoveModel *model = self.listArray[indexPath.row];
+    //    //            activytyVC.rid = model.
+    //    activytyVC.hidesBottomBarWhenPushed = YES;
+    //    [self.navigationController pushViewController:activytyVC animated:YES];
+}
+
+
+
+
+#pragma mark ********** 懒加载
+
+-(UIScrollView *)toolView {
+    if (_toolView == nil) {
+        self.toolView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWitch, 44)];
+        self.toolView.contentSize = CGSizeMake(100 * self.CateArray.count, 44);
+        //        self.toolView.backgroundColor = [UIColor redColor];
+        self.toolView.alwaysBounceHorizontal = YES;
+        self.toolView.showsHorizontalScrollIndicator = YES;
+        self.toolView.userInteractionEnabled = YES;
+        self.toolView.pagingEnabled = NO;
+        self.toolView.alwaysBounceHorizontal = YES;
+        self.toolView.showsVerticalScrollIndicator = NO;
+        self.toolView.alwaysBounceVertical = YES;
+    }
+    return _toolView;
     
 }
 
-#pragma mark ********** 懒加载
-- (UIView *)toolView{
-    if ( _toolView == nil) {
-        self.toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWitch, 44)];
-        self.toolView.backgroundColor = [UIColor whiteColor];
-    }
-    return _toolView;
-}
+
 - (UICollectionView *)collectionView{
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -139,17 +187,17 @@ static NSString *headCellString = @"food";
         layout.minimumLineSpacing = 5;
         //设置item整体在屏幕的位置
         layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-        layout.headerReferenceSize = CGSizeMake(kScreenWitch, 40);
+        //        layout.headerReferenceSize = CGSizeMake(kScreenWitch, 40);
         //每个设置的大小为
         layout.itemSize = CGSizeMake(kScreenWitch/2- 10,135);
         //通过layout布局来创建一个collection
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 115, kScreenWitch, kScreenhight -108) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 104, kScreenWitch, kScreenhight -108) collectionViewLayout:layout];
         
         //注册cell
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellString];
         
-//        //注册区头
-//        [self.collectionView registerNib:[UINib nibWithNibName:@"HeadCollectionView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headCellString];
+        //        //注册区头
+        //        [self.collectionView registerNib:[UINib nibWithNibName:@"HeadCollectionView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headCellString];
         
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
@@ -171,12 +219,12 @@ static NSString *headCellString = @"food";
     return _VideoArray;
 }
 
-- (HeadCollectionView *)headView{
-    if (_headView == nil) {
-        _headView = [[HeadCollectionView alloc] init];
-    }
-    return _headView;
-}
+//- (HeadCollectionView *)headView{
+//    if (_headView == nil) {
+//        _headView = [[HeadCollectionView alloc] init];
+//    }
+//    return _headView;
+//}
 
 - (NSMutableArray *)name{
     if (_name == nil) {

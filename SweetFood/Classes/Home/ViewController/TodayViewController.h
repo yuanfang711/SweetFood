@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TodayViewController : UIViewController
-
+@property (nonatomic,strong) NSString *todayId;
 @end

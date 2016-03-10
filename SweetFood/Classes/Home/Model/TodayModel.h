@@ -15,7 +15,7 @@
 @property (nonatomic, strong)
 NSString *price;
 @property (nonatomic,strong) NSString *haveM;
-
+@property (nonatomic, strong) NSString *fooId;
 
 - (instancetype)initWithNSDicetionary:(NSDictionary *)dic;
 

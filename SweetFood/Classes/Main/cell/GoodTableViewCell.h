@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MenuModel.h"
+#import "GoodModel.h"
 @interface GoodTableViewCell : UITableViewCell
 
 
-@property (nonatomic, strong) MenuModel *menuModel;
+@property (nonatomic, strong) GoodModel *goodModel;
 
 //定义一个类方法，在外部调用，通过传入model参数，计算出来每个cell的高度
-+(CGFloat )getCellHeightWithMangoModel:(MenuModel *)model;
++(CGFloat )getCellHeightWithMangoModel:(GoodModel *)model;
 
 @end

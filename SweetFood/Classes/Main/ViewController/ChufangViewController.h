@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSString *getUrl;
 
+@property (nonatomic, assign) NSNumber *modelNum;
+@property (nonatomic, strong) NSString *modelId;
 @end

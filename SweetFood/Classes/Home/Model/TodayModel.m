@@ -18,6 +18,7 @@
         self.agoP = dic[@"Price"];
         self.price = dic[@"DealPrice"];
         self.haveM = dic[@"Stock"];
+        self.fooId = dic[@"GoodsId"];
     }
     return self;
 }

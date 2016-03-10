@@ -10,4 +10,6 @@
 
 @interface GoodReadController : UIViewController
 
+@property (nonatomic,strong) NSString *goodId;
+
 @end

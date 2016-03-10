@@ -50,6 +50,12 @@
     
     [self getHomeData];
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [ProgressHUD dismiss];
+}
+
 - (void)getHomeData{
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -112,6 +118,7 @@
 }
 - (void)todayAction{
     TodayViewController *todaVC = [[TodayViewController alloc] init];
+    todaVC.todayId = @"173";
     todaVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:todaVC animated:YES];
 }

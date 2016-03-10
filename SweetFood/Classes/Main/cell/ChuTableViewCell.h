@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ChuModer.h"
+#import "LoveModel.h"
 @interface ChuTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *titleL;
 @property (weak, nonatomic) IBOutlet UILabel *dateL;
 @property (weak, nonatomic) IBOutlet UILabel *introL;
+
+@property (nonatomic, strong) LoveModel *mModel;
 
 @property (nonatomic, strong) ChuModer *model;
 

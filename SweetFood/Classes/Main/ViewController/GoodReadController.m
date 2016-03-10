@@ -8,12 +8,13 @@
 
 #import "GoodReadController.h"
 #import "GoodTableViewCell.h"
-
+#import "GoodModel.h"
 @interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headView;
-
+@property (nonatomic, strong) NSMutableArray *infoArray;
+@property (nonatomic, strong) NSMutableArray *listArray;
 
 @end
 
@@ -30,58 +31,39 @@
     [self getDataLoad];
     
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [ProgressHUD dismiss];
+}
+
 #pragma mark ---------- 数据请求
 - (void)getDataLoad{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    
-    [manager GET:@"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457436095933&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Info.getAlbumInfo&virtual=&signmethod=md5&v=2&timestamp=1457436177&nonce=0.6755273434561482&appsign=b981d7509c7cc28cedd703b6dd8a0246" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+//    [NSString stringWithFormat:@"%@%@",kGoodTool,self.goodId]
+    [manager GET:[NSString stringWithFormat:@"%@%@",kGoodTool,self.goodId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *rootDic = responseObject;
-//        NSDictionary *result = rootDic[@"result"];
-        //广告数据
-        //        NSDictionary *recipeDic = result[@"goods"];
-        //        NSArray *adArray = recipeDic[@"list"];
-        //
-        //        for (NSDictionary *listDic in adArray) {
-        //
-        //            [self.goodArray addObject:listDic];
-        //        }
+        NSDictionary *result = rootDic[@"result"];
+        //头数据
+        NSDictionary *recipeDic = result[@"info"];
+        [self.infoArray addObject:recipeDic];
+
         
-        //热门专辑
-//        NSDictionary *alDic = result[@"album"];
-//        NSArray *alArray = alDic[@"list"];
-//        for (NSDictionary *listDic in alArray) {
-//            [self.hotArray addObject:listDic[@"Img"]];
-//        }
-        //
-        //table数据
-        
-//        NSDictionary *event = result[@"recipe"];
-//        NSArray *listArray = event[@"list"];
-//        for (NSDictionary *listdic in listArray) {
-//            MainModel *model = [[MainModel alloc] initWithNSDictionary:listdic];
-//            [self.cellTwoArray  addObject:model];
-//        }
-//        [self.listArray addObject:self.cellTwoArray];
-//        NSDictionary *person = result[@"person"];
-//        NSArray *sonArray = person[@"tag"];
-//        for (NSDictionary *listdic in sonArray) {
-//            MianModel *model = [[MianModel alloc] initWithNSDictionary:listdic];
-//            [self.cellArray addObject:model];
-//        }
-//        [self.listArray addObject:self.cellArray];
-//        
-//        [self.tableView reloadData];
-//        [self setTableViewHeadView];
+        //列表
+        NSArray *alArray = result[@"list"];
+        for (NSDictionary *listDic in alArray) {
+            GoodModel *model = [[GoodModel alloc] initWithNSDictionary:listDic];
+            [self.listArray addObject:model];
+        }
+        [self.tableView reloadData];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
     
 }
-
-
-
 
 
 #pragma mark ---------- 代理
@@ -91,15 +73,12 @@
     if (cell== nil) {
         cell = [[GoodTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellstring];
     }
-//    cell.backgroundColor = [UIColor redColor];
+    cell.goodModel = self.listArray[indexPath.row];
     return cell;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.listArray.count;
 }
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 50;
-//}
 #pragma mark ---------- 点击方法
 #pragma mark ---------- 懒加载
 - (UITableView *)tableView{
@@ -112,6 +91,26 @@
         self.tableView.sectionIndexColor = [UIColor brownColor];
     }
     return _tableView;
+}
+
+//
+//- (UIView *)headView{
+//    if
+//}
+
+
+- (NSMutableArray *)listArray{
+    if ( _listArray == nil) {
+        _listArray = [NSMutableArray new];
+    }
+    return _listArray;
+}
+
+- (NSMutableArray *)infoArray{
+    if (_infoArray == nil) {
+        _infoArray = [NSMutableArray new];
+    }
+    return _infoArray;
 }
 
 - (void)didReceiveMemoryWarning {

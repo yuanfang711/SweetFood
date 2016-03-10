@@ -10,9 +10,11 @@
 
 @interface MenuModel : NSObject
 
-@property (nonatomic, strong) NSString *icin;
+@property (nonatomic, strong) NSString *Cover;
 @property (nonatomic, strong) NSString *introl;
-
+@property (nonatomic, strong) NSString *ImageView;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *title;
 
 - (instancetype)initWithNSDicetionary:(NSDictionary *)dic;
 

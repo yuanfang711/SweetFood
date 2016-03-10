@@ -22,6 +22,13 @@
 }
 
 
+- (void)setMModel:(LoveModel *)mModel{
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:mModel.iconView] placeholderImage:nil];
+    self.titleL.text = mModel.title;
+    self.dateL.text = mModel.date;
+    self.introL.text = mModel.intro;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

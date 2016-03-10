@@ -1,6 +1,6 @@
 //
 //  MainModel.m
-//  SweetFood
+//  主页喜欢
 //
 //  Created by scjy on 16/3/8.
 //  Copyright © 2016年 范芳芳. All rights reserved.

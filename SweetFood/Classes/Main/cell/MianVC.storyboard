@@ -16,6 +16,47 @@
             </objects>
             <point key="canvasLocation" x="671.5" y="461.5"/>
         </scene>
+        <!--Activity View Controller-->
+        <scene sceneID="yaN-4t-rFd">
+            <objects>
+                <viewController storyboardIdentifier="activity" id="Igu-Bz-SUa" customClass="ActivityViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yhl-9x-mJJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Ep-NK-0zy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uRl-fQ-kOz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDE-kh-6uM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="179"/>
+                                <color key="backgroundColor" red="1" green="0.67259529799999995" blue="0.70790798860000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBy-mz-fq4">
+                                <rect key="frame" x="0.0" y="244" width="375" height="34"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysj-Qy-fNX">
+                                        <rect key="frame" x="0.0" y="0.0" width="188" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.95050803549999996" blue="0.68754158649999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9e-WA-MJs">
+                                        <rect key="frame" x="187" y="0.0" width="188" height="34"/>
+                                        <color key="backgroundColor" red="1" green="0.95050803549999996" blue="0.68754158649999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93403063320000002" green="0.94032689140000003" blue="0.93485300159999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zf4-K9-wmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1119.5" y="461.5"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="9tY-2w-bjN">
             <objects>

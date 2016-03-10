@@ -1,0 +1,175 @@
+{
+"request_id" = a288fe22abef7d1796687580666846c0;
+result =     {
+count = 20;
+info =         {
+AlbumAvatarUrl = "http://avatar1.hoto.cn/79/05/132473_185.jpg";
+AlbumContent = "\U5230\U5317\U4eac\U600e\U4e48\U53ef\U80fd\U4e0d\U53bb\U54c1\U5c1d\U90a3\U4e9b\U4eac\U57ce\U6700\U6709\U7279\U8272\U7684\U5c0f\U5403\U5462\Uff1f\U4e0b\U9762\U5462\Uff0c\U5c0f\U7f16\U4e3a\U4f60\U76d8\U70b9\U5317\U4eac\U5404\U79cd\U8d85\U4eba\U6c14\U5c0f\U5403\U3002";
+AlbumCover = "http://recipe0.hoto.cn/pic/recipe/l/82/c2/901762_5bae70.jpg";
+AlbumIsLike = 0;
+AlbumTitle = "#\U5bb6\U4e61\U5473#\U8d85\U4eba\U6c14\U7684\U5317\U4eac\U5c0f\U5403";
+AlbumUserId = 132473;
+AlbumUserName = "\U7ea2\U8c46\U53a8\U574a";
+CommentCount = 9;
+};
+list =         (
+{
+Collection = "207\U559c\U6b22   7144\U6d4f\U89c8";
+Cover = "http://recipe1.hoto.cn/pic/recipe/l/bf/82/885439_4f4fbd.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 207;
+RecipeId = 885439;
+Stuff = "\U9c9c\U9762\U6761, \U4e94\U82b1\U8089, \U9ec4\U9171, \U751c\U9762\U9171, \U9ec4\U74dc, \U6c34\U841d\U535c, \U719f\U9ec4\U8c46, \U9ec4\U8c46\U82bd, \U6599\U9152, \U8471\U82b1, \U59dc\U672b, \U51b0\U7cd6";
+Title = "\U8001\U5317\U4eac\U70b8\U9171\U9762";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 7144;
+},
+{
+Collection = "57\U559c\U6b22   2917\U6d4f\U89c8";
+Cover = "http://recipe1.hoto.cn/pic/recipe/l/c3/c8/1034435_13dc35.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 57;
+RecipeId = 1034435;
+Stuff = "\U9762\U7c89, \U9175\U6bcd, \U6e29\U6c34, \U8c46\U6c99\U9985, \U9762\U80a5, \U767d\U829d\U9ebb";
+Title = "\U8001\U5317\U4eac\U201c\U86e4\U87c6\U5410\U871c\U201d";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 2917;
+},
+{
+Collection = "831\U559c\U6b22   6165\U6d4f\U89c8";
+Cover = "http://recipe0.hoto.cn/pic/recipe/l/ee/37/931822_b1e92a.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 831;
+RecipeId = 931822;
+Stuff = "\U9762\U6761, \U9ec4\U74dc, \U7eff\U8c46\U82bd, \U76d0, \U829d\U9ebb\U9171, \U5927\U849c, \U9999\U918b, \U751f\U62bd, \U9999\U6cb9";
+Title = "\U5bb6\U5e38\U9ebb\U9171\U51c9\U9762";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 6165;
+},
+{
+Collection = "38\U559c\U6b22   5519\U6d4f\U89c8";
+Cover = "http://recipe0.hoto.cn/pic/recipe/l/e4/53/1004516_05140a.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 38;
+RecipeId = 1004516;
+Stuff = "\U7389\U7c73\U9762, \U9ec4\U8c46\U9762, \U5c0f\U7c73\U9762, \U4e94\U82b1\U8089, \U96ea\U91cc\U857b, \U6c34\U53d1\U7c89\U6761, \U76d0, \U9999\U6cb9, \U7cd6, \U6599\U9152, \U9e21\U7cbe, \U9175\U6bcd";
+Title = "\U8001\U5317\U4eac\U83dc\U56e2\U5b50";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 5519;
+},
+{
+Collection = "103\U559c\U6b22   3429\U6d4f\U89c8";
+Cover = "http://recipe1.hoto.cn/pic/recipe/l/f5/45/1000949_964f64.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 103;
+RecipeId = 1000949;
+Stuff = "\U9762\U7c89, \U897f\U846b\U82a6, \U9e21\U86cb, \U6cb9, \U76d0, \U5c0f\U8471, \U9999\U83dc, \U9e21\U7cbe, \U4e94\U9999\U7c89";
+Title = "\U8001\U5317\U4eac\U7cca\U584c\U5b50";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 3429;
+},
+{
+Collection = "105\U559c\U6b22   5401\U6d4f\U89c8";
+Cover = "http://recipe1.hoto.cn/pic/recipe/l/6d/3a/997997_249cc7.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 105;
+RecipeId = 997997;
+Stuff = "\U7389\U7c73\U9762, \U97ed\U83dc, \U9e21\U86cb, \U867e\U76ae, \U76d0, \U6cb9, \U9e21\U7cbe, \U9999\U6cb9";
+Title = "\U8001\U5317\U4eac\U6253\U7cca\U997c";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 5401;
+},
+{
+Collection = "3446\U559c\U6b22   49916\U6d4f\U89c8";
+Cover = "http://recipe0.hoto.cn/pic/recipe/l/dc/68/420060_8c6b4b.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 3446;
+RecipeId = 420060;
+Stuff = "\U7cef\U7c73\U9762, \U8c46\U9762, \U7ea2\U8c46\U6c99, \U6c34, \U6ce1\U6253\U7c89";
+Title = "\U9a74\U6253\U6eda";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 49916;
+},
+{
+Collection = "1602\U559c\U6b22   19697\U6d4f\U89c8";
+Cover = "http://recipe1.hoto.cn/pic/recipe/l/33/74/881715_aa1a0c.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 1602;
+RecipeId = 881715;
+Stuff = "\U9762\U7c89, \U9175\U6bcd, \U4e94\U82b1\U8089, \U5c0f\U8471, \U76d0, \U7cd6, \U6599\U9152, \U80e1\U6912\U7c89, \U5305\U5b50\U997a\U5b50\U8c03\U6599, \U751c\U9762\U9171, \U9171\U6cb9, \U59dc\U7c89, \U9e21\U7cbe, \U9999\U6cb9";
+Title = "\U8001\U5317\U4eac\U8089\U9f99";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 19697;
+},
+{
+Collection = "236\U559c\U6b22   9605\U6d4f\U89c8";
+Cover = "http://recipe0.hoto.cn/pic/recipe/l/f6/40/868598_7c7d60.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 236;
+RecipeId = 868598;
+Stuff = "\U9762\U7c89, \U8272\U62c9\U6cb9, \U76d0, \U98df\U7528\U5c0f\U82cf\U6253, \U6e29\U6c34, \U9175\U6bcd";
+Title = "\U8001\U5317\U4eac\U6cb9\U997c";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 9605;
+},
+{
+Collection = "360\U559c\U6b22   10490\U6d4f\U89c8";
+Cover = "http://recipe1.hoto.cn/pic/recipe/l/c1/1c/793793_a91781.jpg";
+Duration = "";
+HasVideo = 0;
+Intro = "";
+IsLike = 0;
+LikeCount = 360;
+RecipeId = 793793;
+Stuff = "\U9c9c\U5c71\U6942, \U767d\U7cd6, \U9ea6\U82bd\U7cd6, \U76d0, \U6c34";
+Title = "\U81ea\U5236\U7cd6\U846b\U82a6";
+UserId = 132473;
+UserName = "\U7ea2\U8c46\U53a8\U574a";
+ViewCount = 10490;
+}
+);
+shareinfo =         {
+Desc = "\U5230\U5317\U4eac\U600e\U4e48\U53ef\U80fd\U4e0d\U53bb\U54c1\U5c1d\U90a3\U4e9b\U4eac\U57ce\U6700\U6709\U7279\U8272\U7684\U5c0f\U5403\U5462\Uff1f\U4e0b\U9762\U5462\Uff0c\U5c0f\U7f16\U4e3a\U4f60\U76d8\U70b9\U5317\U4eac\U5404\U79cd\U8d85\U4eba\U6c14\U5c0f\U5403\U3002";
+Img = "http://recipe0.hoto.cn/pic/recipe/g_230/82/c2/901762_5bae70.jpg";
+Title = "#\U5bb6\U4e61\U5473#\U8d85\U4eba\U6c14\U7684\U5317\U4eac\U5c0f\U5403";
+Url = "http://m.haodou.com/recipe/album/9605433/";
+};
+};
+status = 200;
+}
