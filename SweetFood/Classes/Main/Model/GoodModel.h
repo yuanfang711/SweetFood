@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *nema;
 @property (nonatomic, strong) NSString *introl;
 @property (nonatomic, strong) NSString *foodID;
+@property (nonatomic, strong) NSString *type;
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic;
 
 

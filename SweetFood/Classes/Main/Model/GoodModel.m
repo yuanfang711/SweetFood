@@ -18,7 +18,8 @@
         self.ImageView = dic[@"Cover"];
         self.introl = dic[@"Intro"];
         self.nema = dic[@"UserName"];
-        self.foodID = dic[@"Recipeld"];
+        self.foodID = dic[@"RecipeId"];
+        self.type = dic[@"HasVideo"];
     }
     return self;
 }

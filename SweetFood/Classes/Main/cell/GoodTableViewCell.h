@@ -14,6 +14,6 @@
 @property (nonatomic, strong) GoodModel *goodModel;
 
 //定义一个类方法，在外部调用，通过传入model参数，计算出来每个cell的高度
-+(CGFloat )getCellHeightWithMangoModel:(GoodModel *)model;
++(CGFloat )getCellHeightWithGoodModel:(GoodModel *)model;
 
 @end

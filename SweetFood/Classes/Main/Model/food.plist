@@ -1,0 +1,504 @@
+{
+"request_id" = 274c698abbc96b4a474f091fed8d4836;
+result =     {
+info =         {
+Collection = "11\U559c\U6b22   1816\U6d4f\U89c8";
+CommentCount = 2;
+CommentList =             (
+{
+AtContent = "";
+AtImageSmallUrl = "";
+AtImageUrl = "";
+AtUserId = 0;
+AtUserName = "";
+Avatar = "http://avatar1.hoto.cn/67/0f/1118055_185.jpg";
+Cid = 30636637;
+Content = "\U7ecf\U5178\U53c8\U7f8e\U5473\U7684\U4f73\U80b4\Uff0c\U7ea2\U59d0\U505a\U5f97\U592a\U8bf1\U4eba\U5566\U3002[\U6d41\U53e3\U6c34]";
+CreateTime = "2\U5c0f\U65f6\U524d";
+Gender = 2;
+ImageSmallUrl = "";
+ImageUrl = "";
+IsAuthor = 0;
+IsVip = 0;
+UserId = 1118055;
+UserName = "\U79cb\U5929\U5230\U67ab\U53f6\U7ea2";
+},
+{
+AtContent = "";
+AtImageSmallUrl = "";
+AtImageUrl = "";
+AtUserId = 0;
+AtUserName = "";
+Avatar = "http://avatar1.hoto.cn/59/05/3474777_185.jpg?v=2";
+Cid = 30628288;
+Content = "\U8272\U9999\U5473\U4ff1\U5168[\U53e3\U6c34]";
+CreateTime = "\U6628\U592918:55";
+Gender = 2;
+ImageSmallUrl = "";
+ImageUrl = "";
+IsAuthor = 0;
+IsVip = 0;
+UserId = 3474777;
+UserName = "11\U7476\U747611";
+}
+);
+CookTime = "10\U5206\U949f\U5185";
+Cover = "http://recipe0.hoto.cn/pic/recipe/l/04/ee/1043972_b7cb2e.jpg";
+CreateTime = "\U521b\U5efa\U65e5\U671f:2016-03-09";
+DiggCount = 0;
+DiggUsersUrl = "haodourecipe://haodou.com/digg/getDiggUserList/?id=1043972&type=4";
+Duration = "";
+HasVideo = 0;
+Intro = "\U5a03\U5a03\U83dc\U53c8\U79f0\U5fae\U578b\U5927\U767d\U83dc\Uff0c\U4f46\U5176\U53e3\U611f\U6bd4\U5927\U767d\U83dc\U597d\U8bb8\U591a\Uff0c\U4ef7\U683c\U4e5f\U9ad8\U51fa\U8bb8\U591a\Uff0c\U56e0\U6b64\U4eba\U4eec\U7279\U522b\U559c\U6b22\U62ff\U5a03\U5a03\U83dc\U505a\U4e9b\U9ad8\U6863\U7684\U5bb4\U5ba2\U83dc\Uff0c\U5982\U4e0a\U6c64\U83dc\U3002\n\U4e0a\U6c64\U83dc\U5c31\U662f\U5c06\U4e0a\U6c64\U7684\U852c\U83dc\U4e0e\U9ad8\U6c64\U3001\U677e\U82b1\U86cb\U3001\U67b8\U675e\U3001\U5e72\U6d77\U9c9c\U6216\U8089\U7c7b\U540c\U716e\Uff0c\U6700\U540e\U6dc0\U7c89\U82b6\U82a1\U3002\U6b64\U83dc\U9999\U6d53\U5473\U9c9c\U3001\U53e3\U611f\U6d53\U90c1\U3002\n\U6750\U6599:\U5a03\U5a03\U83dc1\U68f5\U3001\U5e72\U8d1d20\U514b\U3001\U677e\U82b1\U86cb1\U4e2a\U3001\U5927\U849c2\U74e3\U3001\U59dc5\U514b\U3001\U5c0f\U84711\U6839\U3001\U67b8\U675e4\U514b";
+IsDigg = 0;
+IsLike = 0;
+LastDiggUsers =             (
+{
+Avatar = "http://avatar0.hoto.cn/b8/70/9531576_185.jpg?v=1";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=9531576";
+UserId = 9531576;
+},
+{
+Avatar = "http://avatar1.hoto.cn/4b/13/9573195_185.jpg?v=1";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=9573195";
+UserId = 9573195;
+},
+{
+Avatar = "http://avatar0.hoto.cn/ea/52/4215530_185.jpg";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=4215530";
+UserId = 4215530;
+},
+{
+Avatar = "http://avatar1.hoto.cn/19/94/5018649_185.jpg";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=5018649";
+UserId = 5018649;
+},
+{
+Avatar = "http://avatar1.hoto.cn/e1/af/3649505_185.jpg?v=1";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=3649505";
+UserId = 3649505;
+},
+{
+Avatar = "http://avatar1.hoto.cn/e1/46/5588705_185.jpg";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=5588705";
+UserId = 5588705;
+},
+{
+Avatar = "http://avatar0.hoto.cn/10/ec/5434384_185.jpg?v=1";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=5434384";
+UserId = 5434384;
+},
+{
+Avatar = "http://avatar1.hoto.cn/75/5f/8937333_185.jpg?v=2";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=8937333";
+UserId = 8937333;
+},
+{
+Avatar = "http://avatar1.hoto.cn/59/05/3474777_185.jpg?v=2";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=3474777";
+UserId = 3474777;
+}
+);
+LikeCount = 11;
+MainStuff =             (
+{
+cate = "\U852c\U83dc";
+cateid = 10;
+"food_flag" = 1;
+id = 9207;
+name = "\U5a03\U5a03\U83dc";
+type = 1;
+weight = "1\U68f5";
+},
+{
+cate = "\U8089\U86cb\U7c7b";
+cateid = 9;
+"food_flag" = 1;
+id = 2239;
+name = "\U677e\U82b1\U86cb";
+type = 1;
+weight = "1\U4e2a";
+},
+{
+cate = "\U6c34\U4ea7\U54c1";
+cateid = 11;
+"food_flag" = 1;
+id = 693;
+name = "\U5e72\U8d1d";
+type = 1;
+weight = 20g;
+}
+);
+MallUrl = "haodourecipe://haodou.com/index/discovery/";
+OtherStuff =             (
+{
+cate = "\U8c03\U5473\U6599";
+cateid = 2;
+"food_flag" = 0;
+id = 0;
+name = "\U6cb9";
+type = 2;
+weight = "\U9002\U91cf";
+},
+{
+cate = "\U8c03\U5473\U6599";
+cateid = 2;
+"food_flag" = 0;
+id = 0;
+name = "\U76d0";
+type = 2;
+weight = "\U9002\U91cf";
+},
+{
+cate = "\U852c\U83dc";
+cateid = 10;
+"food_flag" = 0;
+id = 0;
+name = "\U5927\U849c";
+type = 2;
+weight = "2\U74e3";
+},
+{
+cate = "\U852c\U83dc";
+cateid = 10;
+"food_flag" = 0;
+id = 0;
+name = "\U5c0f\U8471";
+type = 2;
+weight = "1\U6839";
+},
+{
+cate = "\U852c\U83dc";
+cateid = 10;
+"food_flag" = 0;
+id = 0;
+name = "\U59dc";
+type = 2;
+weight = 5g;
+},
+{
+cate = "\U836f\U6750";
+cateid = 15;
+"food_flag" = 0;
+id = 0;
+name = "\U67b8\U675e";
+type = 2;
+weight = 4g;
+},
+{
+cate = "\U8c03\U5473\U6599";
+cateid = 2;
+"food_flag" = 0;
+id = 0;
+name = "\U9ad8\U6c64";
+type = 2;
+weight = "1\U996d\U7897";
+}
+);
+PhotoCount = 1;
+PhotoList =             (
+"http://recipe0.hoto.cn/pic/recipe/l/04/ee/1043972_b7cb2e.jpg",
+"http://recipe0.hoto.cn/pic/recipe/l/04/ee/1043972_5799db.jpg",
+"http://recipe0.hoto.cn/pic/recipe/l/04/ee/1043972_ef3071.jpg",
+"http://recipe0.hoto.cn/pic/recipe/l/04/ee/1043972_b30413.jpg"
+);
+Product =             (
+{
+Avatar = "http://avatar0.hoto.cn/a6/73/553894_185.jpg";
+Content = "\U5f88\U7f8e\U5473";
+DiggCount = 13;
+Img = "http://recipe0.hoto.cn/pic/userphoto/92/6e/2453138_478.jpg!s.userphoto.175?t=1457525836";
+IsDigg = 0;
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=553894";
+Pid = 2453138;
+Url = "haodourecipe://haodou.com/photo/?id=2453138";
+UserId = 553894;
+UserName = "\U7530\U56ed";
+},
+{
+Avatar = "http://avatar1.hoto.cn/f9/0f/5771257_185.jpg";
+Content = "";
+DiggCount = 16;
+Img = "http://recipe1.hoto.cn/pic/userphoto/e7/6b/2452455_478.jpg!s.userphoto.175?t=1457503698";
+IsDigg = 0;
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=5771257";
+Pid = 2452455;
+Url = "haodourecipe://haodou.com/photo/?id=2452455";
+UserId = 5771257;
+UserName = "\U6881\U51ef\U5f6d";
+},
+{
+Avatar = "http://avatar1.hoto.cn/85/9b/2530181_185.jpg";
+Content = "";
+DiggCount = 0;
+Img = "http://recipe1.hoto.cn/pic/show/63/6b/2452323-1.jpg!s.userphoto.175?t=1457500445";
+IsDigg = 0;
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=2530181";
+Pid = 2452323;
+Url = "haodourecipe://haodou.com/photo/?id=2452323";
+UserId = 2530181;
+UserName = "\U8ffd\U4e2f\U5b52";
+},
+{
+Avatar = "http://avatar0.hoto.cn/42/58/6510658_185.jpg";
+Content = "\U53d8\U8eab\U6210\U6027\U611f\U5973\U795e\U739b\U4e3d\U83b2\U68a6\U9732\U7684\U88d9\U9970";
+DiggCount = 16;
+Img = "http://recipe1.hoto.cn/pic/userphoto/55/5b/2448213_478.jpg!s.userphoto.175?t=1457265023";
+IsDigg = 0;
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=6510658";
+Pid = 2448213;
+Url = "haodourecipe://haodou.com/photo/?id=2448213";
+UserId = 6510658;
+UserName = "\U516d\U661f";
+},
+{
+Avatar = "http://avatar1.hoto.cn/67/28/3876967_185.jpg";
+Content = "\U7b80\U5355\U597d\U505a\U4e5f\U597d\U5403";
+DiggCount = 0;
+Img = "http://recipe1.hoto.cn/pic/show/93/2e/2436755-1.jpg!s.userphoto.175?t=1456570864";
+IsDigg = 0;
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=3876967";
+Pid = 2436755;
+Url = "haodourecipe://haodou.com/photo/?id=2436755";
+UserId = 3876967;
+UserName = cicinoone;
+}
+);
+ProductCount = 406;
+Rate = 4;
+ReadyTime = "10-20\U5206\U949f";
+RecipeId = 1043972;
+RecommendTopic =             (
+{
+Avatar = "http://avatar0.hoto.cn/44/7f/5996356_185.jpg?v=5";
+Collection = "20\U5206\U949f\U524d   19\U56de\U590d\U56de\U590d";
+CommentCount = "19\U56de\U590d";
+LastPostTime = "20\U5206\U949f\U524d";
+Title = "\U9e21\U80f8\U8089\U62cc\U7740\U624d\U597d\U5403\Uff08\U9644\U5927\U6599\U6cb9\U7684\U5236\U4f5c\Uff09";
+TopicId = 433032;
+Url = "haodourecipe://haodou.com/opentopic/?url=http%3A%2F%2Fm.haodou.com%2Ftopic-433032.html%3F_v%3Dnohead&id=433032";
+UserId = 5996356;
+UserName = "\U9ea6\U5b50\U8001\U5988";
+},
+{
+Avatar = "http://avatar0.hoto.cn/c2/ad/568770_185.jpg?v=29";
+Collection = "1\U5206\U949f\U524d   15\U56de\U590d\U56de\U590d";
+CommentCount = "15\U56de\U590d";
+LastPostTime = "1\U5206\U949f\U524d";
+Title = "\U59dc\U6c41\U51c9\U62cc\U83b4\U82e3\U7247";
+TopicId = 433003;
+Url = "haodourecipe://haodou.com/opentopic/?url=http%3A%2F%2Fm.haodou.com%2Ftopic-433003.html%3F_v%3Dnohead&id=433003";
+UserId = 568770;
+UserName = "\U72fc\U4e4b\U821e";
+},
+{
+Avatar = "http://avatar1.hoto.cn/e9/cc/642281_185.jpg";
+Collection = "23\U5206\U949f\U524d   13\U56de\U590d\U56de\U590d";
+CommentCount = "13\U56de\U590d";
+LastPostTime = "23\U5206\U949f\U524d";
+Title = "\U4e0a\U73ed\U65cf\U5fc5\U5b66\U4e0b\U996d\U83dc\U8001\U5e72\U5988\U70e7\U51ac\U74dc";
+TopicId = 430110;
+Url = "haodourecipe://haodou.com/opentopic/?url=http%3A%2F%2Fm.haodou.com%2Ftopic-430110.html%3F_v%3Dnohead&id=430110";
+UserId = 642281;
+UserName = "\U5929\U5c71\U53ef\U53ef";
+}
+);
+ReviewTime = "2016-03-09";
+Reward =             {
+Desc = "\U8d76\U7d27\U544a\U8bc9Ta: \U6fc0\U52a8\U7684\U5fc3\U60c5\U65e0\U6cd5\U7528\U8a00\U8bed\U8868\U8fbe, \U8d4f\U60a810\U8c46\U5e01\U8bf7\U7b11\U7eb3\U54c8~";
+Id = 1043972;
+IsReward = 0;
+RewardAble = 1;
+RewardCount = 0;
+Title = "\U6253\U8d4f\U5566\Uff01\U53ea\U9700<font color=\"#ff6600\">10\U8c46\U5e01</font>\U54e6~";
+Type = 0;
+UserListDesc = "";
+UserListUrl = "haodourecipe://haodou.com/reward/users/?id=1043972&ItemType=0";
+Words =                 (
+"\U8d85\U8d5e",
+"\U5e05\U5446\U4e86",
+"\U9177\U6bd9",
+"\U4ef0\U6155",
+"\U5929\U4e0b\U65e0\U53cc",
+"\U592a\U7ecf\U5178\U4e86",
+"\U5c0f\U610f\U601d",
+"\U5b87\U5b99\U65e0\U654c\U7cbe\U5f69",
+"\U597d\U5230\U6211\U5fc3\U574e\U91cc\U4e86"
+);
+};
+Status = 0;
+Steps =             (
+{
+Intro = "\U5907\U597d\U6750\U6599\Uff1a\U5a03\U5a03\U83dc1\U68f5\U3001\U5e72\U8d1d20\U514b\U3001\U677e\U82b1\U86cb1\U4e2a\U3001\U5927\U849c2\U74e3\U3001\U59dc5\U514b\U3001\U5c0f\U84711\U6839\n";
+StepPhoto = "http://recipe0.hoto.cn/pic/step/g_800/ca/9f/4562890.jpg";
+},
+{
+Intro = "\U5e72\U8d1d\U6ce110\U5206\U949f\Uff0c\U6458\U6d17\U5e72\U51c0\Uff1b\U5a03\U5a03\U83dc\U5256\U52076\U74e3\Uff1b\U677e\U82b1\U86cb\U5265\U58f3\Uff0c\U5207\U6210\U5c0f\U5757\Uff1b\U59dc\U5207\U672b\Uff1b\U5927\U849c\U62cd\U4e00\U4e0b\Uff0c\U53bb\U76ae\U5207\U788e\Uff1b\U5c0f\U8471\U5207\U82b1\Uff0c\U6ce1\U5f00\U7ea64\U514b\U7684\U67b8\U675e\U3002\n";
+StepPhoto = "http://recipe1.hoto.cn/pic/step/g_800/cb/9f/4562891.jpg";
+},
+{
+Intro = "\U9505\U91cc\U5012\U5c11\U91cf\U7684\U6cb9\Uff0c\U6cb9\U6e29\U70ed\U65f6\U5148\U4e0b\U5927\U849c\U548c\U751f\U59dc\U7206\U9999\Uff0c\U7d27\U63a5\U7740\U4e0b\U677e\U82b1\U86cb\U7092\U4e24\U94f2\U5b50\U3002\n";
+StepPhoto = "http://recipe0.hoto.cn/pic/step/g_800/cc/9f/4562892.jpg";
+},
+{
+Intro = "\U4f9d\U6b21\U52a0\U5165\U9ad8\U6c64\U3001\U5e72\U8d1d\U3001\U67b8\U675e\U548c\U76d0\U3002\n";
+StepPhoto = "http://recipe1.hoto.cn/pic/step/g_800/cd/9f/4562893.jpg";
+},
+{
+Intro = "\U6c64\U6c41\U716e\U5f00\U540e\Uff0c\U4e0b\U5a03\U5a03\U83dc\Uff0c\U76d6\U9505\U71161-2\U5206\U949f\U3002\n";
+StepPhoto = "http://recipe0.hoto.cn/pic/step/g_800/ce/9f/4562894.jpg";
+},
+{
+Intro = "\U63ed\U76d6\U7ed9\U5a03\U5a03\U83dc\U7ffb\U4e2a\U9762\Uff0c\U7136\U540e\U5c06\U5a03\U5a03\U83dc\U6361\U51fa\U6765\Uff0c\U6446\U76d8\U3002\n";
+StepPhoto = "http://recipe1.hoto.cn/pic/step/g_800/cf/9f/4562895.jpg";
+},
+{
+Intro = "\U6700\U540e\U7528\U5c11\U91cf\U7684\U6dc0\U7c89\U82b6\U4e00\U4e2a\U8584\U82a1\U3002\n";
+StepPhoto = "http://recipe0.hoto.cn/pic/step/g_800/d0/9f/4562896.jpg";
+},
+{
+Intro = "\U6d47\U5230\U5a03\U5a03\U83dc\U4e0a\U9762\Uff0c\U8fd9\U9053\U83dc\U5c31\U5b8c\U6210\U4e86\U3002";
+StepPhoto = "http://recipe1.hoto.cn/pic/step/g_800/d1/9f/4562897.jpg";
+}
+);
+Stuff =             (
+{
+cate = "\U852c\U83dc";
+cateid = 10;
+"food_flag" = 1;
+id = 9207;
+name = "\U5a03\U5a03\U83dc";
+type = 1;
+weight = "1\U68f5";
+},
+{
+cate = "\U8089\U86cb\U7c7b";
+cateid = 9;
+"food_flag" = 1;
+id = 2239;
+name = "\U677e\U82b1\U86cb";
+type = 1;
+weight = "1\U4e2a";
+},
+{
+cate = "\U6c34\U4ea7\U54c1";
+cateid = 11;
+"food_flag" = 1;
+id = 693;
+name = "\U5e72\U8d1d";
+type = 1;
+weight = 20g;
+},
+{
+cate = "\U8c03\U5473\U6599";
+cateid = 2;
+"food_flag" = 0;
+id = 0;
+name = "\U6cb9";
+type = 2;
+weight = "\U9002\U91cf";
+},
+{
+cate = "\U8c03\U5473\U6599";
+cateid = 2;
+"food_flag" = 0;
+id = 0;
+name = "\U76d0";
+type = 2;
+weight = "\U9002\U91cf";
+},
+{
+cate = "\U852c\U83dc";
+cateid = 10;
+"food_flag" = 0;
+id = 0;
+name = "\U5927\U849c";
+type = 2;
+weight = "2\U74e3";
+},
+{
+cate = "\U852c\U83dc";
+cateid = 10;
+"food_flag" = 0;
+id = 0;
+name = "\U5c0f\U8471";
+type = 2;
+weight = "1\U6839";
+},
+{
+cate = "\U852c\U83dc";
+cateid = 10;
+"food_flag" = 0;
+id = 0;
+name = "\U59dc";
+type = 2;
+weight = 5g;
+},
+{
+cate = "\U836f\U6750";
+cateid = 15;
+"food_flag" = 0;
+id = 0;
+name = "\U67b8\U675e";
+type = 2;
+weight = 4g;
+},
+{
+cate = "\U8c03\U5473\U6599";
+cateid = 2;
+"food_flag" = 0;
+id = 0;
+name = "\U9ad8\U6c64";
+type = 2;
+weight = "1\U996d\U7897";
+}
+);
+Tags =             (
+{
+Id = 50983;
+Name = "\U5bb4\U5ba2";
+},
+{
+Id = 23898;
+Name = "\U5feb\U624b\U83dc";
+},
+{
+Id = 215;
+Name = "\U7ca4\U83dc";
+},
+{
+Id = 49127;
+Name = "\U589e\U5f3a\U514d\U75ab\U529b";
+},
+{
+Id = 481;
+Name = "\U716e";
+}
+);
+TalkUrl = "haodourecipe://haodou.com/douquan/";
+Tips = "1.\U8fd9\U662f\U4e00\U9053\U5feb\U624b\U83dc\Uff0c\U5c06\U5168\U90e8\U6750\U6599\U5907\U597d\Uff0c\U6309\U8fc7\U7a0b\U6b65\U9aa4\U4e00\U6c14\U5475\U6210\U3002\n2.\U8fd9\U9053\U83dc\U975e\U5e38\U7684\U9c9c\U7f8e\U4e00\U5b9a\U4e0d\U8981\U7528\U5473\U7cbe\Uff0c\U7528\U4e00\U70b9\U70b9\U76d0\U8c03\U5473\U5373\U53ef\Uff0c\U6700\U591a\U518d\U52a0\U70b9\U80e1\U6912\U7c89\U3002\n3.\U8fd8\U6709\U66f4\U591a\U7684\U4e0a\U6c64\U83dc\Uff0c\U5982http://www.haodou.com/recipe/885025/";
+Title = "\U4e0a\U6c64\U5a03\U5a03\U83dc";
+Type = 1;
+UserCount = "";
+UserId = 489704;
+UserInfo =             {
+Avatar = "http://avatar0.hoto.cn/e8/78/489704_185.jpg?v=4";
+FavoriteList =                 (
+);
+Gender = 0;
+Intro = "\U70d8\U7119\U4e13\U5bb6\U3001\U897f\U9910\U4e13\U5bb6\U3001\U751f\U6d3b\U76df\U4e3b";
+OpenUrl = "haodourecipe://haodou.com/user/wo/?id=489704";
+Relation = 0;
+UserId = 489704;
+UserName = "\U632a\U7ea2";
+Vip = 1;
+};
+VideoCover = "";
+ViewCount = 1816;
+"ad_data" =             {
+};
+"ad_flag" = 0;
+};
+};
+status = 200;
+}

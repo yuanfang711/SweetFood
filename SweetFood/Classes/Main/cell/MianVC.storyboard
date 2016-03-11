@@ -16,46 +16,60 @@
             </objects>
             <point key="canvasLocation" x="671.5" y="461.5"/>
         </scene>
-        <!--Activity View Controller-->
-        <scene sceneID="yaN-4t-rFd">
+        <!--Story View Controller-->
+        <scene sceneID="kSZ-us-zdg">
             <objects>
-                <viewController storyboardIdentifier="activity" id="Igu-Bz-SUa" customClass="ActivityViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="movie" id="jxC-tZ-zJY" customClass="StoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Yhl-9x-mJJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Ep-NK-0zy"/>
+                        <viewControllerLayoutGuide type="top" id="oar-xn-zrw"/>
+                        <viewControllerLayoutGuide type="bottom" id="vuT-U1-byV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uRl-fQ-kOz">
+                    <view key="view" contentMode="scaleToFill" id="TXg-0n-KOl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDE-kh-6uM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="179"/>
-                                <color key="backgroundColor" red="1" green="0.67259529799999995" blue="0.70790798860000004" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBy-mz-fq4">
-                                <rect key="frame" x="0.0" y="244" width="375" height="34"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysj-Qy-fNX">
-                                        <rect key="frame" x="0.0" y="0.0" width="188" height="34"/>
-                                        <color key="backgroundColor" red="1" green="0.95050803549999996" blue="0.68754158649999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9e-WA-MJs">
-                                        <rect key="frame" x="187" y="0.0" width="188" height="34"/>
-                                        <color key="backgroundColor" red="1" green="0.95050803549999996" blue="0.68754158649999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdO-sl-I17">
+                                <rect key="frame" x="0.0" y="62" width="375" height="200"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zu5-zo-Oh0">
+                                <rect key="frame" x="0.0" y="263" width="126" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                <state key="normal" title="详情">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1un-ji-Hqt">
+                                <rect key="frame" x="248" y="263" width="127" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="步骤">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pH4-Rn-ib4">
+                                <rect key="frame" x="124" y="263" width="127" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="食材">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.93403063320000002" green="0.94032689140000003" blue="0.93485300159999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="DetailsButtonView" destination="zu5-zo-Oh0" id="6aY-c5-4QB"/>
+                        <outlet property="ImageView" destination="LdO-sl-I17" id="0hx-F3-AMW"/>
+                        <outlet property="foodBuutonView" destination="pH4-Rn-ib4" id="CKh-ro-r6h"/>
+                        <outlet property="stepButtonView" destination="1un-ji-Hqt" id="UPA-gW-HiS"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zf4-K9-wmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qoU-YW-glm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119.5" y="461.5"/>
+            <point key="canvasLocation" x="1163.5" y="461.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9tY-2w-bjN">

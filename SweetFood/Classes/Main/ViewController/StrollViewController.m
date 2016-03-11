@@ -7,8 +7,8 @@
 //
 
 #import "StrollViewController.h"
-
-
+#import "MenuModel.h"
+#import "ActivityViewController.h"
 static NSString *cellsting = @"movie";
 @interface StrollViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSInteger _pageMovie;
@@ -24,6 +24,8 @@ static NSString *cellsting = @"movie";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self showBackButtonWithImage:@"back"];
+    
     
     [self.view addSubview:self.collectionView];
     [self getDateload];
@@ -35,26 +37,22 @@ static NSString *cellsting = @"movie";
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [ProgressHUD show:@"正在请求"];
     _pageMovie = 0;
-    [manager GET:[NSString stringWithFormat:@"%@&offset=%ld&cate_id=%@",kToolMovie,_pageMovie,self.movieId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    
+    
+    [manager GET:  [NSString stringWithFormat:@"%@&type=%@&cate_id=%@",kToolMovie,self.videoType,self.movieId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"请求成功"];
         
         NSDictionary *dic = responseObject;
-//        NSDictionary *result = dic[@"result"];
-//        NSArray *cateList = result[@"CateList"];
-//        for (NSDictionary *listDic in cateList) {
-//            [self.CateArray addObject:listDic];
-//        }
-//        NSArray *video = result[@"VideoList"];
-//        for (NSDictionary *listDic in video) {
-//            [self.name addObject:listDic];
-//            NSArray *array = listDic[@"List"];
-//            [self.VideoArray addObject:array];
-//            
-//        }
-//        [self.collectionView reloadData];
-//        [self SettingToolButton];
+        NSDictionary *result = dic[@"result"];
+        NSArray *cateList = result[@"list"];
+        for (NSDictionary *listDic in cateList) {
+//            MenuModel *model = [[MenuModel alloc] initWithNSDicetionary:listDic];
+            [self.cellArray addObject:listDic];
+        }
+        [self.collectionView reloadData];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [ProgressHUD showError:@"请求失败"];
         NSLog(@"%@",error);
@@ -63,48 +61,54 @@ static NSString *cellsting = @"movie";
 
 #pragma mark ------------- 代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 20;
+    return self.cellArray.count;
     
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellsting forIndexPath:indexPath];
-//    if (indexPath.row < group.count) {
+    for (UIView *viewi in cell.contentView.subviews) {
+        [viewi removeFromSuperview];
+    }
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, cell.frame.size.width - 10, cell.frame.size.height-30)];
-                imageView.backgroundColor = [UIColor cyanColor];
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:group[indexPath.row][@"Cover"]] placeholderImage:nil];
-    
+//        imageView.backgroundColor = [UIColor cyanColor];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.cellArray[indexPath.row][@"Cover"]] placeholderImage:nil];
         UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(5, cell.frame.size.height - 20,cell.frame.size.width - 10,20)];
-        lable.textAlignment = NSTextAlignmentCenter;
-    lable.backgroundColor = [UIColor orangeColor];
+        lable.text = self.cellArray[indexPath.row][@"Title"];
+//        lable.textAlignment = NSTextAlignmentCenter;
+//        lable.backgroundColor = [UIColor orangeColor];
+//        UILabel *play = [[UILabel alloc] initWithFrame:CGRectMake(5, cell.frame.size.height - 20,cell.frame.size.width - 10,20)];
+//        lable.text = self.cellArray[indexPath.row][@"Title"];
+
         [cell.contentView addSubview:lable];
         [cell.contentView addSubview:imageView];
         cell.backgroundColor = [UIColor whiteColor];
-//    }
-
-    
-    
     return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+   ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
+    actiVC.fooDid = self.cellArray[indexPath.row][@"VideoId"];
+    [self.navigationController pushViewController:actiVC animated:YES];
+}
+
 #pragma mark -------------
 #pragma mark -------------
 #pragma mark ------------- 懒加载
 - (UICollectionView *)collectionView{
     if (_collectionView == nil) {
-        
-
+    
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         //设置布局方向为垂直
         layout.scrollDirection =UICollectionViewScrollDirectionVertical;
         //每一个的item的间距
-        layout.minimumInteritemSpacing = 0.1;
+        layout.minimumInteritemSpacing = 0.01;
         //每一行的间距
         layout.minimumLineSpacing = 2;
         //设置item整体在屏幕的位置
-        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         
         //每个设置的大小为
-        layout.itemSize = CGSizeMake(kScreenWitch/2- 10,135);
+        layout.itemSize = CGSizeMake(kScreenWitch/2-3 ,135);
         
         //通过layout布局来创建一个collection
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) collectionViewLayout:layout];
@@ -117,7 +121,7 @@ static NSString *cellsting = @"movie";
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellsting];
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
-        
+        self.collectionView.backgroundColor = [UIColor whiteColor];
     }
     return _collectionView;
 }

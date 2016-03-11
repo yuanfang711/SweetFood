@@ -38,10 +38,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-http://m.haodou.com/topic-428563.html?_v=nohead
- http://m.haodou.com/topic-431111.html?_v=nohead
- */
+
 
 /*
 #pragma mark - Navigation

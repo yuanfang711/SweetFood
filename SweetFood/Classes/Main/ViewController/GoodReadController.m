@@ -9,11 +9,13 @@
 #import "GoodReadController.h"
 #import "GoodTableViewCell.h"
 #import "GoodModel.h"
+#import "ActivityViewController.h"
+#import "StoryViewController.h"
 @interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headView;
-@property (nonatomic, strong) NSMutableArray *infoArray;
+@property (nonatomic, strong) NSDictionary *infoDic;
 @property (nonatomic, strong) NSMutableArray *listArray;
 
 @end
@@ -25,9 +27,10 @@
     // Do any additional setup after loading the view.
     [self showBackButtonWithImage:@"back"];
     
-    self.tableView.sectionIndexColor = [UIColor grayColor];
+//    self.tableView.sectionIndexColor = [UIColor grayColor];
     
     [self.view addSubview:self.tableView];
+    
     [self getDataLoad];
     
 }
@@ -47,10 +50,7 @@
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];
         //头数据
-        NSDictionary *recipeDic = result[@"info"];
-        [self.infoArray addObject:recipeDic];
-
-        
+        self.infoDic = result[@"info"];
         //列表
         NSArray *alArray = result[@"list"];
         for (NSDictionary *listDic in alArray) {
@@ -58,13 +58,42 @@
             [self.listArray addObject:model];
         }
         [self.tableView reloadData];
-
+        [self settingHeadView];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
     
 }
-
+- (void)settingHeadView{
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 180)];
+    imageV.backgroundColor = [UIColor redColor];
+    //图片
+    [imageV sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"AlbumCover"]] placeholderImage:nil];
+    
+    //标题
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, kScreenWitch-60, 30)];
+    title.textAlignment = NSTextAlignmentCenter;
+    title.textColor = [UIColor whiteColor];
+    title.text = self.infoDic[@"AlbumTitle"];
+    
+    //名字
+    UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/3, 90, kScreenWitch/3, 30)];
+    name.textColor = [UIColor whiteColor];
+    name.textAlignment = NSTextAlignmentCenter;
+    name.text = self.infoDic[@"AlbumUserName"];
+    
+    //介绍
+    UILabel *introl = [[UILabel alloc] initWithFrame:CGRectMake(20, 185, kScreenWitch-40, 75)];
+    introl.numberOfLines = 0;
+    introl.text = self.infoDic[@"AlbumContent"];
+    
+    
+    
+    [self.headView addSubview:imageV];
+    [self.headView addSubview:title];
+    [self.headView addSubview:name];
+    [self.headView addSubview:introl];
+}
 
 #pragma mark ---------- 代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -79,7 +108,19 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.listArray.count;
 }
-#pragma mark ---------- 点击方法
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    GoodModel *model = self.listArray[indexPath.row];
+    CGFloat cellHeight = [GoodTableViewCell getCellHeightWithGoodModel:model];
+    return cellHeight;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    GoodModel *model = self.listArray[indexPath.row];
+        ActivityViewController *activityVC = [[ActivityViewController alloc] init];
+        activityVC.fooDid = model.foodID;
+        [self.navigationController pushViewController:activityVC animated:YES];
+}
+
 #pragma mark ---------- 懒加载
 - (UITableView *)tableView{
     if ( _tableView == nil) {
@@ -87,16 +128,20 @@
         
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.rowHeight = 230;
-        self.tableView.sectionIndexColor = [UIColor brownColor];
+        self.tableView.tableHeaderView = self.headView;
+        self.tableView.separatorColor = [UIColor clearColor];
     }
     return _tableView;
 }
 
-//
-//- (UIView *)headView{
-//    if
-//}
+
+- (UIView *)headView{
+    if(_headView == nil)
+    {
+        _headView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, kScreenWitch -10, 260)];
+    }
+    return _headView;
+}
 
 
 - (NSMutableArray *)listArray{
@@ -106,11 +151,11 @@
     return _listArray;
 }
 
-- (NSMutableArray *)infoArray{
-    if (_infoArray == nil) {
-        _infoArray = [NSMutableArray new];
+- (NSDictionary *)infoDic{
+    if ( _infoDic == nil) {
+        _infoDic = [NSDictionary new];
     }
-    return _infoArray;
+    return _infoDic;
 }
 
 - (void)didReceiveMemoryWarning {

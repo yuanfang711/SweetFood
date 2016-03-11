@@ -9,17 +9,16 @@
 #import "MenuModel.h"
 
 @implementation MenuModel
-
-//-(instancetype)initWithNSDicetionary:(NSDictionary *)dic{
-//    self = [super init];
-//    if (self) {
-//        self.title =dic[@"AlbumTitle"];
-//        self.icin = dic[@"AlbumAvatarUrl"];
-//        self.introl = dic[@"AlbumContent"];
-//        self.ImageView = dic[@"AlbumCover"];
-//        self.name = dic[@"AlbumUserName"];
-//    }
-//    return self;
-//}
+-(instancetype)initWithNSDicetionary:(NSDictionary *)dic{
+    self = [super init];
+    if (self) {
+        self.title =dic[@"Title"];
+        self.playNum = dic[@"PlayCount"];
+        self.videoId = dic[@"VideoId"];
+        self.ImageView = dic[@"Cover"];
+        self.foodType = dic[@"Type"];
+    }
+    return self;
+}
 
 @end

@@ -1,6 +1,6 @@
 //
 //  MenuModel.h
-//  SweetFood
+//  视频标签点击
 //
 //  Created by scjy on 16/3/8.
 //  Copyright © 2016年 范芳芳. All rights reserved.
@@ -10,12 +10,12 @@
 
 @interface MenuModel : NSObject
 
-@property (nonatomic, strong) NSString *Cover;
-@property (nonatomic, strong) NSString *introl;
-@property (nonatomic, strong) NSString *ImageView;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *title;
 
+@property (nonatomic, strong) NSString *ImageView;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *foodType;
+@property (nonatomic, strong) NSString *videoId;
+@property (nonatomic, strong) NSString *playNum;
 - (instancetype)initWithNSDicetionary:(NSDictionary *)dic;
 
 

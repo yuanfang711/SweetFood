@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *intro;
 @property (nonatomic, strong) NSString *loveID;
-
+@property (nonatomic, strong) NSString *type;
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic;
 
 @end

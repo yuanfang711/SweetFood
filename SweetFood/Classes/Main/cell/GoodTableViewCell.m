@@ -8,7 +8,9 @@
 
 #import "GoodTableViewCell.h"
 
-@interface GoodTableViewCell ()
+@interface GoodTableViewCell (){
+    CGRect rect;
+}
 @property (nonatomic, strong) UIImageView *icon;
 @property (nonatomic, strong) UILabel *introl;
 @property (nonatomic, strong) UILabel *title;
@@ -42,47 +44,70 @@
     [self addSubview:self.introl];
 }
 
-//- (void)setMenuModel:(MenuModel *)menuModel{
-//    //    [self.icon sd_setImageWithURL:[NSURL URLWithString:menuModel.icin] placeholderImage:nil];
-//    //    self.introl.text = menuModel.introl;
-//
-//}
+
+
+//获取整个cell的高度  = 图片 加  介绍的label的高度
++(CGFloat )getCellHeightWithGoodModel:(GoodModel *)model{
+    CGFloat textHeight = [[self class] getTextHeightWithText:model.introl];
+    return (textHeight + 225);
+}
+//获取cell中introduce的高度
++ (CGFloat)getTextHeightWithText:(NSString *)introl{
+    CGRect rect = [introl boundingRectWithSize:CGSizeMake(kScreenWitch - 40, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil];
+    return rect.size.height;
+}
+
 
 - (void)setGoodModel:(GoodModel *)goodModel{
     [self.icon sd_setImageWithURL:[NSURL URLWithString:goodModel.ImageView] placeholderImage:nil];
-    self.introl.text = goodModel.introl;
+
     self.title.text = goodModel.title;
     self.neme.text = goodModel.nema;
+    
+    
+    self.introl.text = goodModel.introl;
+    
+    CGFloat heaght = [[self class]getTextHeightWithText:goodModel.introl];
+    CGRect frame = self.introl.frame;
+    frame.size.height = heaght;
+    self.introl.frame = frame;
+    
+    
 }
 
 - (UIImageView *)icon{
     if (_icon == nil) {
-        _icon = [[UIImageView alloc] initWithFrame:CGRectMake(20, 5, kScreenWitch - 40, 210)];
+        _icon = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, kScreenWitch - 40, 210)];
     }
     return _icon;
 }
 
+- (UILabel *)introl{
+    if (_introl == nil) {
+        _introl = [[UILabel alloc] initWithFrame:CGRectMake(20, 225, kScreenWitch - 40, 40)];
+        self.introl.numberOfLines = 0;
+        self.introl.font = [UIFont systemFontOfSize:15.0];
+    }
+    return _introl;
+}
+
 - (UILabel *)title{
     if (_title == nil) {
-        _title = [[UILabel alloc] initWithFrame:CGRectMake(20, 150, 200, 30)];
+        _title = [[UILabel alloc] initWithFrame:CGRectMake(30, 150, 200, 30)];
     }
     return _title;
 }
 
+
 - (UILabel *)neme{
     if (_neme == nil) {
-        _neme = [[UILabel alloc] initWithFrame:CGRectMake(20, 180, 200, 20)];
+        _neme = [[UILabel alloc] initWithFrame:CGRectMake(30, 180, 200, 20)];
         self.neme.font = [UIFont systemFontOfSize:15.0];
     }
     return _neme;
 }
 
-- (UILabel *)introl{
-    if (_introl == nil) {
-        _introl = [[UILabel alloc] initWithFrame:CGRectMake(10, 210, kScreenWitch - 20, 20)];
-    }
-    return _introl;
-}
+
 
 
 - (void)awakeFromNib {

@@ -12,6 +12,7 @@
 #import "HotThemeController.h"
 #import "UIViewController+Common.h"
 #import "LoveModel.h"
+#import "StoryViewController.h"
 #import "ActivityViewController.h"
 
 @interface ChufangViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -79,6 +80,10 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [ProgressHUD show:@"为你加载数据"];
+    /*
+     http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457588594904&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=fb27cc857abaff75ff3eb8a7d0f8fa20&channel=oppo_v603&method=Search.getList&virtual=&signmethod=md5&v=2&timestamp=1457593172&nonce=0.5861222196259378&appsign=ab22969c636227ea83d24fd3e83db586
+     
+     */
     [manager GET:[NSString stringWithFormat:@"%@%@",kTodayAction,self.modelId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -123,13 +128,22 @@
         [self.navigationController pushViewController:hotVC animated:YES];
     }
     if ([self.modelNum intValue] == 1) {
-        ActivityViewController *activytyVC = [[ActivityViewController alloc] init];
-//        LoveModel *model = self.listArray[indexPath.row];
-        //        activytyVC.rid = model.
-        activytyVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:activytyVC animated:YES];
+        
+       LoveModel *model = self.listArray[indexPath.row];
+//        if ([model.type intValue] == 1) {
+//
+            ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
+            actiVC.fooDid = model.loveID;
+            [self.navigationController pushViewController:actiVC animated:YES];
+        }
+//        if ([model.type intValue] == 0) {
+//            
+//            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+//            StoryViewController *storyVC = [storyBoard instantiateViewControllerWithIdentifier:@"story"];
+//            storyVC.foodId = model.loveID;
+//            [self.navigationController pushViewController:storyVC animated:YES];
+//        }
     }
-    
 }
 
 

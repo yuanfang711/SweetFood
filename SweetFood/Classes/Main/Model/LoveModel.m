@@ -17,6 +17,7 @@
         self.date = dic[@"Collection"];
         self.intro = dic[@"Stuff"];
         self.loveID = dic[@"RecipeId"];
+        self.type = dic[@"HasVideo"];
     }
     return self;
 }

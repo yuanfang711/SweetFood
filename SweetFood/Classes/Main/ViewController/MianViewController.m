@@ -162,7 +162,7 @@
             todaVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:todaVC animated:YES];
         }
-        if (indexPath.row == 4) {
+        if (indexPath.row == 5) {
             HotThemeController *hotVC = [[HotThemeController alloc] init];
             hotVC.htmlUrl = @"http://m.haodou.com/topic-409935.html?_v=nohead";
             hotVC.hidesBottomBarWhenPushed = YES;
@@ -175,10 +175,10 @@
             [self.navigationController pushViewController:GoodVC animated:YES];
         }
         if (indexPath.row == 2) {
-            GoodReadController *GoodVC = [[GoodReadController alloc] init];
-            GoodVC.goodId = @"9652406";
-            GoodVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:GoodVC animated:YES];
+            HotThemeController *hotVC = [[HotThemeController alloc] init];
+            hotVC.htmlUrl = @"http://m.haodou.com/topic-428563.html?_v=nohead";
+            hotVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:hotVC animated:YES];
         }
         if (indexPath.row == 3) {
             GoodReadController *GoodVC = [[GoodReadController alloc] init];
@@ -186,12 +186,16 @@
             GoodVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:GoodVC animated:YES];
         }
-        if (indexPath.row == 5||indexPath.row == 6) {
-            ActivityViewController *activytyVC = [[ActivityViewController alloc] init];
-            MianModel *model = self.cellArray[indexPath.row];
-            activytyVC.rid = model.cateId;
-            activytyVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:activytyVC animated:YES];
+        if (indexPath.row == 4) {
+            GoodReadController *GoodVC = [[GoodReadController alloc] init];
+            GoodVC.goodId = @"9652502";
+            GoodVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:GoodVC animated:YES];
+        }
+        if (indexPath.row == 6||indexPath.row == 7) {
+          ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
+//            actiVC.videoId = model.loveID;
+            [self.navigationController pushViewController:actiVC animated:YES];
         }
     }
     if (indexPath.section == 1) {

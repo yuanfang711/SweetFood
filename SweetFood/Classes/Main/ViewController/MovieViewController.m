@@ -107,6 +107,7 @@ static NSString *headCellString = @"food";
 - (void)ButtonAction:(UIButton *)button{
     StrollViewController *strollVC = [[StrollViewController alloc] init];
     strollVC.movieId = self.CateArray[    button.tag- 100][@"CateId"];
+    strollVC.videoType = @"1";
     strollVC.title = self.CateArray[    button.tag- 100][@"CateName"];
     [self.navigationController pushViewController:strollVC animated:YES];
 }
@@ -116,9 +117,10 @@ static NSString *headCellString = @"food";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellString forIndexPath:indexPath];
-    
+    for (UIView *viewi in cell.contentView.subviews) {
+        [viewi removeFromSuperview];
+    }
     NSMutableArray *group = self.VideoArray[indexPath.section];
-    if (indexPath.row < group.count) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, cell.frame.size.width - 10, cell.frame.size.height-30)];
         //        imageView.backgroundColor = [UIColor cyanColor];
         [imageView sd_setImageWithURL:[NSURL URLWithString:group[indexPath.row][@"Cover"]] placeholderImage:nil];
@@ -127,11 +129,16 @@ static NSString *headCellString = @"food";
         lable.textAlignment = NSTextAlignmentCenter;
         
         lable.text =group[indexPath.row][@"Title"];
-        
+    
+    
+
         [cell.contentView addSubview:lable];
         [cell.contentView addSubview:imageView];
+        
+        
         cell.backgroundColor = [UIColor whiteColor];
-    }
+  
+    
     return cell;
 }
 
@@ -146,11 +153,10 @@ static NSString *headCellString = @"food";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    //    ActivityViewController *activytyVC = [[ActivityViewController alloc] init];
-    //    //            LoveModel *model = self.listArray[indexPath.row];
-    //    //            activytyVC.rid = model.
-    //    activytyVC.hidesBottomBarWhenPushed = YES;
-    //    [self.navigationController pushViewController:activytyVC animated:YES];
+//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
+//    actiVC.fooDid = self.CateArray.loveID;
+    [self.navigationController pushViewController:actiVC animated:YES];
 }
 
 

@@ -10,6 +10,6 @@
 
 @interface ActivityViewController : UIViewController
 
-@property (nonatomic, strong) NSString *rid;
+@property (nonatomic, strong) NSString *fooDid;
 
 @end

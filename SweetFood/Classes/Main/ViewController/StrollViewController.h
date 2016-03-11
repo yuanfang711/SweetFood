@@ -11,5 +11,5 @@
 @interface StrollViewController : UIViewController
 
 @property (nonatomic, strong) NSString *movieId;
-
+@property (nonatomic, strong) NSString *videoType;
 @end
