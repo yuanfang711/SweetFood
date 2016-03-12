@@ -13,7 +13,7 @@
 #import "TodayModel.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "ShopViewController.h"
 
 @interface TodayViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -82,7 +82,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    ShopViewController *shopVC = [[ShopViewController alloc] init];
+    TodayModel *model = self.ListArray[indexPath.row];
+    shopVC.title = model.title;
+    shopVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:shopVC animated:YES];
 }
 
 
@@ -91,7 +95,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.rowHeight = 130;
+//        self.tableView.rowHeight = 130;
         self.tableView.sectionIndexColor = [UIColor blackColor];
         
     }

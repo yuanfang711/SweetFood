@@ -9,7 +9,8 @@
 #import "StoryViewController.h"
 
 @interface StoryViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *ImageView;
+@property (weak, nonatomic) IBOutlet UIView *showMoview;
+
 @property (weak, nonatomic) IBOutlet UIButton *DetailsButtonView;
 
 @property (weak, nonatomic) IBOutlet UIButton *foodBuutonView;
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong)  NSMutableArray *stuff;
 @property (nonatomic, strong)  NSMutableArray *steps;
+
 @property (nonatomic, strong) UIView *showView;
 
 @end
@@ -30,25 +32,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self showBackButtonWithImage:@"back"];
-    //详情
-    [self DetailsShow];
-    
+  
     [self.DetailsButtonView addTarget:self action:@selector(DetailViewShowView) forControlEvents:UIControlEventTouchUpInside];
     [self.foodBuutonView addTarget:self action:@selector(foodViewShowView) forControlEvents:UIControlEventTouchUpInside];
     [self.stepButtonView addTarget:self action:@selector(stepsViewShowView) forControlEvents:UIControlEventTouchUpInside];
+    [self getMenuData];
 }
 
+- (void)showMoviewImageView{
+    if (self.steps.count > 0) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.frame = self.showView.frame;
+        
+        UIImageView *iamgesView = [[UIImageView alloc] initWithFrame:button.frame];
+        [iamgesView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"VideoCover"]] placeholderImage:nil];
+        [button addSubview:iamgesView];
+        [self.showView addSubview:button];
+    }
+}
 #pragma mark ------ 三种界面
 - (void)DetailsShow{
-    UIView *view = [[UIView alloc] initWithFrame:self.showView.frame];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 330, kScreenWitch, kScreenhight)];
     UILabel *titleName = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, kScreenWitch, 35)];
     titleName.text = self.infoDic[@"Title"];
-    //    titleName.backgroundColor = kViewColor;
+        titleName.backgroundColor = kViewColor;
     [view addSubview:titleName];
     
     UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 43, kScreenWitch/2-20, 20)];
     dateLable.font = [UIFont systemFontOfSize:16.0];
-    //    dateLable.backgroundColor = kViewColor;
+        dateLable.backgroundColor = kViewColor;
     dateLable.text = self.infoDic[@"CreateTime"];
     [view addSubview:dateLable];
     
@@ -57,11 +69,11 @@
     iconView.layer.cornerRadius = 20;
     iconView.clipsToBounds = YES;
     
-    //    iconView.backgroundColor = kViewColor;
+        iconView.backgroundColor = kViewColor;
     [view addSubview:iconView];
     
     UILabel *Name = [[UILabel alloc] initWithFrame:CGRectMake(60, 65, kScreenWitch - 60, 40)];
-    //    Name.backgroundColor = kViewColor;
+        Name.backgroundColor = kViewColor;
     Name.text = self.infoDic[@"UserInfo"][@"UserName"];
     [view  addSubview:Name];
     
@@ -72,11 +84,15 @@
     introlLable.font = [UIFont systemFontOfSize:15.0];
     [view addSubview:introlLable];
     
-    UILabel *workTimeL = [[UILabel alloc] initWithFrame:CGRectMake(10, 210, kScreenWitch, 30)];
+    UILabel *tame = [[UILabel alloc] initWithFrame:CGRectMake(10, 453, kScreenWitch/2-40, 30)];
+    tame.text = @"制作时间";
+    [view addSubview:tame];
+    
+    UILabel *workTimeL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/2-50, 453, kScreenWitch-60, 30)];
     //    workTimeL.backgroundColor = kViewColor;
-    workTimeL.text = [NSString stringWithFormat:@"制作时间：%@",self.infoDic[@"CookTime"]];
+    workTimeL.text = [NSString stringWithFormat:@"%@",self.infoDic[@"CookTime"]];
     [view addSubview:workTimeL];
-    [self.showView addSubview:view];
+    [self.view addSubview:view];
 }
 
 - (void)FoodHow{
@@ -102,37 +118,37 @@
     [self.showView removeFromSuperview];
     [self stepMarkFood];
 }
+
 //请求数据
 - (void)getMenuData{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [ProgressHUD show:@"正在为你加载数据"];
     
-    [manager GET:[NSString stringWithFormat:@"%@&rid=%@",kMenuDetaills,self.videoId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@&rid=%@",kMovieAction,self.videoId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];
         //详情
         self.infoDic = result[@"info"];
         //食材
-        NSArray *stuffarray = self.infoDic[@"Stuff"];
+        self.stuff = self.infoDic[@"Stuff"];
 //        NSMutableArray *stuff = [NSMutableArray new];
-        for (NSDictionary *dic in stuffarray) {
-            [self.stuff addObject:dic];
-        }
+//        for (NSDictionary *dic in stuffarray) {
+//            [ addObject:dic];
+//        }
         //步骤
-        NSArray *step = self.infoDic[@"Steps"];
+        self.steps = self.infoDic[@"Steps"];
 //        NSMutableArray *step = [NSMutableArray new];
-        for (NSDictionary *dic  in step) {
-            [self.steps addObject:dic];
-        }
+//        for (NSDictionary *dic  in step) {
+//            [self.steps addObject:dic];
+//        }
         [self reloadInputViews];
-        if (self.cellArray.count > 0) {
-            [ProgressHUD showSuccess:@"加载成功"];
-        }
-        else{
-            
-        }
+        //详情
+        [self DetailsShow];
+        [self showMoviewImageView];
+        [ProgressHUD showSuccess:@"加载成功"];
+ 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -171,6 +187,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(5, 480, kScreenWitch-10, kScreenhight -480) style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+//        self.tableView.backgroundColor = [UIColor redColor];
         self.tableView.rowHeight = 50;
     }
     return _tableView;

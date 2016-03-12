@@ -13,7 +13,7 @@
 #import "LoveModel.h"
 #import "StrollViewController.h"
 #import "VOSegmentedControl.h"
-
+#import "StoryViewController.h"
 
 static NSString *cellString = @"iOS";
 static NSString *headCellString = @"food";
@@ -153,10 +153,19 @@ static NSString *headCellString = @"food";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
-//    actiVC.fooDid = self.CateArray.loveID;
-    [self.navigationController pushViewController:actiVC animated:YES];
+    
+    UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+    StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+    NSMutableArray *group = self.VideoArray[indexPath.section];
+    storyVC.title = group[indexPath.row][@"Title"];
+    storyVC.videoId = group[indexPath.row][@"VideoId"];
+    [self.navigationController pushViewController:storyVC animated:YES];
+//    
+//     ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
+//
+//    actiVC.fooDid = self.VideoArray[indexPath.row][@"VideoId"];
+//    [self.navigationController pushViewController:actiVC animated:YES];
+    
 }
 
 

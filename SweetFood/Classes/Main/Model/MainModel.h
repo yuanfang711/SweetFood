@@ -11,7 +11,7 @@
 @interface MainModel : NSObject
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *icon;
-
+@property (nonatomic, strong) NSString *url;
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic;
 
 @end

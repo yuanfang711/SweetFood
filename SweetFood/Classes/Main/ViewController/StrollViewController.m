@@ -9,6 +9,7 @@
 #import "StrollViewController.h"
 #import "MenuModel.h"
 #import "ActivityViewController.h"
+#import "StoryViewController.h"
 static NSString *cellsting = @"movie";
 @interface StrollViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
     NSInteger _pageMovie;
@@ -86,13 +87,18 @@ static NSString *cellsting = @"movie";
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-   ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
-    actiVC.fooDid = self.cellArray[indexPath.row][@"VideoId"];
-    [self.navigationController pushViewController:actiVC animated:YES];
+    
+    UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+    StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+    storyVC.title = self.cellArray[indexPath.row][@"Title"];
+    storyVC.videoId = self.cellArray[indexPath.row][@"VideoId"];
+    [self.navigationController pushViewController:storyVC animated:YES];
+//    StoryViewController *storyVC = [[StoryViewController alloc ]init];
+//    storyVC.videoId = self.cellArray[indexPath.row][@"VideoId"];
+//    [self.navigationController pushViewController:storyVC animated:YES];
+
 }
 
-#pragma mark -------------
-#pragma mark -------------
 #pragma mark ------------- 懒加载
 - (UICollectionView *)collectionView{
     if (_collectionView == nil) {

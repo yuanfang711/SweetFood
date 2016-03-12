@@ -9,8 +9,12 @@
 #import "ActivityViewController.h"
 #import "ActivityModel.h"
 #import "ActivityTableViewCell.h"
-
-@interface ActivityViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "StuffTableViewCell.h"
+#import "StepsTableViewCell.h"
+#import "HWTools.h"
+@interface ActivityViewController ()<UITableViewDataSource,UITableViewDelegate>{
+    CGFloat height;
+}
 
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) NSMutableArray *cellArray;
@@ -26,56 +30,64 @@
     
     //返回按钮
     [self showBackButtonWithImage:@"back"];
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.view addSubview:self.tableView];
     
+    [self getMenuData];
     [self detailsbutton];
     
-    [self getMenuData];
 }
 //详情
 - (void)detailsbutton{
-    
-    UIImageView *ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 240)];
-    [ImageView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"Cover"]] placeholderImage:nil];
-    //    ImageView.backgroundColor = [UIColor redColor];
-    [self.headView addSubview:ImageView];
-    
-    UILabel *titleName = [[UILabel alloc] initWithFrame:CGRectMake(10, 245, kScreenWitch, 35)];
-    titleName.text = self.infoDic[@"Title"];
-    //    titleName.backgroundColor = kViewColor;
-    [self.headView addSubview:titleName];
-    
-    UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 283, kScreenWitch/2-20, 20)];
-    dateLable.font = [UIFont systemFontOfSize:16.0];
-    //    dateLable.backgroundColor = kViewColor;
-    dateLable.text = self.infoDic[@"CreateTime"];
-    [self.headView addSubview:dateLable];
-    
-    UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 305, 40, 40)];
-    [iconView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"UserInfo"][@"Avatar"]] placeholderImage:nil];
-    iconView.layer.cornerRadius = 20;
-    iconView.clipsToBounds = YES;
-    
-    //    iconView.backgroundColor = kViewColor;
-    [self.headView addSubview:iconView];
-    
-    UILabel *Name = [[UILabel alloc] initWithFrame:CGRectMake(60, 305, kScreenWitch - 60, 40)];
-    //    Name.backgroundColor = kViewColor;
-    Name.text = self.infoDic[@"UserInfo"][@"UserName"];
-    [self.headView  addSubview:Name];
-    
-    UILabel *introlLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 350, kScreenWitch, 100)];
-    introlLable.numberOfLines = 0;
-    introlLable.text = self.infoDic[@"Intro"];
-    //    introlLable.backgroundColor = kViewColor;
-    introlLable.font = [UIFont systemFontOfSize:13.0];
-    [self.headView addSubview:introlLable];
-    
-    UILabel *workTimeL = [[UILabel alloc] initWithFrame:CGRectMake(10, 453, kScreenWitch, 30)];
-    //    workTimeL.backgroundColor = kViewColor;
-    workTimeL.text = [NSString stringWithFormat:@"制作时间：%@",self.infoDic[@"CookTime"]];
-    [self.headView addSubview:workTimeL];
+    if (self.cellArray.count > 0) {
+        UIImageView *ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 240)];
+        [ImageView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"Cover"]] placeholderImage:nil];
+        //    ImageView.backgroundColor = [UIColor redColor];
+        [self.headView addSubview:ImageView];
+        
+        UILabel *titleName = [[UILabel alloc] initWithFrame:CGRectMake(10, 245, kScreenWitch, 35)];
+        titleName.text = self.infoDic[@"Title"];
+        //    titleName.backgroundColor = kViewColor;
+        [self.headView addSubview:titleName];
+        
+        UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 283, kScreenWitch/2-20, 20)];
+        dateLable.font = [UIFont systemFontOfSize:16.0];
+        //    dateLable.backgroundColor = kViewColor;
+        dateLable.text = self.infoDic[@"CreateTime"];
+        [self.headView addSubview:dateLable];
+        
+        UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 305, 40, 40)];
+        [iconView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"UserInfo"][@"Avatar"]] placeholderImage:nil];
+        iconView.layer.cornerRadius = 20;
+        iconView.clipsToBounds = YES;
+        
+        //    iconView.backgroundColor = kViewColor;
+        [self.headView addSubview:iconView];
+        
+        UILabel *Name = [[UILabel alloc] initWithFrame:CGRectMake(60, 305, kScreenWitch - 90, 40)];
+        //    Name.backgroundColor = kViewColor;
+        Name.text = self.infoDic[@"UserInfo"][@"UserName"];
+        [self.headView  addSubview:Name];
+        
+        UILabel *introlLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 350, kScreenWitch-20, 100)];
+        introlLable.numberOfLines = 0;
+        introlLable.text = self.infoDic[@"Intro"];
+        //    introlLable.backgroundColor = kViewColor;
+        introlLable.font = [UIFont systemFontOfSize:15.0];
+        [self.headView addSubview:introlLable];
+        
+        
+        UILabel *tame = [[UILabel alloc] initWithFrame:CGRectMake(10, 453, kScreenWitch/2-40, 30)];
+        tame.text = @"制作时间";
+        [self.headView addSubview:tame];
+        
+        UILabel *workTimeL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/2-50, 453, kScreenWitch-60, 30)];
+        //    workTimeL.backgroundColor = kViewColor;
+        workTimeL.text = [NSString stringWithFormat:@"%@",self.infoDic[@"CookTime"]];
+        [self.headView addSubview:workTimeL];
+    }
 }
 //请求数据
 - (void)getMenuData{
@@ -122,43 +134,98 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cella];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cella];
-            UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, kScreenWitch/2-5, 20)];
+            
+            UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, kScreenWitch/2-5, 20)];
+            name.textColor = [UIColor grayColor];
             name.text = group[indexPath.row][@"name"];
             
-            UILabel *weight = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/2+10, 5, kScreenWitch/2-5, 20)];
+            
+            UILabel *weight = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/2+15, 5, kScreenWitch/2-5, 20)];
+            self.tableView.separatorColor = [UIColor blackColor];
             weight.text =  group[indexPath.row][@"weight"];
+            weight.textColor = [UIColor grayColor];
+//            self.tableView.rowHeight = 30;
             [cell addSubview:name];
             [cell addSubview:weight];
-            self.tableView.rowHeight = 20;
+            //            self.tableView.rowHeight = 30;
             //            cell.backgroundColor = [UIColor cyanColor];
         }
         return cell;
     }
-    static NSString *cellView = @"step";
-    UITableViewCell *viewcell = [tableView dequeueReusableCellWithIdentifier:cellView];
-    if (viewcell == nil) {
-        viewcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellView];
-        self.tableView.separatorColor = [UIColor clearColor];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 150, 80)];
-        
-        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(170, 5, kScreenWitch - 190, 80)];
-        name.numberOfLines = 0;
-        name.text = group[indexPath.row][@"Intro"];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:group[indexPath.row][@"StepPhoto"]] placeholderImage:nil];
-        self.tableView.rowHeight = 80;
-        [viewcell addSubview:imageView];
-        [viewcell addSubview:name];
-        //            cell.backgroundColor = [UIColor magentaColor];
+    if (indexPath.section == 1) {
+        static NSString *cellView = @"step";
+        UITableViewCell *viewcell = [tableView dequeueReusableCellWithIdentifier:cellView];
+        if (viewcell == nil) {
+            viewcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellView];
+            self.tableView.separatorColor = [UIColor clearColor];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, 150, 80)];
+  
+            UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(180, 5, kScreenWitch - 190, 80 )];
+            name.numberOfLines = 0;
+            name.text = group[indexPath.row][@"Intro"];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:group[indexPath.row][@"StepPhoto"]] placeholderImage:nil];
+
+            [viewcell addSubview:imageView];
+            [viewcell addSubview:name];
+            //            cell.backgroundColor = [UIColor magentaColor];
+        }
+        return viewcell;
     }
-    return viewcell;
+    static NSString *cellsd = @"wu";
+    UITableViewCell *wucell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellsd];
+    return wucell;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSMutableArray *group = self.cellArray[section];
     return group.count;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 30;
+    }
+    if (indexPath.section == 1) {
+        CGFloat cellceheight = [HWTools getTextHeightWithBigestSize:self.cellArray[indexPath.section][indexPath.row][@"Intro"] BigestSize:CGSizeMake(kScreenWitch - 190, 1000) textFont:17.0];
+        if (cellceheight > 80) {
+            height = cellceheight + 5;
+        }
+        else{
+            height = 90;
+        }
+    }
+    return 0;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.cellArray.count;
 }
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return @"食材";
+    }else{
+        return @"步骤";
+    }
+}
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//
+//    if (section == 0) {
+//        UIView *view = [[UIView alloc] initWithFrame:self.view.frame];
+//        UILabel *title = [[UILabel alloc] initWithFrame:view.frame];
+//        title.text = @"食材";
+//        [view addSubview:title];
+//        view.backgroundColor = [UIColor whiteColor];
+//    }else{
+//        UIView *view = [[UIView alloc] initWithFrame:self.view.frame];
+//        UILabel *title = [[UILabel alloc] initWithFrame:view.frame];
+//        title.text = @"步骤";
+//        [view addSubview:title];
+//        view.backgroundColor = [UIColor whiteColor];
+//
+//    }
+//            return view;
+//}
+
 #pragma mark ---------- 懒加载
 - (NSDictionary *)infoDic{
     if (_infoDic == nil) {
@@ -169,11 +236,11 @@
 
 - (UITableView *)tableView{
     if ( _tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(5, 0, kScreenWitch-10, kScreenhight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(5, 0, kScreenWitch- 10, kScreenhight-10) style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         
-        self.tableView.separatorColor = kViewColor;
+        //        self.tableView.separatorColor = kViewColor;
         self.tableView.tableHeaderView = self.headView;
     }
     return _tableView;

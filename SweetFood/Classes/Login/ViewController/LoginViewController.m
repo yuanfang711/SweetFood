@@ -29,9 +29,6 @@
 }
 - (IBAction)loginButtonAction:(id)sender {
     [ProgressHUD show:@"正在登陆"];
-    
-    
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

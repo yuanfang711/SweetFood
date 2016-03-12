@@ -8,7 +8,7 @@
 
 #import "RegisterViewController.h"
 
-@interface RegisterViewController ()<UITextFieldDelegate>
+@interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userSetText;
 @property (weak, nonatomic) IBOutlet UITextField *passText;
 @property (weak, nonatomic) IBOutlet UITextField *agssinPass;
@@ -47,23 +47,59 @@
 }
 
 - (IBAction)registerButton:(id)sender {
-//    if(![self cieck]) {
-//        return;
-//    }
-
+    if ([self cieck]) {
+        return ;
+    }
+    [ProgressHUD show:@"正在注册"];
+    
+    BmobUser *bUser = [[BmobUser alloc] init];
+    [bUser setUsername:self.userSetText.text];
+    [bUser setPassword:self.passText.text];
+    [bUser setObjectId:self.agssinPass.text];
+    
+    [bUser signUpInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            
+            UIAlertController *alertControll = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"注册成功" preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *success = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self presentedViewController];
+            }];
+            UIAlertAction *canle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self presentedViewController];
+            }];
+            [alertControll addAction:canle];
+            [alertControll addAction:success];
+        [ProgressHUD showSuccess:@"注册成功"];
+            NSLog(@"注册成功");
+        }else{
+            UIAlertController *alertControll = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"注册失败" preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *canle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self presentedViewController];
+            }];
+            [alertControll addAction:canle];
+            
+            NSLog(@"%@",error);
+        }
+    }];
 }
-
+//注册是否成功
 - (BOOL)cieck{
     //用户名不能为空且不可为空格
     if (self.userSetText.text.length <= 0 && [self.userSetText.text stringByReplacingOccurrencesOfString:@" " withString:@""].length <= 0) {
-        UIAlertView *userView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"用户名不能为空且不能出现空格" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:@"取消", nil];
-        [userView show];
+        
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"用户名不能为空且不能出现空格" preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil]];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alertC animated:YES completion:nil];
         return NO;
     }//
     if (![self.passText.text isEqualToString:self.agssinPass.text]){
         //提示框
-        UIAlertView *passView = [[UIAlertView alloc] initWithTitle:nil message:@"密码两次输入不同，请再次输入" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:@"取消", nil];
-        [passView show];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"密码两次输入不同，请再次输入" preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil]];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alertC animated:YES completion:nil];
+
         return NO;
     }//用正则表达式来判断是手机挂号
     if (self.passText.text.length <= 0 && [self.passText.text stringByReplacingOccurrencesOfString:@" " withString:@""].length <= 0){
@@ -76,6 +112,15 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
+}
+
+//点击空白处回收键盘
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+    //或者点击除三个输入框外的地方
+    //    [self.userName resignFirstResponder];
+    //    [self.passText resignFirstResponder];
+    //    [self.assginPassText resignFirstResponder];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

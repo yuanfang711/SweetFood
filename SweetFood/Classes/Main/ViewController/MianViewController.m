@@ -38,6 +38,7 @@
 @property (nonatomic, strong) NSMutableArray *cellTwoArray;
 @property (nonatomic, strong) NSMutableArray *listArray;
 @property (nonatomic, strong) NSMutableArray *hotArray;
+
 @end
 
 @implementation MianViewController
@@ -156,21 +157,20 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
+        MainModel *model= self.cellTwoArray[indexPath.row];
+        NSString *idstring = model.url;
+        NSArray *idarray = [idstring componentsSeparatedByString:@"id="];
+        NSString *mainID = idarray[1];
         if (indexPath.row == 0) {
             TodayViewController *todaVC = [[TodayViewController alloc] init];
-            todaVC.todayId = @"363";
+            
+            todaVC.todayId = mainID;
             todaVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:todaVC animated:YES];
         }
-        if (indexPath.row == 5) {
-            HotThemeController *hotVC = [[HotThemeController alloc] init];
-            hotVC.htmlUrl = @"http://m.haodou.com/topic-409935.html?_v=nohead";
-            hotVC.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:hotVC animated:YES];
-        }
         if (indexPath.row == 1) {
             GoodReadController *GoodVC = [[GoodReadController alloc] init];
-            GoodVC.goodId = @"9605433";
+            GoodVC.goodId = mainID;
             GoodVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:GoodVC animated:YES];
         }
@@ -182,19 +182,26 @@
         }
         if (indexPath.row == 3) {
             GoodReadController *GoodVC = [[GoodReadController alloc] init];
-            GoodVC.goodId = @"6493415";
+            GoodVC.goodId = mainID;
             GoodVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:GoodVC animated:YES];
         }
         if (indexPath.row == 4) {
             GoodReadController *GoodVC = [[GoodReadController alloc] init];
-            GoodVC.goodId = @"9652502";
+            GoodVC.goodId = mainID;
             GoodVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:GoodVC animated:YES];
         }
+        if (indexPath.row == 5) {
+            HotThemeController *hotVC = [[HotThemeController alloc] init];
+            hotVC.htmlUrl = @"http://m.haodou.com/topic-409935.html?_v=nohead";
+            hotVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:hotVC animated:YES];
+        }
         if (indexPath.row == 6||indexPath.row == 7) {
-          ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
-//            actiVC.videoId = model.loveID;
+           ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
+            actiVC.fooDid = mainID;
+            actiVC.title = model.title;
             [self.navigationController pushViewController:actiVC animated:YES];
         }
     }

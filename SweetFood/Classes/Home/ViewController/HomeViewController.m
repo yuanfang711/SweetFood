@@ -12,6 +12,7 @@
 #import "TodayViewController.h"
 #import "HotThemeController.h"
 #import "GoodReadController.h"
+#import "ShopViewController.h"
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) UITableView *tableView;
 
@@ -98,7 +99,7 @@
         [iconView sd_setImageWithURL:[NSURL URLWithString:self.storyArray[i][@"CoverUrl"]] placeholderImage:nil];
     }
     UILabel *teLable = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, 100, 20)];
-    teLable.backgroundColor = [UIColor redColor];
+//    teLable.backgroundColor = [UIColor redColor];
     teLable.text = @"今日特价";
     teLable.textColor = [UIColor whiteColor];
     teLable.numberOfLines = 0;
@@ -144,9 +145,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    GoodReadController *goodVC = [[GoodReadController alloc] init];
-    goodVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:goodVC animated:YES];
+    ShopViewController *shopVC = [[ShopViewController alloc] init];
+    HomeModel *model = self.homeArray[indexPath.row];
+    shopVC.hidesBottomBarWhenPushed = YES;
+    shopVC.title = model.title;
+    [self.navigationController pushViewController:shopVC animated:YES];
 }
 
 #pragma mark --------- 懒加载

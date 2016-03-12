@@ -14,6 +14,7 @@
     if (self) {
         self.title = dic[@"Title"];
         self.icon = dic[@"Img"];
+        self.url = dic[@"Url"];
     }
     return self;
 }

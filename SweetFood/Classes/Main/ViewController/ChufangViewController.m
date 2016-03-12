@@ -130,19 +130,21 @@
     if ([self.modelNum intValue] == 1) {
         
        LoveModel *model = self.listArray[indexPath.row];
-//        if ([model.type intValue] == 1) {
-//
+        if ([model.type intValue] == 0) {
             ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
             actiVC.fooDid = model.loveID;
+            actiVC.title = model.title;
             [self.navigationController pushViewController:actiVC animated:YES];
+            
         }
-//        if ([model.type intValue] == 0) {
-//            
-//            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-//            StoryViewController *storyVC = [storyBoard instantiateViewControllerWithIdentifier:@"story"];
-//            storyVC.foodId = model.loveID;
-//            [self.navigationController pushViewController:storyVC animated:YES];
-//        }
+        if ([model.type intValue] == 1) {
+            
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+            StoryViewController *storyVC = [storyBoard instantiateViewControllerWithIdentifier:@"story"];
+            storyVC.title = model.title;
+            storyVC.videoId = model.loveID;
+            [self.navigationController pushViewController:storyVC animated:YES];
+        }
     }
 }
 

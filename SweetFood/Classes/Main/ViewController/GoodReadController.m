@@ -11,8 +11,13 @@
 #import "GoodModel.h"
 #import "ActivityViewController.h"
 #import "StoryViewController.h"
-@interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource>
+#import "HWTools.h"
 
+
+@interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    CGFloat heightHead;
+}
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) NSDictionary *infoDic;
@@ -65,15 +70,17 @@
     
 }
 - (void)settingHeadView{
+    CGFloat height = [HWTools getTextHeightWithBigestSize:self.infoDic[@"AlbumContent"] BigestSize:CGSizeMake(kScreenWitch-40, 1100) textFont:17.0];
+
     UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 180)];
-    imageV.backgroundColor = [UIColor redColor];
+//    imageV.backgroundColor = [UIColor redColor];
     //图片
     [imageV sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"AlbumCover"]] placeholderImage:nil];
     
     //标题
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, kScreenWitch-60, 30)];
     title.textAlignment = NSTextAlignmentCenter;
-    title.textColor = [UIColor whiteColor];
+//    title.textColor = [UIColor whiteColor];
     title.text = self.infoDic[@"AlbumTitle"];
     
     //名字
@@ -83,11 +90,11 @@
     name.text = self.infoDic[@"AlbumUserName"];
     
     //介绍
-    UILabel *introl = [[UILabel alloc] initWithFrame:CGRectMake(20, 185, kScreenWitch-40, 75)];
+
+    UILabel *introl = [[UILabel alloc] initWithFrame:CGRectMake(20, 185, kScreenWitch-40, height)];
     introl.numberOfLines = 0;
     introl.text = self.infoDic[@"AlbumContent"];
-    
-    
+
     
     [self.headView addSubview:imageV];
     [self.headView addSubview:title];
@@ -110,15 +117,28 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     GoodModel *model = self.listArray[indexPath.row];
+    
     CGFloat cellHeight = [GoodTableViewCell getCellHeightWithGoodModel:model];
+    
     return cellHeight;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GoodModel *model = self.listArray[indexPath.row];
+    if([model.type intValue] == 0){
         ActivityViewController *activityVC = [[ActivityViewController alloc] init];
         activityVC.fooDid = model.foodID;
+        activityVC.title = model.title;
         [self.navigationController pushViewController:activityVC animated:YES];
+    }
+    if ([model.type intValue] == 1) {
+        UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+        StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+        storyVC.title = model.title;
+        storyVC.videoId = model.foodID;
+        [self.navigationController pushViewController:storyVC animated:YES];
+    }
 }
 
 #pragma mark ---------- 懒加载
@@ -138,7 +158,11 @@
 - (UIView *)headView{
     if(_headView == nil)
     {
-        _headView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, kScreenWitch -10, 260)];
+        _headView = [[UIView alloc]initWithFrame:CGRectMake(5, 5, kScreenWitch -10,1000)];
+        CGFloat height = [HWTools getTextHeightWithBigestSize:self.infoDic[@"AlbumContent"] BigestSize:CGSizeMake(kScreenWitch-40, 1100) textFont:17.0];
+        CGRect frame = self.headView.frame;
+        frame.size.height = height + 185;
+        self.headView.frame = frame;
     }
     return _headView;
 }
@@ -157,6 +181,8 @@
     }
     return _infoDic;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -51,6 +51,7 @@
     CGFloat textHeight = [[self class] getTextHeightWithText:model.introl];
     return (textHeight + 225);
 }
+
 //获取cell中introduce的高度
 + (CGFloat)getTextHeightWithText:(NSString *)introl{
     CGRect rect = [introl boundingRectWithSize:CGSizeMake(kScreenWitch - 40, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil];
@@ -60,13 +61,9 @@
 
 - (void)setGoodModel:(GoodModel *)goodModel{
     [self.icon sd_setImageWithURL:[NSURL URLWithString:goodModel.ImageView] placeholderImage:nil];
-
     self.title.text = goodModel.title;
     self.neme.text = goodModel.nema;
-    
-    
     self.introl.text = goodModel.introl;
-    
     CGFloat heaght = [[self class]getTextHeightWithText:goodModel.introl];
     CGRect frame = self.introl.frame;
     frame.size.height = heaght;

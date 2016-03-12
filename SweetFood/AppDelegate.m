@@ -10,7 +10,7 @@
 #import "MianViewController.h"
 #import "MineViewController.h"
 #import "HomeViewController.h"
-
+//#import >
 @interface AppDelegate ()
 
 @end
@@ -19,7 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    //创建BmobKoey
+    [Bmob registerWithAppKey:@"b8c3db171106c6548b779c695ec730d2"];
+
     //创建
     self.tabbarC = [[UITabBarController alloc] init];
     
