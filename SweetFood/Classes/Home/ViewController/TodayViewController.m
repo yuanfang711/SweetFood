@@ -95,7 +95,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-//        self.tableView.rowHeight = 130;
+        self.tableView.rowHeight = 130;
         self.tableView.sectionIndexColor = [UIColor blackColor];
         
     }

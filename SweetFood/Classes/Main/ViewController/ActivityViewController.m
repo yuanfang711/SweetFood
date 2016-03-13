@@ -128,13 +128,13 @@
 
 #pragma mark ---------- 代理
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSMutableArray *group = self.cellArray[indexPath.section];
+ 
     if (indexPath.section == 0) {
         static NSString *cella = @"stuff";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cella];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cella];
-            
+               NSMutableArray *group = self.cellArray[indexPath.section];
             UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, kScreenWitch/2-5, 20)];
             name.textColor = [UIColor grayColor];
             name.text = group[indexPath.row][@"name"];
@@ -158,9 +158,11 @@
         if (viewcell == nil) {
             viewcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellView];
             self.tableView.separatorColor = [UIColor clearColor];
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, 150, 80)];
+               NSMutableArray *group = self.cellArray[indexPath.section];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, kScreenWitch/3-15, kScreenWitch/3-15)];
   
-            UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(180, 5, kScreenWitch - 190, 80 )];
+            UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/3+15, 5, kScreenWitch-kScreenWitch/3-20, kScreenWitch/3-15 )];
+            name.font = [UIFont systemFontOfSize:14.0];
             name.numberOfLines = 0;
             name.text = group[indexPath.row][@"Intro"];
             [imageView sd_setImageWithURL:[NSURL URLWithString:group[indexPath.row][@"StepPhoto"]] placeholderImage:nil];
@@ -177,7 +179,14 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSMutableArray *group = self.cellArray[section];
-    return group.count;
+    if (section == 0) {
+        return group.count;
+    }
+    if (section == 1) {
+        return group.count;
+    }
+    else
+        return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -185,13 +194,8 @@
         return 30;
     }
     if (indexPath.section == 1) {
-        CGFloat cellceheight = [HWTools getTextHeightWithBigestSize:self.cellArray[indexPath.section][indexPath.row][@"Intro"] BigestSize:CGSizeMake(kScreenWitch - 190, 1000) textFont:17.0];
-        if (cellceheight > 80) {
-            height = cellceheight + 5;
-        }
-        else{
-            height = 90;
-        }
+        return kScreenWitch/3-10;
+   
     }
     return 0;
 }

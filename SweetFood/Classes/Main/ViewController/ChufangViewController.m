@@ -139,8 +139,10 @@
         }
         if ([model.type intValue] == 1) {
             
-            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-            StoryViewController *storyVC = [storyBoard instantiateViewControllerWithIdentifier:@"story"];
+//            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+//            StoryViewController *storyVC = [storyBoard instantiateViewControllerWithIdentifier:@"story"];
+            
+            StoryViewController *storyVC = [[StoryViewController alloc] init];
             storyVC.title = model.title;
             storyVC.videoId = model.loveID;
             [self.navigationController pushViewController:storyVC animated:YES];

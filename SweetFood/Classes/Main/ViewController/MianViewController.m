@@ -155,22 +155,79 @@
     }else
         return @"猜你喜欢";
 }
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.section == 0) {
+//        return <#expression#>;
+//    }
+//    if (indexPath.section == 1) {
+//        return 200;
+//    }
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         MainModel *model= self.cellTwoArray[indexPath.row];
         NSString *idstring = model.url;
-        NSArray *idarray = [idstring componentsSeparatedByString:@"id="];
-        NSString *mainID = idarray[1];
+        NSArray *idarray = [idstring componentsSeparatedByString:@"com/"];
+        NSString *com = idarray[1];
+        NSArray *celltype = [com componentsSeparatedByString:@"/"];
+        if (celltype.count == 2) {
+            NSString *url = celltype[celltype.count - 1];
+            NSArray *homeurl = [url componentsSeparatedByString:@"url="];
+            NSString *Homeurl = homeurl[1];
+            NSArray *htmlurl = [Homeurl componentsSeparatedByString:@"%2F"];
+     
+            HotThemeController *hotVC = [[HotThemeController alloc] init];
+            if ([celltype[0]isEqualToString:@"openurl"]) {
+                hotVC.htmlUrl = [NSString stringWithFormat:@"http://%@/%@",htmlurl[htmlurl.count - 2],htmlurl[htmlurl.count - 1]];
+            }
+            if ([celltype[0]isEqualToString:@"opentopic"]) {
+                NSString *homlid = htmlurl[htmlurl.count - 1];
+                NSArray *htmlid = [homlid componentsSeparatedByString:@"&id"];
+                hotVC.htmlUrl = [NSString stringWithFormat:@"http://%@/%@?_v=nohead",htmlurl[htmlurl.count - 2],htmlid[0]];
+            }
+            
+            hotVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:hotVC animated:YES];
+            
+        }else{
+            NSString *main = celltype[2];
+            NSArray *mainarray = [main componentsSeparatedByString:@"="];
+            NSString *mainID = mainarray[1];
+            if ([celltype[0] isEqualToString:@"goods"]) {
+                TodayViewController *todaVC = [[TodayViewController alloc] init];
+                
+                todaVC.todayId = mainID;
+                todaVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:todaVC animated:YES];
+            }if([celltype[0] isEqualToString:@"recipe"]){
+                ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
+                            actiVC.fooDid = mainID;
+                actiVC.title = model.title;
+                [self.navigationController pushViewController:actiVC animated:YES];
+            }
+            
+            if([celltype[0] isEqualToString:@"collect"]){
+                GoodReadController *GoodVC = [[GoodReadController alloc] init];
+                            GoodVC.goodId = mainID;
+                GoodVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:GoodVC animated:YES];
+            }
+                 
+        }
+        
+  /*
         if (indexPath.row == 0) {
             TodayViewController *todaVC = [[TodayViewController alloc] init];
             
-            todaVC.todayId = mainID;
+//            todaVC.todayId = mainID;
             todaVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:todaVC animated:YES];
         }
         if (indexPath.row == 1) {
             GoodReadController *GoodVC = [[GoodReadController alloc] init];
-            GoodVC.goodId = mainID;
+//            GoodVC.goodId = mainID;
             GoodVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:GoodVC animated:YES];
         }
@@ -182,13 +239,13 @@
         }
         if (indexPath.row == 3) {
             GoodReadController *GoodVC = [[GoodReadController alloc] init];
-            GoodVC.goodId = mainID;
+//            GoodVC.goodId = mainID;
             GoodVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:GoodVC animated:YES];
         }
         if (indexPath.row == 4) {
             GoodReadController *GoodVC = [[GoodReadController alloc] init];
-            GoodVC.goodId = mainID;
+//            GoodVC.goodId = mainID;
             GoodVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:GoodVC animated:YES];
         }
@@ -197,14 +254,19 @@
             hotVC.htmlUrl = @"http://m.haodou.com/topic-409935.html?_v=nohead";
             hotVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:hotVC animated:YES];
+   
+   http://m.vatti.com.cn/activity-1168.html
+   
+   http://m.haodou.com/topic-428563.html?_v=nohead
         }
         if (indexPath.row == 6||indexPath.row == 7) {
            ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
-            actiVC.fooDid = mainID;
+//            actiVC.fooDid = mainID;
             actiVC.title = model.title;
             [self.navigationController pushViewController:actiVC animated:YES];
-        }
-    }
+        } */
+   }
+   
     if (indexPath.section == 1) {
         ChufangViewController *chuVC = [[ChufangViewController alloc] init];
         chuVC.modelNum = [NSNumber numberWithInt:1];
@@ -220,7 +282,7 @@
 - (void)setTableViewHeadView{
     self.headView.backgroundColor = kViewColor;
     
-    UIImageView *views = [[UIImageView alloc] initWithFrame:self.headSView.frame];
+    UIImageView *views = [[UIImageView alloc] initWithFrame:CGRectMake(0, 5, kScreenWitch-20,145)];
     [views sd_setImageWithURL:[NSURL URLWithString:@"http://img1.hoto.cn/haodou/recipe_mobile_ad/2016/03/1457058057.jpg"] placeholderImage:nil];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     button.frame = self.headSView.frame;
@@ -314,7 +376,7 @@
     chuButton.tag = 102;
     UIImageView *chu = [[UIImageView alloc] initWithFrame:CGRectMake(chuButton.frame.size.width/3 - 5, 0, 40, 40)];
     chu.image = [UIImage imageNamed:@"chufang.png"];
-    UILabel *chuLable = [[UILabel alloc] initWithFrame:CGRectMake(chuButton.frame.size.width/3 - 10, 40, chuButton.frame.size.width/3 + 10, 15)];
+    UILabel *chuLable = [[UILabel alloc] initWithFrame:CGRectMake(chuButton.frame.size.width/3 - 15, 40, chuButton.frame.size.width/3 + 20, 15)];
     chuLable.text = @"厨房宝典";
     chuLable.textColor = [UIColor orangeColor];
     chuLable.textAlignment = NSTextAlignmentCenter;
@@ -367,21 +429,21 @@
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight)];
         self.tableView.separatorColor = [UIColor brownColor];
-        self.tableView.rowHeight = 160;
+        self.tableView.rowHeight = 190;
     }
     return _tableView;
 }
 
 - (UIView *)headView{
     if (_headView == nil) {
-        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 210)];
+        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch-10, 210)];
     }
     return _headView;
 }
 
 - (UIView *)headSView{
     if (_headSView == nil) {
-        _headSView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, kScreenWitch - 10, 145)];
+        _headSView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, kScreenWitch - 15, 145)];
     }
     return _headSView;
 }

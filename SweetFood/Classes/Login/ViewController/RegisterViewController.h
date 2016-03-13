@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RegisterViewController : UIViewController
+//
+//@property (weak, nonatomic) IBOutlet UITextField *userSetText;
+//@property (weak, nonatomic) IBOutlet UITextField *passText;
+//@property (weak, nonatomic) IBOutlet UITextField *agssinPass;
 
 @end

@@ -49,11 +49,13 @@
 //获取整个cell的高度  = 图片 加  介绍的label的高度
 +(CGFloat )getCellHeightWithGoodModel:(GoodModel *)model{
     CGFloat textHeight = [[self class] getTextHeightWithText:model.introl];
+    
     return (textHeight + 225);
 }
 
 //获取cell中introduce的高度
 + (CGFloat)getTextHeightWithText:(NSString *)introl{
+    
     CGRect rect = [introl boundingRectWithSize:CGSizeMake(kScreenWitch - 40, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil];
     return rect.size.height;
 }
@@ -68,8 +70,6 @@
     CGRect frame = self.introl.frame;
     frame.size.height = heaght;
     self.introl.frame = frame;
-    
-    
 }
 
 - (UIImageView *)icon{

@@ -14,7 +14,6 @@
     if (self) {
         self.title = dic[@"CateName"];
         self.icon = dic[@"Cover"];
-
         self.cateId = dic[@"CateId"];
     }
     return self;

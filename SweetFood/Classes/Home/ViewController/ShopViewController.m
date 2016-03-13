@@ -29,8 +29,21 @@
     self.view.backgroundColor = [UIColor redColor];
     
     [self.view addSubview:self.tableView];
+  
     
 }
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+     [ProgressHUD dismiss];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+      [ProgressHUD show:@"网络出问题，请稍后再次尝试"];
+}
+
+
 #pragma mark --------- 区头设置
 //详情
 - (void)detailsbutton{

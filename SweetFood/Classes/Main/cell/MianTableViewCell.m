@@ -54,7 +54,7 @@
 }
 - (UIImageView *)cellImage{
     if (_cellImage == nil) {
-        _cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, kScreenWitch -20, 155)];
+        _cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, kScreenWitch -20, 180)];
         
     }
     return _cellImage;
@@ -62,7 +62,7 @@
 
 - (UILabel *)titleLable{
     if (_titleLable == nil) {
-        _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 130, kScreenWitch -20, 20)];
+        _titleLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 150, kScreenWitch -20, 20)];
 
     }
     return _titleLable;

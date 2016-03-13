@@ -10,15 +10,23 @@
 #import "MianViewController.h"
 #import "MineViewController.h"
 #import "HomeViewController.h"
-//#import >
-@interface AppDelegate ()
 
+#import "WeiboSDK.h"
+
+//#import >
+@interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate>
+@property(nonatomic, strong) WBMessageObject *messageToshare;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //微博
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:KAppkey];
+    
     //创建BmobKoey
     [Bmob registerWithAppKey:@"b8c3db171106c6548b779c695ec730d2"];
 
@@ -57,6 +65,22 @@
     // Override point for customization after application launch.
     return YES;
 }
+-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"user1"];
+}
+-(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"user1"];
+}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [WeiboSDK handleOpenURL:url delegate:self];
+    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

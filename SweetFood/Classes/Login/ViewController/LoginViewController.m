@@ -7,7 +7,9 @@
 //
 
 #import "LoginViewController.h"
-
+#import <BmobSDK/BmobUser.h>
+#import "MineViewController.h"
+#import "RegisterViewController.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *passText;
@@ -29,6 +31,34 @@
 }
 - (IBAction)loginButtonAction:(id)sender {
     [ProgressHUD show:@"正在登陆"];
+    [BmobUser loginInbackgroundWithAccount:self.userName.text andPassword:self.passText.text block:^(BmobUser *user, NSError *error) {
+        if (user) {
+            [ProgressHUD showSuccess:@"登录成功"];
+            UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MineVC" bundle:nil];
+            UINavigationController *mineVC = storyB.instantiateInitialViewController;
+            [self.navigationController presentViewController:mineVC animated:YES completion:nil];
+        }
+        else{
+            [ProgressHUD dismiss];
+            //提示框
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"登录失败，请再次登录" preferredStyle:UIAlertControllerStyleActionSheet];
+            [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil]];
+            [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alertC animated:YES completion:nil];
+        }
+
+    }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [ProgressHUD dismiss];
+}
+- (IBAction)registerButtonAction:(id)sender {
+    
+    RegisterViewController *registreVC = [[RegisterViewController alloc] init];
+    [self.navigationController pushViewController:registreVC animated:YES];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

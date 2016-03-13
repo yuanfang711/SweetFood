@@ -88,8 +88,9 @@ static NSString *cellsting = @"movie";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-    StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+//    UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+//    StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+    StoryViewController *storyVC = [[StoryViewController alloc] init];
     storyVC.title = self.cellArray[indexPath.row][@"Title"];
     storyVC.videoId = self.cellArray[indexPath.row][@"VideoId"];
     [self.navigationController pushViewController:storyVC animated:YES];

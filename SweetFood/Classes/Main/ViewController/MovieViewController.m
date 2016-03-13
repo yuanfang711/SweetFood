@@ -154,8 +154,7 @@ static NSString *headCellString = @"food";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-    StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+      StoryViewController *storyVC = [[StoryViewController alloc] init];
     NSMutableArray *group = self.VideoArray[indexPath.section];
     storyVC.title = group[indexPath.row][@"Title"];
     storyVC.videoId = group[indexPath.row][@"VideoId"];

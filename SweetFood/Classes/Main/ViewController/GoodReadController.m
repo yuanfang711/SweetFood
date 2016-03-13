@@ -16,7 +16,8 @@
 
 @interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    CGFloat heightHead;
+
+        CGFloat introlHight;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headView;
@@ -69,9 +70,12 @@
     }];
     
 }
-- (void)settingHeadView{
-    CGFloat height = [HWTools getTextHeightWithBigestSize:self.infoDic[@"AlbumContent"] BigestSize:CGSizeMake(kScreenWitch-40, 1100) textFont:17.0];
 
+
+- (void)settingHeadView{
+    
+
+    
     UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 180)];
 //    imageV.backgroundColor = [UIColor redColor];
     //图片
@@ -89,18 +93,21 @@
     name.textAlignment = NSTextAlignmentCenter;
     name.text = self.infoDic[@"AlbumUserName"];
     
-    //介绍
-
-    UILabel *introl = [[UILabel alloc] initWithFrame:CGRectMake(20, 185, kScreenWitch-40, height)];
-    introl.numberOfLines = 0;
-    introl.text = self.infoDic[@"AlbumContent"];
-
+//    //介绍
+//    UILabel *introl = [[UILabel alloc] initWithFrame:CGRectMake(20, 185, kScreenWitch-40, 100)];
+//    introl.numberOfLines = 0;
+//    introl.text = self.infoDic[@"AlbumContent"];
+//    introlHight = [[self class] getTextHeightWithText:introl.text];
+//    CGRect frame = introl.frame;
+//    frame.size.height = introlHight;
+//    introl.frame = frame;
     
     [self.headView addSubview:imageV];
     [self.headView addSubview:title];
     [self.headView addSubview:name];
-    [self.headView addSubview:introl];
+//    [self.headView addSubview:introl];
 }
+
 
 #pragma mark ---------- 代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -133,8 +140,9 @@
         [self.navigationController pushViewController:activityVC animated:YES];
     }
     if ([model.type intValue] == 1) {
-        UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-        StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+//        UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
+//        StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+          StoryViewController *storyVC = [[StoryViewController alloc] init];
         storyVC.title = model.title;
         storyVC.videoId = model.foodID;
         [self.navigationController pushViewController:storyVC animated:YES];
@@ -155,14 +163,20 @@
 }
 
 
++ (CGFloat)getTextHeightWithText:(NSString *)introl{
+    CGRect rect = [introl boundingRectWithSize:CGSizeMake(kScreenWitch - 20, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0]} context:nil];
+    return rect.size.height;
+}
 - (UIView *)headView{
     if(_headView == nil)
     {
-        _headView = [[UIView alloc]initWithFrame:CGRectMake(5, 5, kScreenWitch -10,1000)];
-        CGFloat height = [HWTools getTextHeightWithBigestSize:self.infoDic[@"AlbumContent"] BigestSize:CGSizeMake(kScreenWitch-40, 1100) textFont:17.0];
+        _headView = [[UIView alloc]initWithFrame:CGRectMake(5, 5, kScreenWitch -10, 200)];
+        CGFloat heightView = [[self class] getTextHeightWithText:self.infoDic[@"AlbumContent"]];
         CGRect frame = self.headView.frame;
-        frame.size.height = height + 185;
+        frame.size.height = heightView + 185;
         self.headView.frame = frame;
+        
+        
     }
     return _headView;
 }
