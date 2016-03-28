@@ -47,16 +47,16 @@
 
 
 //今日
-#define kMovieAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457588594904&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=fb27cc857abaff75ff3eb8a7d0f8fa20&channel=oppo_v603&method=Info.getInfo&virtual=&signmethod=md5&v=2&appsign=e03fffde796dab02a0df7fd45dfa114d"
+//#define kMovieAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457588594904&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=fb27cc857abaff75ff3eb8a7d0f8fa20&channel=oppo_v603&method=Info.getInfo&virtual=&signmethod=md5&v=2&appsign=e03fffde796dab02a0df7fd45dfa114d"
 
 //猜你喜欢
 #define kTodayAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457436095933&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Search.getList&virtual=&signmethod=md5&v=2&offset=&tagid="
 
 //活动详情
 #define KActivity @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457436095933&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Info.getInfo&virtual=&signmethod=md5&v=2&appsign=54f84479566b4b7eeaa7a691c5507470&rid=52317"
-
-//视频标签
-#define kToolMovie @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457500816794&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Video.getVideoListByCate&virtual=&signmethod=md5&v=2&appsign=9e721eaa6e1d4e196700116132256a68"
+//
+////视频标签
+//#define kToolMovie @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457500816794&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Video.getVideoListByCate&virtual=&signmethod=md5&v=2&appsign=9e721eaa6e1d4e196700116132256a68"
 //菜单列表
 #define kGoodTool @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457500816794&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Info.getAlbumInfo&virtual=&signmethod=md5&v=2&appsign=50cd1f747b10b272bb41bcaea0a4d608&aid="
 //详情

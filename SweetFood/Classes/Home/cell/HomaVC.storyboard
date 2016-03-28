@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--到家-->
+        <!--视频菜谱-->
         <scene sceneID="951-72-GSy">
             <objects>
-                <viewController storyboardIdentifier="HomaVC" id="xnJ-2F-Ao5" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomaVC" id="xnJ-2F-Ao5" customClass="MovieViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZZd-qQ-gjp"/>
                         <viewControllerLayoutGuide type="bottom" id="zH5-BZ-Xad"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="到家" id="Bbi-FA-fez"/>
+                    <navigationItem key="navigationItem" title="视频菜谱" id="Bbi-FA-fez"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBZ-43-ziY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -34,6 +34,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pF5-d3-EAl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

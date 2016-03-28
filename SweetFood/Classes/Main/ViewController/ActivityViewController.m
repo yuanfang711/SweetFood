@@ -9,8 +9,6 @@
 #import "ActivityViewController.h"
 #import "ActivityModel.h"
 #import "ActivityTableViewCell.h"
-#import "StuffTableViewCell.h"
-#import "StepsTableViewCell.h"
 #import "HWTools.h"
 @interface ActivityViewController ()<UITableViewDataSource,UITableViewDelegate>{
     CGFloat height;
@@ -39,9 +37,16 @@
     [self detailsbutton];
     
 }
++ (CGFloat)getTextHeightWithText:(NSString *)introl{
+    
+    CGRect rect = [introl boundingRectWithSize:CGSizeMake(kScreenWitch - 30, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13.0]} context:nil];
+    return rect.size.height;
+}
 //详情
 - (void)detailsbutton{
+    
     if (self.cellArray.count > 0) {
+        self.headView.frame = CGRectMake(5, 5, kScreenWitch - 10, 480);
         UIImageView *ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 240)];
         [ImageView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"Cover"]] placeholderImage:nil];
         //    ImageView.backgroundColor = [UIColor redColor];
@@ -63,30 +68,36 @@
         iconView.layer.cornerRadius = 20;
         iconView.clipsToBounds = YES;
         
-        //    iconView.backgroundColor = kViewColor;
         [self.headView addSubview:iconView];
         
         UILabel *Name = [[UILabel alloc] initWithFrame:CGRectMake(60, 305, kScreenWitch - 90, 40)];
-        //    Name.backgroundColor = kViewColor;
         Name.text = self.infoDic[@"UserInfo"][@"UserName"];
         [self.headView  addSubview:Name];
         
         UILabel *introlLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 350, kScreenWitch-20, 100)];
         introlLable.numberOfLines = 0;
         introlLable.text = self.infoDic[@"Intro"];
-        //    introlLable.backgroundColor = kViewColor;
-        introlLable.font = [UIFont systemFontOfSize:15.0];
+        CGFloat heights = [[self class] getTextHeightWithText:introlLable.text];
+        introlLable.font = [UIFont systemFontOfSize:13.0];
+        CGRect frame = introlLable.frame;
+        frame.size.height = heights;
+        introlLable.frame = frame;
         [self.headView addSubview:introlLable];
         
         
-        UILabel *tame = [[UILabel alloc] initWithFrame:CGRectMake(10, 453, kScreenWitch/2-40, 30)];
+        UILabel *tame = [[UILabel alloc] initWithFrame:CGRectMake(10, 350 + heights, kScreenWitch/2-40, 30)];
         tame.text = @"制作时间";
         [self.headView addSubview:tame];
         
-        UILabel *workTimeL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/2-50, 453, kScreenWitch-60, 30)];
+        UILabel *workTimeL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/2-50, 350 + heights, kScreenWitch-60, 30)];
         //    workTimeL.backgroundColor = kViewColor;
         workTimeL.text = [NSString stringWithFormat:@"%@",self.infoDic[@"CookTime"]];
         [self.headView addSubview:workTimeL];
+        CGRect headFrame = self.headView.frame;
+        headFrame.size.height = heights + 380;
+        self.headView.frame = headFrame;
+  
+        self.tableView.tableHeaderView = self.headView;
     }
 }
 //请求数据
@@ -128,13 +139,12 @@
 
 #pragma mark ---------- 代理
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
- 
     if (indexPath.section == 0) {
         static NSString *cella = @"stuff";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cella];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cella];
-               NSMutableArray *group = self.cellArray[indexPath.section];
+            NSMutableArray *group = self.cellArray[indexPath.section];
             UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, kScreenWitch/2-5, 20)];
             name.textColor = [UIColor grayColor];
             name.text = group[indexPath.row][@"name"];
@@ -144,7 +154,7 @@
             self.tableView.separatorColor = [UIColor blackColor];
             weight.text =  group[indexPath.row][@"weight"];
             weight.textColor = [UIColor grayColor];
-//            self.tableView.rowHeight = 30;
+            //            self.tableView.rowHeight = 30;
             [cell addSubview:name];
             [cell addSubview:weight];
             //            self.tableView.rowHeight = 30;
@@ -152,41 +162,35 @@
         }
         return cell;
     }
-    if (indexPath.section == 1) {
+    else {
         static NSString *cellView = @"step";
         UITableViewCell *viewcell = [tableView dequeueReusableCellWithIdentifier:cellView];
         if (viewcell == nil) {
             viewcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellView];
             self.tableView.separatorColor = [UIColor clearColor];
-               NSMutableArray *group = self.cellArray[indexPath.section];
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, kScreenWitch/3-15, kScreenWitch/3-15)];
-  
-            UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/3+15, 5, kScreenWitch-kScreenWitch/3-20, kScreenWitch/3-15 )];
-            name.font = [UIFont systemFontOfSize:14.0];
-            name.numberOfLines = 0;
-            name.text = group[indexPath.row][@"Intro"];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:group[indexPath.row][@"StepPhoto"]] placeholderImage:nil];
-
-            [viewcell addSubview:imageView];
-            [viewcell addSubview:name];
-            //            cell.backgroundColor = [UIColor magentaColor];
+            NSMutableArray *group = self.cellArray[indexPath.section];
+            if (indexPath.row < group.count) {
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, kScreenWitch/3, kScreenWitch/3-20)];
+                
+                UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/3+20, 5, kScreenWitch-kScreenWitch/3-30,  kScreenWitch/3-20 )];
+                name.font = [UIFont systemFontOfSize:14.0];
+                name.numberOfLines = 0;
+                name.text = group[indexPath.row][@"Intro"];
+                [imageView sd_setImageWithURL:[NSURL URLWithString:group[indexPath.row][@"StepPhoto"]] placeholderImage:nil];
+                [viewcell addSubview:imageView];
+                [viewcell addSubview:name];
+            }
         }
         return viewcell;
     }
-    static NSString *cellsd = @"wu";
-    UITableViewCell *wucell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellsd];
-    return wucell;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSMutableArray *group = self.cellArray[section];
     if (section == 0) {
         return group.count;
     }
-    if (section == 1) {
-        return group.count;
-    }
     else
-        return 0;
+        return group.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -195,7 +199,7 @@
     }
     if (indexPath.section == 1) {
         return kScreenWitch/3-10;
-   
+        
     }
     return 0;
 }
@@ -245,14 +249,13 @@
         self.tableView.delegate = self;
         
         //        self.tableView.separatorColor = kViewColor;
-        self.tableView.tableHeaderView = self.headView;
     }
     return _tableView;
 }
 
 - (UIView *)headView{
     if (_headView == nil) {
-        _headView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, kScreenWitch - 10, 480)];
+        _headView = [[UIView alloc] init];
     }
     return _headView;
 }

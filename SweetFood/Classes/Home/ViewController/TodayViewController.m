@@ -13,7 +13,6 @@
 #import "TodayModel.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "ShopViewController.h"
 
 @interface TodayViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -42,10 +41,11 @@
 
 #pragma mark -------- 请求数据
 - (void)getDateload{
+     [ProgressHUD show:@"正在请求"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    [ProgressHUD show:@"正在请求"];
-    [manager GET:[NSString stringWithFormat:@"%@%@",kToday,self.todayId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+  
+    [manager GET:@"http://api.haodou.com/mall/index.php?appid=4&appkey=573bbd2fbd1a6bac082ff4727d952ba3&appsign=194835c2ec88e7c4b3b7b8041e98d0e1&channel=appstore&deviceid=0f607264fc6318a92b9e13c65db7cd3c%7C2F8CCE8D-7B19-4DFD-BA50-2B848362FE32%7C20562653-A42D-4206-AFAB-7933D37ECF7D&format=json&loguid=&method=goods.view&nonce=1459051737&sessionid=1459051611&signmethod=md5&uuid=6c34fd8486aea35729d36d94864af09a&v=2&vc=47&vn=v6.1.0&GoodsId=4332&Latitude=34.618753&Longitude=112.426807" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"请求成功"];
@@ -82,11 +82,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ShopViewController *shopVC = [[ShopViewController alloc] init];
-    TodayModel *model = self.ListArray[indexPath.row];
-    shopVC.title = model.title;
-    shopVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:shopVC animated:YES];
+//    ShopViewController *shopVC = [[ShopViewController alloc] init];
+//    TodayModel *model = self.ListArray[indexPath.row];
+//    shopVC.title = model.title;
+//    shopVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:shopVC animated:YES];
 }
 
 
@@ -95,7 +95,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.rowHeight = 130;
+        self.tableView.rowHeight = 140;
         self.tableView.sectionIndexColor = [UIColor blackColor];
         
     }

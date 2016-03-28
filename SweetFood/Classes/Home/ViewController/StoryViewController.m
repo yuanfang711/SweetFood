@@ -7,19 +7,16 @@
 //
 
 #import "StoryViewController.h"
-#import "StuffView.h"
-#import "StepsView.h"
 #import "HWTools.h"
-@interface StoryViewController ()
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+@interface StoryViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic)  UIView *showMoview;
-
-@property (strong, nonatomic)  UIScrollView *showView;
+@property (strong, nonatomic)  UIView *showView;
 @property (nonatomic, strong) NSDictionary *infoDic;
-@property (nonatomic, strong)  NSMutableArray *stuff;
-@property (nonatomic, strong)  NSMutableArray *steps;
-
-@property (nonatomic, strong) StuffView *stuffView;
-@property (nonatomic, strong) StepsView *stepView;
+@property (nonatomic, strong) NSMutableArray *cellArray;
+@property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
 @end
 
 @implementation StoryViewController
@@ -28,84 +25,82 @@
     [super viewDidLoad];
     [self showBackButtonWithImage:@"back"];
     self.view.backgroundColor = [UIColor whiteColor];
-
-    self.showView.scrollEnabled = YES;
-    [self.view addSubview:self.showView ];
+    self.showView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, kScreenWitch, 220)];
+    [self.view addSubview:self.tableView];
     [self.view addSubview:self.showMoview];
+    [self getMenuData];
+}
+- (void)showMoviewImageView{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = CGRectMake(0, 0, kScreenWitch, kScreenhight/2-80);
+    UIImageView *movieView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.showMoview.frame.size.width, self.showMoview.frame.size.height)];
+    [movieView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"Cover"]] placeholderImage:nil];
+    [button addTarget:self action:@selector(MoviePlayAction) forControlEvents:UIControlEventTouchUpInside];
+    [button addSubview:movieView];
+    [self.showMoview addSubview:button];
+}
+- (void)MoviePlayAction{
+    NSString *string = self.infoDic[@"Cover"];
+    NSArray *array = [string componentsSeparatedByString:@"/l/"];
+    NSString *movie = array[1];
+    NSArray *urlsting = [movie componentsSeparatedByString:@"_"];
+    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://v.hoto.cn/%@.mp4",urlsting[0]]];
+    //初始化播放器并设置播放模式
+    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    //.view 播放器视图，如果要显示视频，必须将此播放器添加到控制器视图中
+    _moviePlayer.view.frame = self.showMoview.frame;
+    _moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:self.moviePlayer.view];
+    [self.moviePlayer play];
 }
 
-- (void)showMoviewImageView{
-    if (self.steps.count > 0) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        button.frame = CGRectMake(0, 0, self.showMoview.frame.size.width, self.showMoview.frame.size.height);
-        [button addTarget:self action:@selector(MoviewPlay) forControlEvents:UIControlEventTouchUpInside];
-        UIImageView *iamgesView = [[UIImageView alloc] initWithFrame:button.frame];
-        [iamgesView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"Cover"]] placeholderImage:nil];
-        [button addSubview:iamgesView];
-        [self.showMoview addSubview:button];
+- (void)DetailsShow{
+    if (self.infoDic.count > 0) {
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.showView.frame.size.width, self.showView.frame.size.height)];
+        UILabel *titleName = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, kScreenWitch, 35)];
+        titleName.text = self.infoDic[@"Title"];
+        titleName.font = [UIFont systemFontOfSize:20.0];
+        [view addSubview:titleName];
+        
+        UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 43, kScreenWitch/2-20, 20)];
+        dateLable.font = [UIFont systemFontOfSize:16.0];
+        dateLable.tintColor = [UIColor grayColor];
+        dateLable.text = self.infoDic[@"CreateTime"];
+        [view addSubview:dateLable];
+        
+        UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 65, 40, 40)];
+        [iconView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"Cover"]] placeholderImage:nil];
+        iconView.layer.cornerRadius = 20;
+        iconView.clipsToBounds = YES;
+        
+        iconView.backgroundColor = kViewColor;
+        [view addSubview:iconView];
+        
+        UILabel *Name = [[UILabel alloc] initWithFrame:CGRectMake(60, 65, kScreenWitch - 60, 40)];
+        Name.text = self.infoDic[@"UserInfo"][@"UserName"];
+        [view  addSubview:Name];
+        
+        
+        UILabel *workTimeL = [[UILabel alloc] initWithFrame:CGRectMake(15, 105, kScreenWitch-30,30)];
+        workTimeL.text = [NSString stringWithFormat:@"制作时间:%@",self.infoDic[@"CookTime"]];
+        [view addSubview:workTimeL];
+        
+        CGFloat height = [[self class] getTextHeightWithText:self.infoDic[@"Intro"]];
+        UILabel *intio = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, kScreenWitch - 20, 80)];
+        intio.font = [UIFont systemFontOfSize:15.0];
+        intio.text = self.infoDic[@"Intro"];
+        intio.font = [UIFont systemFontOfSize:13.0];
+        intio.numberOfLines = 0;
+        [view addSubview:intio];
+        [self.showView addSubview:view ];
+        CGRect frame = self.showView.frame;
+        frame.size.height = height + 160;
+        self.showView.frame = frame;
+        self.tableView.tableHeaderView = self.showView;
     }
 }
-- (void)MoviewPlay{
-    
-}
-
-
-
-
-#pragma mark ------ show
-- (void)DetailsShow{
-     UIScrollView *showView =[[UIScrollView alloc] initWithFrame:CGRectMake(5, kScreenhight/3 , kScreenWitch -10, kScreenhight/3*2-40)];
-    
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.showView.frame.size.width, self.showView.frame.size.height)];
-    
-    UILabel *titleName = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, kScreenWitch, 35)];
-    titleName.text = self.infoDic[@"Title"];
-    titleName.font = [UIFont systemFontOfSize:20.0];
-    //        titleName.backgroundColor = kViewColor;
-    [view addSubview:titleName];
-    
-    UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 43, kScreenWitch/2-20, 20)];
-    dateLable.font = [UIFont systemFontOfSize:16.0];
-    dateLable.tintColor = [UIColor grayColor];
-    dateLable.text = self.infoDic[@"CreateTime"];
-    [view addSubview:dateLable];
-    
-    UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 65, 40, 40)];
-    [iconView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"UserInfo"][@"Avatar"]] placeholderImage:nil];
-    iconView.layer.cornerRadius = 20;
-    iconView.clipsToBounds = YES;
-    
-    iconView.backgroundColor = kViewColor;
-    [view addSubview:iconView];
-    
-    UILabel *Name = [[UILabel alloc] initWithFrame:CGRectMake(60, 65, kScreenWitch - 60, 40)];
-    //        Name.backgroundColor = kViewColor;
-    Name.text = self.infoDic[@"UserInfo"][@"UserName"];
-    [view  addSubview:Name];
-    
-//    CGFloat height = []];
-    
-    UILabel *tame = [[UILabel alloc] initWithFrame:CGRectMake(10, 110, kScreenWitch/2-40, 30)];
-    tame.text = @"制作时间";
-    [view addSubview:tame];
-    
-    UILabel *workTimeL = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/2-50, 110, kScreenWitch-60, 30)];
-    //    workTimeL.backgroundColor = kViewColor;
-    workTimeL.text = [NSString stringWithFormat:@"%@",self.infoDic[@"CookTime"]];
-    [view addSubview:workTimeL];
-    
-    UILabel *introlLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 145, kScreenWitch - 20, 200)];
-    introlLable.numberOfLines = 0;
-    
-    introlLable.text = self.infoDic[@"Intro"];
-    //    introlLable.backgroundColor = kViewColor;
-    
-    introlLable.font = [UIFont systemFontOfSize:17.0];
-    [view addSubview:introlLable];
-    [showView addSubview:view ];
-}
-
+#pragma mark ------- 数据请求
 
 //请求数据
 - (void)getMenuData{
@@ -117,23 +112,18 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];
+        NSDictionary *info = result[@"info"];
         //详情
-        self.infoDic = result[@"info"];
+        self.infoDic = info;
+        
         //食材
-        self.stuff = self.infoDic[@"Stuff"];
-        NSMutableArray *stuff = [NSMutableArray new];
-        for (NSDictionary *dic  in stuff) {
-            [self.stuffView.stuffArray addObject:dic];
+        NSArray *stuffarray = info[@"Stuff"];
+        for (NSDictionary *dic in stuffarray) {
+            [self.cellArray addObject:dic];
         }
-        //步骤
-        self.steps = self.infoDic[@"Steps"];
-        NSMutableArray *step = [NSMutableArray new];
-        for (NSDictionary *dic  in step) {
-            [self.stepView.stepArray addObject:dic];
-        }
-//        [self.tableView reloadData];
+        
+        [self.tableView reloadData];
         //详情
-        [self getMenuData];
         [self DetailsShow];
         [self showMoviewImageView];
         [ProgressHUD showSuccess:@"加载成功"];
@@ -142,50 +132,72 @@
         NSLog(@"%@",error);
     }];
 }
-- (UIView *)showMoview{
-    if (_showMoview == nil) {
-        _showMoview = [[UIView alloc] initWithFrame:CGRectMake(5, 70, kScreenWitch -10, kScreenhight/3)];
-    }
-    return _showMoview;
+#pragma mark -----------  代理
++ (CGFloat)getTextHeightWithText:(NSString *)introl{
+    
+    CGRect rect = [introl boundingRectWithSize:CGSizeMake(kScreenWitch - 30, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13.0]} context:nil];
+    return rect.size.height;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cella = @"cellll";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cella];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cella];
+        [cell.contentView removeFromSuperview];
+        UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, kScreenWitch/2-5, 20)];
+        name.textColor = [UIColor grayColor];
+        name.text = self.cellArray[indexPath.row][@"name"];
+        UILabel *weight = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWitch/2+15, 5, kScreenWitch/2-5, 20)];
+        self.tableView.separatorColor = [UIColor blackColor];
+        weight.text =  self.cellArray[indexPath.row][@"weight"];
+        weight.textColor = [UIColor grayColor];
+        self.tableView.rowHeight = 30;
+        [cell addSubview:name];
+        [cell addSubview:weight];
+    }
+    return cell;
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.cellArray.count;
+    
+}
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"食材";
+}
+#pragma mark ************ 懒加载
+- (UITableView *)tableView{
+    if (_tableView == nil) {
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kScreenhight/2 -80, kScreenWitch, kScreenhight/2+80) style:UITableViewStylePlain];
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+    }
+    return _tableView;
+}
+- (UIView *)showMoview{
+    if (_showMoview == nil) {
+        _showMoview = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWitch, kScreenhight/2 -80)];
+        self.showMoview.backgroundColor = [UIColor cyanColor];
+    }
+    return _showMoview;;
+}
 - (NSDictionary *)infoDic{
     if (_infoDic == nil) {
-        _infoDic = [NSDictionary new];
+        self.infoDic = [NSDictionary new];
     }
     return _infoDic;
 }
-- (UIScrollView *)showView{
-    if (_showView == nil) {
-        _showView = [[UIScrollView alloc] initWithFrame:CGRectMake(5, kScreenhight/3 , kScreenWitch -10, kScreenhight/3*2-40)];
-//        self.showView.backgroundColor = [UIColor redColor];
+
+- (NSMutableArray *)cellArray{
+    if (_cellArray == nil) {
+        self.cellArray = [NSMutableArray new];
     }
-    return _showView;
+    return _cellArray;
 }
 
-//-(UIView *)showView{
-//    if (_showView == nil) {
-//        _showView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenhight -345, kScreenWitch, 345)];
-////        self.showView.backgroundColor = [UIColor redColor];
-//    }
-//    return _showView;
-//}
 
-- (NSMutableArray *)stuff{
-    if (_stuff == nil) {
-        _stuff = [NSMutableArray new];
-    }
-    return _stuff;
-}
-
-- (NSMutableArray *)steps{
-    if (_steps == nil) {
-        _steps = [NSMutableArray new];
-    }
-    return _steps;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

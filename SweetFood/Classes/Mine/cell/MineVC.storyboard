@@ -141,32 +141,36 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85n-aA-eEN">
                                 <rect key="frame" x="137" y="108" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6L8-c8-ru5"/>
+                                    <constraint firstAttribute="height" constant="100" id="cXG-gN-ns3"/>
+                                    <constraint firstAttribute="height" constant="100" id="qI9-ez-rcF"/>
+                                    <constraint firstAttribute="width" constant="100" id="zeX-HD-RnA"/>
+                                </constraints>
                                 <state key="normal" image="12"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cXG-gN-ns3"/>
+                                        <exclude reference="zeX-HD-RnA"/>
+                                    </mask>
+                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="85n-aA-eEN" firstAttribute="leading" secondItem="5yn-FA-rwv" secondAttribute="leadingMargin" constant="117" id="0Ja-IU-Z6u"/>
+                            <constraint firstItem="85n-aA-eEN" firstAttribute="leading" secondItem="5yn-FA-rwv" secondAttribute="leadingMargin" constant="117" id="3N1-MD-Eg4"/>
                             <constraint firstItem="XRF-hg-SKD" firstAttribute="top" secondItem="4pw-EM-9du" secondAttribute="bottom" constant="16" id="3pU-zX-qtD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LTH-ho-nI4" secondAttribute="trailing" constant="-20" id="42L-ax-ad5"/>
                             <constraint firstItem="4pw-EM-9du" firstAttribute="leading" secondItem="5yn-FA-rwv" secondAttribute="leadingMargin" constant="241" id="64I-aL-SwH"/>
                             <constraint firstItem="4pw-EM-9du" firstAttribute="top" secondItem="LTH-ho-nI4" secondAttribute="bottom" constant="8" id="6zo-Oi-wW4"/>
-                            <constraint firstItem="85n-aA-eEN" firstAttribute="bottom" secondItem="LTH-ho-nI4" secondAttribute="bottom" id="CM1-L0-c7S"/>
+                            <constraint firstItem="85n-aA-eEN" firstAttribute="top" secondItem="UI0-3s-mN7" secondAttribute="bottom" constant="88" id="JBO-Zy-l9c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XRF-hg-SKD" secondAttribute="trailing" constant="49" id="N9k-V6-7Jn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="85n-aA-eEN" secondAttribute="trailing" constant="118" id="PoN-2y-ogX"/>
                             <constraint firstItem="XRF-hg-SKD" firstAttribute="leading" secondItem="5yn-FA-rwv" secondAttribute="leadingMargin" constant="61" id="RmV-FD-UPd"/>
                             <constraint firstItem="LTH-ho-nI4" firstAttribute="top" secondItem="85n-aA-eEN" secondAttribute="bottom" constant="32" id="eOZ-mK-qdw"/>
-                            <constraint firstItem="X7h-8B-BJT" firstAttribute="top" secondItem="85n-aA-eEN" secondAttribute="bottom" constant="459" id="msX-0q-6TY"/>
                             <constraint firstItem="LTH-ho-nI4" firstAttribute="leading" secondItem="5yn-FA-rwv" secondAttribute="leadingMargin" constant="-20" id="qT8-3f-fT5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4pw-EM-9du" secondAttribute="trailing" constant="-15" id="sh1-V8-csS"/>
-                            <constraint firstItem="85n-aA-eEN" firstAttribute="top" secondItem="UI0-3s-mN7" secondAttribute="bottom" constant="44" id="yct-1D-ckh"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="CM1-L0-c7S"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>

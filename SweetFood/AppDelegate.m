@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MianViewController.h"
 #import "MineViewController.h"
-#import "HomeViewController.h"
+#import "MovieViewController.h"
 
 #import "WeiboSDK.h"
 
@@ -44,9 +44,8 @@
     UIStoryboard *homeB = [UIStoryboard storyboardWithName:@"HomaVC" bundle:nil];
     UINavigationController *homeNAV = homeB.instantiateInitialViewController;
     homeNAV.tabBarItem.image = [UIImage imageNamed:@"home.png"];
-
-    homeNAV.tabBarItem.title = @"到家";
     
+    homeNAV.tabBarItem.title = @"菜谱";
     
     //我的
     UIStoryboard *mineB = [UIStoryboard storyboardWithName:@"MineVC" bundle:nil];

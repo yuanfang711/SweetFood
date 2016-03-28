@@ -31,10 +31,6 @@
     return self;
 }
 - (void)seteing{
-
-//    self.cellImage.backgroundColor = [UIColor cyanColor];
-//    
-//    self.titleLable.backgroundColor = [UIColor redColor];
     self.titleLable.textColor = [UIColor whiteColor];
     self.titleLable.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.cellImage];
@@ -54,7 +50,7 @@
 }
 - (UIImageView *)cellImage{
     if (_cellImage == nil) {
-        _cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, kScreenWitch -20, 180)];
+        _cellImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, kScreenWitch -20, 200)];
         
     }
     return _cellImage;

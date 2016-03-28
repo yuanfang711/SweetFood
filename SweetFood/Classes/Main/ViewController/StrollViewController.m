@@ -72,14 +72,9 @@ static NSString *cellsting = @"movie";
         [viewi removeFromSuperview];
     }
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, cell.frame.size.width - 10, cell.frame.size.height-30)];
-//        imageView.backgroundColor = [UIColor cyanColor];
         [imageView sd_setImageWithURL:[NSURL URLWithString:self.cellArray[indexPath.row][@"Cover"]] placeholderImage:nil];
         UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(5, cell.frame.size.height - 20,cell.frame.size.width - 10,20)];
         lable.text = self.cellArray[indexPath.row][@"Title"];
-//        lable.textAlignment = NSTextAlignmentCenter;
-//        lable.backgroundColor = [UIColor orangeColor];
-//        UILabel *play = [[UILabel alloc] initWithFrame:CGRectMake(5, cell.frame.size.height - 20,cell.frame.size.width - 10,20)];
-//        lable.text = self.cellArray[indexPath.row][@"Title"];
 
         [cell.contentView addSubview:lable];
         [cell.contentView addSubview:imageView];
@@ -87,17 +82,11 @@ static NSString *cellsting = @"movie";
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-//    UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-//    StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
+
     StoryViewController *storyVC = [[StoryViewController alloc] init];
     storyVC.title = self.cellArray[indexPath.row][@"Title"];
     storyVC.videoId = self.cellArray[indexPath.row][@"VideoId"];
     [self.navigationController pushViewController:storyVC animated:YES];
-//    StoryViewController *storyVC = [[StoryViewController alloc ]init];
-//    storyVC.videoId = self.cellArray[indexPath.row][@"VideoId"];
-//    [self.navigationController pushViewController:storyVC animated:YES];
-
 }
 
 #pragma mark ------------- 懒加载

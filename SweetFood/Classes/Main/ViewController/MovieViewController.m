@@ -20,7 +20,7 @@ static NSString *headCellString = @"food";
 @interface MovieViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (nonatomic, strong) VOSegmentedControl *vosC;
-@property (strong, nonatomic) UIScrollView *toolView;
+@property (strong, nonatomic) UIView *toolView;
 @property (nonatomic, strong) NSMutableArray *CateArray;
 @property (nonatomic, strong) NSMutableArray *VideoArray;
 @property (nonatomic, strong) NSMutableArray *name;
@@ -75,30 +75,21 @@ static NSString *headCellString = @"food";
     }];
 }
 
-//- (void)HeadViewSetting{
-//
-//
-//}
-//
-////设置每个分区的区头
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-//    return CGSizeMake(kScreenWitch, 40);
-//}
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-//    self.headView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headCellString forIndexPath:indexPath];
-//    self.headView.titleL.text = self.name[indexPath.section];
-//    return _headView;
-//}
 
 
 - (void)SettingToolButton{
     for (int i = 0; i < self.CateArray.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(100 * i + 0, -64, 100, 44);
-        //        NSLog(@"%@", NSStringFromCGRect(button.frame));
+        button.frame = CGRectMake(kScreenWitch/self.CateArray.count * i , 2, kScreenWitch/self.CateArray.count, 34);
         [button setTitle:self.CateArray[i][@"CateName"] forState:UIControlStateNormal];
         button.tag = 100 + i;
-        [button setBackgroundColor:[UIColor cyanColor]];
+        button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+        button.layer.borderWidth = 0.5f;
+        button.showsTouchWhenHighlighted= YES;
+        CGColorSpaceRef colorref = CGColorSpaceCreateDeviceRGB();
+        CGColorRef color = CGColorCreate(colorref, (CGFloat[]){0.9,0.8,0.5,1});
+        button.layer.borderColor =color;
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(ButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.toolView addSubview:button];
     }
@@ -106,9 +97,9 @@ static NSString *headCellString = @"food";
 
 - (void)ButtonAction:(UIButton *)button{
     StrollViewController *strollVC = [[StrollViewController alloc] init];
-    strollVC.movieId = self.CateArray[    button.tag- 100][@"CateId"];
+    strollVC.movieId = self.CateArray[button.tag- 100][@"CateId"];
     strollVC.videoType = @"1";
-    strollVC.title = self.CateArray[    button.tag- 100][@"CateName"];
+    strollVC.title = self.CateArray[button.tag- 100][@"CateName"];
     [self.navigationController pushViewController:strollVC animated:YES];
 }
 
@@ -172,24 +163,13 @@ static NSString *headCellString = @"food";
 
 #pragma mark ********** 懒加载
 
--(UIScrollView *)toolView {
+-(UIView *)toolView {
     if (_toolView == nil) {
-        self.toolView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenWitch, 44)];
-        self.toolView.contentSize = CGSizeMake(100 * self.CateArray.count, 44);
-        //        self.toolView.backgroundColor = [UIColor redColor];
-        self.toolView.alwaysBounceHorizontal = YES;
-        self.toolView.showsHorizontalScrollIndicator = YES;
-        self.toolView.userInteractionEnabled = YES;
-        self.toolView.pagingEnabled = NO;
-        self.toolView.alwaysBounceHorizontal = YES;
-        self.toolView.showsVerticalScrollIndicator = NO;
-        self.toolView.alwaysBounceVertical = YES;
+        self.toolView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWitch, 38)];
+        self.toolView.backgroundColor = [UIColor whiteColor];
     }
     return _toolView;
-    
 }
-
-
 - (UICollectionView *)collectionView{
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -205,7 +185,7 @@ static NSString *headCellString = @"food";
         //每个设置的大小为
         layout.itemSize = CGSizeMake(kScreenWitch/2- 10,135);
         //通过layout布局来创建一个collection
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 104, kScreenWitch, kScreenhight -108) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 102, kScreenWitch, kScreenhight -102) collectionViewLayout:layout];
         
         //注册cell
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellString];
