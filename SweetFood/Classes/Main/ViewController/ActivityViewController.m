@@ -57,7 +57,7 @@
         //    titleName.backgroundColor = kViewColor;
         [self.headView addSubview:titleName];
         
-        UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 283, kScreenWitch/2-20, 20)];
+        UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 283, kScreenWitch-20, 20)];
         dateLable.font = [UIFont systemFontOfSize:16.0];
         //    dateLable.backgroundColor = kViewColor;
         dateLable.text = self.infoDic[@"CreateTime"];

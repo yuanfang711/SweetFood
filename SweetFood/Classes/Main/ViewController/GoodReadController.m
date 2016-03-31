@@ -11,15 +11,18 @@
 #import "GoodModel.h"
 #import "ActivityViewController.h"
 #import "StoryViewController.h"
+#import "PullingRefreshTableView.h"
 #import "HWTools.h"
 
 
-@interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource>
+@interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource,PullingRefreshTableViewDelegate>
 {
 
         CGFloat introlHight;
+    BOOL _isRefering;
+    NSInteger _pageNum;
 }
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) PullingRefreshTableView *tableView;
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) NSDictionary *infoDic;
 @property (nonatomic, strong) NSMutableArray *listArray;
@@ -32,13 +35,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self showBackButtonWithImage:@"back"];
-    
 //    self.tableView.sectionIndexColor = [UIColor grayColor];
     
     [self.view addSubview:self.tableView];
-    
+    _isRefering = NO;
+    _pageNum = 0;
     [self getDataLoad];
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.tableView launchRefreshing];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -50,8 +54,7 @@
 - (void)getDataLoad{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-//    [NSString stringWithFormat:@"%@%@",kGoodTool,self.goodId]
-    [manager GET:[NSString stringWithFormat:@"%@%@",kGoodTool,self.goodId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@%@&offset=%ld",kGoodTool,self.goodId,_pageNum] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];
@@ -59,32 +62,31 @@
         self.infoDic = result[@"info"];
         //列表
         NSArray *alArray = result[@"list"];
+        if (_isRefering) {
+            if (self.listArray.count > 0) {
+                [self.listArray removeAllObjects];
+            }
+        }
         for (NSDictionary *listDic in alArray) {
             GoodModel *model = [[GoodModel alloc] initWithNSDictionary:listDic];
             [self.listArray addObject:model];
         }
         [self.tableView reloadData];
+        [self.tableView tableViewDidFinishedLoading];
+        self.tableView.reachedTheEnd = NO;
         [self settingHeadView];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
-    
 }
-
-
 - (void)settingHeadView{
-    
-
-    
     UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, 180)];
-//    imageV.backgroundColor = [UIColor redColor];
     //图片
     [imageV sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"AlbumCover"]] placeholderImage:nil];
     
     //标题
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, kScreenWitch-60, 30)];
     title.textAlignment = NSTextAlignmentCenter;
-//    title.textColor = [UIColor whiteColor];
     title.text = self.infoDic[@"AlbumTitle"];
     
     //名字
@@ -92,22 +94,10 @@
     name.textColor = [UIColor whiteColor];
     name.textAlignment = NSTextAlignmentCenter;
     name.text = self.infoDic[@"AlbumUserName"];
-    
-//    //介绍
-//    UILabel *introl = [[UILabel alloc] initWithFrame:CGRectMake(20, 185, kScreenWitch-40, 100)];
-//    introl.numberOfLines = 0;
-//    introl.text = self.infoDic[@"AlbumContent"];
-//    introlHight = [[self class] getTextHeightWithText:introl.text];
-//    CGRect frame = introl.frame;
-//    frame.size.height = introlHight;
-//    introl.frame = frame;
-    
     [self.headView addSubview:imageV];
     [self.headView addSubview:title];
     [self.headView addSubview:name];
-//    [self.headView addSubview:introl];
 }
-
 
 #pragma mark ---------- 代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -140,20 +130,37 @@
         [self.navigationController pushViewController:activityVC animated:YES];
     }
     if ([model.type intValue] == 1) {
-//        UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-//        StoryViewController *storyVC = [storyB instantiateViewControllerWithIdentifier:@"movie"];
           StoryViewController *storyVC = [[StoryViewController alloc] init];
         storyVC.title = model.title;
         storyVC.videoId = model.foodID;
         [self.navigationController pushViewController:storyVC animated:YES];
     }
 }
+- (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
+    _isRefering = YES;
+    _pageNum = 0;
+    [self performSelector:@selector(getDataLoad) withObject:nil afterDelay:1.0 ];
+}
+- (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
+    _isRefering = NO;
+    _pageNum += 20;
+    [self performSelector:@selector(getDataLoad) withObject:nil afterDelay:1.0 ];
+}
+//手指开始拖动
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.tableView tableViewDidScroll:scrollView];
+}
+
+//下拉刷新开始时调用
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self.tableView tableViewDidEndDragging:scrollView];
+}
 
 #pragma mark ---------- 懒加载
-- (UITableView *)tableView{
+- (PullingRefreshTableView *)tableView{
     if ( _tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
-        
+        _tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
+        self.tableView.pullingDelegate = self;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.tableHeaderView = self.headView;

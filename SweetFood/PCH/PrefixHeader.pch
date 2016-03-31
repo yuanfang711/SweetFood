@@ -28,8 +28,15 @@
 
 //主页
 #define kMainDatd @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Index.index&virtual=&signmethod=md5&v=2"
-//到家
-#define kHomeData @"http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=idx.index&virtual=&signmethod=md5&v=2"
+//到家  haodourecipe://haodou.com/Video/index/
+#define kMovie @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1459216321917&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=e71175d3b66b1841965ba633bf00f834&channel=oppo_v603&method=Video.index&virtual=&signmethod=md5&v=2&appsign=7a009f19aa5e27f49d4626a3d8023412"
+//排行
+#define kPaihang @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1459216321917&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=e71175d3b66b1841965ba633bf00f834&channel=oppo_v603&method=Video.getHotRankList&virtual=&signmethod=md5&v=2&appsign=6c799e98f9ed078803145c0328590c12&offset="
+
+#define kNew @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1459216321917&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=e71175d3b66b1841965ba633bf00f834&channel=oppo_v603&method=Video.getNoviceVideoList&virtual=&signmethod=md5&v=2&timestamp=1459233722&nonce=0.4963704028838174&appsign=b5e29eb3cc0247d0505af03b7557432d"
+
+#define KQuwei @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1459216321917&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=e71175d3b66b1841965ba633bf00f834&channel=oppo_v603&method=Video.getFunVideoList&virtual=&signmethod=md5&v=2&timestamp=1459233809&nonce=0.26528254134690876&appsign=5f930553cd7d73854fd5e4ded1fff5e6"
+
 //厨房
 #define kChuData @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457268058440&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=Wiki.getListByType&virtual=&signmethod=md5&v=2"
 
@@ -50,7 +57,7 @@
 //#define kMovieAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457588594904&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=fb27cc857abaff75ff3eb8a7d0f8fa20&channel=oppo_v603&method=Info.getInfo&virtual=&signmethod=md5&v=2&appsign=e03fffde796dab02a0df7fd45dfa114d"
 
 //猜你喜欢
-#define kTodayAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457436095933&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Search.getList&virtual=&signmethod=md5&v=2&offset=&tagid="
+#define kTodayAction @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457436095933&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Search.getList&virtual=&signmethod=md5&v=2&tagid="
 
 //活动详情
 #define KActivity @"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457436095933&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=f66340c09213f80b0219f01ce20219dd&channel=oppo_v603&method=Info.getInfo&virtual=&signmethod=md5&v=2&appsign=54f84479566b4b7eeaa7a691c5507470&rid=52317"

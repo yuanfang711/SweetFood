@@ -12,8 +12,6 @@
 #import "MovieViewController.h"
 
 #import "WeiboSDK.h"
-
-//#import >
 @interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate>
 @property(nonatomic, strong) WBMessageObject *messageToshare;
 @end
@@ -45,7 +43,7 @@
     UINavigationController *homeNAV = homeB.instantiateInitialViewController;
     homeNAV.tabBarItem.image = [UIImage imageNamed:@"home.png"];
     
-    homeNAV.tabBarItem.title = @"菜谱";
+    homeNAV.tabBarItem.title = @"视频";
     
     //我的
     UIStoryboard *mineB = [UIStoryboard storyboardWithName:@"MineVC" bundle:nil];

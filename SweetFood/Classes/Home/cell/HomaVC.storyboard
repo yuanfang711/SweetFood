@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--视频菜谱-->
+        <!--视频-->
         <scene sceneID="951-72-GSy">
             <objects>
                 <viewController storyboardIdentifier="HomaVC" id="xnJ-2F-Ao5" customClass="MovieViewController" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="视频菜谱" id="Bbi-FA-fez"/>
+                    <navigationItem key="navigationItem" title="视频" id="Bbi-FA-fez"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBZ-43-ziY" userLabel="First Responder" sceneMemberID="firstResponder"/>

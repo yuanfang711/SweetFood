@@ -8,7 +8,6 @@
 
 #import "MianViewController.h"
 #import "MianTableViewCell.h"
-#import "MovieViewController.h"
 #import "ChufangViewController.h"
 #import "GoodReadController.h"
 #import "ActivityViewController.h"
@@ -18,18 +17,17 @@
 #import "GoodModel.h"
 #import "TodayViewController.h"
 #import "SDCycleScrollView.h"
+#import "ClassifyViewController.h"
 @interface MianViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 //tableview的头视图
 @property (strong, nonatomic) UIView *headView;
+@property (nonatomic, strong) UIButton *leftButton;
 
 //数据 ：热门专辑
 @property (nonatomic, strong) NSMutableArray *cellArray;
-@property (nonatomic, strong) NSMutableArray *goodArray;
 @property (nonatomic, strong) NSMutableArray *cellTwoArray;
-@property (nonatomic, strong) NSMutableArray *listArray;
-@property (nonatomic, strong) NSMutableArray *hotArray;
 
 @end
 
@@ -39,8 +37,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"菜谱";
-    //    //注册cell
-    //    [self.tableView registerNib:[UINib nibWithNibName:@"MianTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     //设置tableView的头视图
     [self setTableViewHeadView];
@@ -53,6 +49,25 @@
     //请求数据
     [self getDataLoad];
     [self.view addSubview:self.tableView];
+
+    //设置按钮
+    //设置左导航栏
+    self.leftButton =[UIButton buttonWithType:UIButtonTypeCustom];
+    self.leftButton.frame =CGRectMake(kScreenWitch - 60, 30, 60, 30);
+    self.leftButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+    [self.leftButton setTitle:@"全部分类" forState:UIControlStateNormal];
+    [self.leftButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [self.leftButton setTintColor:[UIColor redColor]];
+    [self.leftButton addTarget:self action:@selector(leftBarButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftButton];
+    self.navigationItem.rightBarButtonItem = leftItem;
+}
+
+- (void)leftBarButtonAction{
+    ClassifyViewController *classVC = [[ClassifyViewController alloc] init];
+    classVC.hidesBottomBarWhenPushed = YES;
+    classVC.title = @"全部分类";
+    [self.navigationController pushViewController:classVC animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -119,7 +134,7 @@
         ChufangViewController *chuVC = [[ChufangViewController alloc] init];
         chuVC.modelNum = [NSNumber numberWithInt:1];
         MianModel *model = self.cellArray[indexPath.row];
-    chuVC.title = model.title;
+        chuVC.title = model.title;
         chuVC.modelId = model.cateId;
         chuVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:chuVC animated:YES];
@@ -178,12 +193,11 @@
 
 #pragma mark -----------  设置区头
 - (void)setTableViewHeadView{
-    self.headView.backgroundColor = kViewColor;
+//    self.headView.backgroundColor = kViewColor;
     UIScrollView  *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight/3)];
     scrollView.contentSize = CGSizeMake(kScreenWitch, kScreenhight / 3);
     NSMutableArray *group = [NSMutableArray new];
     NSMutableArray *titleGroup = [NSMutableArray new];
-
     for (int i = 0;i < self.cellTwoArray.count; i++) {
         MainModel *model = self.cellTwoArray[i];
         NSString *url =model.icon;
@@ -193,6 +207,7 @@
     }
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 5, kScreenWitch,kScreenhight/3) shouldInfiniteLoop:YES imageNamesGroup:group];
     cycleScrollView.delegate = self;
+    cycleScrollView.backgroundColor = [UIColor whiteColor];
     cycleScrollView.titlesGroup = titleGroup;
     cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     //轮播时间，默认1秒
@@ -205,7 +220,7 @@
 -(UITableView *)tableView{
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight)];
-        self.tableView.separatorColor = [UIColor brownColor];
+
         self.tableView.rowHeight = 210;
     }
     return _tableView;

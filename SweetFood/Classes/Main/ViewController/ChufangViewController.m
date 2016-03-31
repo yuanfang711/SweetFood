@@ -14,10 +14,13 @@
 #import "LoveModel.h"
 #import "StoryViewController.h"
 #import "ActivityViewController.h"
+#import "PullingRefreshTableView.h"
+@interface ChufangViewController ()<UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>{
+    BOOL _ieRefreching;
+    NSInteger _pageNum;
+}
 
-@interface ChufangViewController ()<UITableViewDataSource,UITableViewDelegate>
-
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) PullingRefreshTableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *listArray;
 
@@ -30,7 +33,10 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor cyanColor];
     [self showBackButtonWithImage:@"back"];
-    
+    _ieRefreching = NO;
+    _pageNum = 0;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.tableView launchRefreshing];
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"ChuTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -42,6 +48,7 @@
     if ([self.modelNum intValue] == 1) {
         [self getLoveData];
     }
+    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -69,7 +76,8 @@
             
         }
         [self.tableView reloadData];
-        
+        [self.tableView tableViewDidFinishedLoading];
+        self.tableView.reachedTheEnd = NO;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [ProgressHUD showError:@"出错"];
         NSLog(@"%@",error);
@@ -80,18 +88,18 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [ProgressHUD show:@"为你加载数据"];
-    /*
-     http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457588594904&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=fb27cc857abaff75ff3eb8a7d0f8fa20&channel=oppo_v603&method=Search.getList&virtual=&signmethod=md5&v=2&timestamp=1457593172&nonce=0.5861222196259378&appsign=ab22969c636227ea83d24fd3e83db586
-     
-     */
-    [manager GET:[NSString stringWithFormat:@"%@%@",kTodayAction,self.modelId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@%@&offset=%ld",kTodayAction,self.modelId,_pageNum] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"成功加载"];
         NSDictionary *dic = responseObject;
         NSDictionary *result = dic[@"result"];
         NSArray *list = result[@"list"];
-        
+        if (_ieRefreching) {
+            if (self.listArray.count > 0) {
+                [self.listArray removeAllObjects];
+            }
+        }
         for (NSDictionary *listDic in list) {
             LoveModel *mModel = [[LoveModel alloc] initWithNSDictionary:listDic];
             [self.listArray addObject:mModel];
@@ -106,11 +114,8 @@
 
 #pragma mark -------- 代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     ChuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
     cell.model = self.listArray[indexPath.row];
-    
     return cell;
     
 }
@@ -138,10 +143,6 @@
             
         }
         if ([model.type intValue] == 1) {
-            
-//            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-//            StoryViewController *storyVC = [storyBoard instantiateViewControllerWithIdentifier:@"story"];
-            
             StoryViewController *storyVC = [[StoryViewController alloc] init];
             storyVC.title = model.title;
             storyVC.videoId = model.loveID;
@@ -150,10 +151,30 @@
     }
 }
 
+- (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
+    _ieRefreching = YES;
+    _pageNum = 0;
+    [self performSelector:@selector(getLoveData) withObject:nil afterDelay:1.0 ];
+}
+- (void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
+    _ieRefreching = NO;
+    _pageNum += 20;
+      [self performSelector:@selector(getLoveData) withObject:nil afterDelay:1.0 ];
+}
+//手指开始拖动
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.tableView tableViewDidScroll:scrollView];
+}
 
-- (UITableView *)tableView{
+//下拉刷新开始时调用
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self.tableView tableViewDidEndDragging:scrollView];
+}
+
+- (PullingRefreshTableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
+        _tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
+        self.tableView.pullingDelegate = self;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.rowHeight = 110;

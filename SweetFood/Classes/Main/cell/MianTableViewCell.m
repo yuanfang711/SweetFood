@@ -12,8 +12,6 @@
 
 @interface MianTableViewCell ()
 
-@property (strong, nonatomic) UIImageView *cellImage;
-@property (strong, nonatomic) UILabel *titleLable;
 
 @end
 @implementation MianTableViewCell

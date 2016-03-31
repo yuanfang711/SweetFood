@@ -10,6 +10,8 @@
 #import "MianModel.h"
 #import "MainModel.h"
 @interface MianTableViewCell : UITableViewCell
+@property (strong, nonatomic) UIImageView *cellImage;
+@property (strong, nonatomic) UILabel *titleLable;
 
 @property (nonatomic, strong) MianModel *model;
 @property (nonatomic, strong) MainModel *mainModel;

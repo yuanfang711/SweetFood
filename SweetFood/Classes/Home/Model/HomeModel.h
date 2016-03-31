@@ -10,13 +10,11 @@
 
 @interface HomeModel : NSObject
 
-@property (nonatomic, strong) NSString *icon;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *pricate;
-@property (nonatomic, strong) NSString *imageSting;
+@property (nonatomic, strong) NSString *Image;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *introduce;
-@property (nonatomic, strong) NSString *storeId;
+@property (nonatomic, strong) NSString *time;
+@property (nonatomic, assign) NSInteger playCount;
+@property (nonatomic, strong) NSString *movieId;
 
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic;
 

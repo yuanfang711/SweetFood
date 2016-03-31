@@ -34,7 +34,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     button.frame = CGRectMake(0, 0, kScreenWitch, kScreenhight/2-80);
     UIImageView *movieView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.showMoview.frame.size.width, self.showMoview.frame.size.height)];
-    [movieView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"Cover"]] placeholderImage:nil];
+    [movieView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"VideoCover"]] placeholderImage:nil];
     [button addTarget:self action:@selector(MoviePlayAction) forControlEvents:UIControlEventTouchUpInside];
     [button addSubview:movieView];
     [self.showMoview addSubview:button];
@@ -63,14 +63,14 @@
         titleName.font = [UIFont systemFontOfSize:20.0];
         [view addSubview:titleName];
         
-        UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 43, kScreenWitch/2-20, 20)];
+        UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 43, kScreenWitch-20, 20)];
         dateLable.font = [UIFont systemFontOfSize:16.0];
         dateLable.tintColor = [UIColor grayColor];
         dateLable.text = self.infoDic[@"CreateTime"];
         [view addSubview:dateLable];
         
         UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 65, 40, 40)];
-        [iconView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"Cover"]] placeholderImage:nil];
+        [iconView sd_setImageWithURL:[NSURL URLWithString:self.infoDic[@"UserInfo"][@"Avatar"]] placeholderImage:nil];
         iconView.layer.cornerRadius = 20;
         iconView.clipsToBounds = YES;
         
@@ -179,7 +179,6 @@
 - (UIView *)showMoview{
     if (_showMoview == nil) {
         _showMoview = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWitch, kScreenhight/2 -80)];
-        self.showMoview.backgroundColor = [UIColor cyanColor];
     }
     return _showMoview;;
 }

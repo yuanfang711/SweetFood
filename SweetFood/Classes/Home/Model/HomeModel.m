@@ -17,13 +17,11 @@
 - (instancetype)initWithNSDictionary:(NSDictionary *)dic{
     self = [super init];
     if (self) {
-        self.icon = dic[@"StoreLogoUrl"];
-        self.title = dic[@"StoreTitle"];
-        self.pricate = dic[@"DealPrice"];
-        self.imageSting = dic[@"CoverUrl"];
+        self.Image = dic[@"Cover"];
         self.name = dic[@"Title"];
-        self.introduce = dic[@"SubTitle"];
-        self.storeId = dic[@"UserId"];
+        self.time = dic[@"CreateTime_"];
+        self.playCount = [dic[@"PlayCount"] integerValue];
+        self.movieId = dic[@"VideoId"];
     }
     return self;
 }
