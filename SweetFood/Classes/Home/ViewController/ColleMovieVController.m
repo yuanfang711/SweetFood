@@ -10,10 +10,12 @@
 #import "MovieModel.h"
 #import "ActivityViewController.h"
 #import "LoveModel.h"
-#import "StrollViewController.h"
 #import "StoryViewController.h"
 #import "MJRefresh.h"
-
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 static NSString *cellString = @"iOS";
 @interface ColleMovieVController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>{
     NSInteger _offset;
@@ -30,6 +32,7 @@ static NSString *cellString = @"iOS";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     _offset = 0;
     [self showBackButtonWithImage:@"back"];
     if ([self.type isEqualToString:@"0"]) {
@@ -252,7 +255,7 @@ static NSString *cellString = @"iOS";
         //每个设置的大小为
         layout.itemSize = CGSizeMake(kScreenWitch/2 - 4,135);
         //通过layout布局来创建一个collection
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight-64) collectionViewLayout:layout];
         
         //注册cell
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellString];

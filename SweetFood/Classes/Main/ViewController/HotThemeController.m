@@ -7,31 +7,24 @@
 //
 
 #import "HotThemeController.h"
-
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
 @interface HotThemeController ()<UIWebViewDelegate>
-//@property (nonatomic, strong) UIWebView *webView;
 @end
 
 @implementation HotThemeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-        [self showBackButtonWithImage:@"back"];
+    [self showBackButtonWithImage:@"back"];
     
     self.view.backgroundColor = [UIColor clearColor];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-//    webView.frame = CGRectMake(0, 0, kScreenWitch, kScreenhight );
     NSURL *url = [NSURL URLWithString:self.htmlUrl];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
     webView.delegate = self;
     [self.view addSubview:webView];
 }
-
-//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-//    
-//}
-//
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

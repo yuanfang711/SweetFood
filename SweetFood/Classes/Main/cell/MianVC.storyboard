@@ -5,11 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--主页-->
+        <!--菜谱-->
         <scene sceneID="Ntg-nw-8ML">
             <objects>
                 <viewController storyboardIdentifier="MainVC" id="xUM-UY-S4O" customClass="MianViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="主页" id="r2b-Rv-SOs"/>
+                    <navigationItem key="navigationItem" title="菜谱" id="r2b-Rv-SOs"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPb-is-6Wf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,12 +22,13 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jcS-D9-VDW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A1S-iL-XZt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="A1S-iL-XZt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.38330652570000001" green="0.79657366650000005" blue="0.59731833310000004" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                             <color key="textColor" red="1" green="0.6995128276" blue="0.13110699579999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>

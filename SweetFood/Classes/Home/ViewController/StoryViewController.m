@@ -7,9 +7,11 @@
 //
 
 #import "StoryViewController.h"
-#import "HWTools.h"
 #import <MediaPlayer/MediaPlayer.h>
-#import <AVFoundation/AVFoundation.h>
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 @interface StoryViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic)  UIView *showMoview;
@@ -65,8 +67,9 @@
         
         UILabel *dateLable = [[UILabel alloc] initWithFrame:CGRectMake(10, 43, kScreenWitch-20, 20)];
         dateLable.font = [UIFont systemFontOfSize:16.0];
-        dateLable.tintColor = [UIColor grayColor];
         dateLable.text = self.infoDic[@"CreateTime"];
+
+        dateLable.textColor = [UIColor colorWithRed:137.0/255.0 green:137.0/255.0 blue:137.0/255.0 alpha:1.0];
         [view addSubview:dateLable];
         
         UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 65, 40, 40)];
@@ -87,7 +90,7 @@
         [view addSubview:workTimeL];
         
         CGFloat height = [[self class] getTextHeightWithText:self.infoDic[@"Intro"]];
-        UILabel *intio = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, kScreenWitch - 20, 80)];
+        UILabel *intio = [[UILabel alloc] initWithFrame:CGRectMake(10, 130, kScreenWitch - 20, 80)];
         intio.font = [UIFont systemFontOfSize:15.0];
         intio.text = self.infoDic[@"Intro"];
         intio.font = [UIFont systemFontOfSize:13.0];
@@ -170,7 +173,7 @@
 #pragma mark ************ 懒加载
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kScreenhight/2 -80, kScreenWitch, kScreenhight/2+80) style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kScreenhight/2 -80, kScreenWitch, kScreenhight-kScreenhight/2 + 20) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
     }
@@ -178,7 +181,7 @@
 }
 - (UIView *)showMoview{
     if (_showMoview == nil) {
-        _showMoview = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWitch, kScreenhight/2 -80)];
+        _showMoview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight/2 -80)];
     }
     return _showMoview;;
 }

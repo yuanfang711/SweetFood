@@ -15,6 +15,10 @@
 #import "StoryViewController.h"
 #import "ActivityViewController.h"
 #import "PullingRefreshTableView.h"
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 @interface ChufangViewController ()<UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>{
     BOOL _ieRefreching;
     NSInteger _pageNum;
@@ -36,7 +40,7 @@
     _ieRefreching = NO;
     _pageNum = 0;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    [self.tableView launchRefreshing];
+
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"ChuTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -49,6 +53,7 @@
         [self getLoveData];
     }
     self.tableView.tableFooterView = [UIView new];
+    [self.tableView launchRefreshing];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -68,7 +73,11 @@
         NSDictionary *dic = responseObject;
         NSDictionary *result = dic[@"result"];
         NSArray *list = result[@"list"];
-        
+        if (_ieRefreching) {
+            if (self.listArray.count > 0) {
+                [self.listArray removeAllObjects];
+            }
+        }
         for (NSDictionary *listDic in list) {
             
             ChuModer *model = [[ChuModer alloc] initWithNSDictionary:listDic];
@@ -105,7 +114,8 @@
             [self.listArray addObject:mModel];
         }
         [self.tableView reloadData];
-        
+        [self.tableView tableViewDidFinishedLoading];
+        self.tableView.reachedTheEnd = NO;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [ProgressHUD showError:@"出错"];
         NSLog(@"%@",error);
@@ -150,6 +160,7 @@
         }
     }
 }
+#pragma mark  ------------ 刷新代理
 
 - (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
     _ieRefreching = YES;
@@ -170,10 +181,10 @@
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     [self.tableView tableViewDidEndDragging:scrollView];
 }
-
+#pragma mark  ------------ 懒加载
 - (PullingRefreshTableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
+        _tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight-64) style:UITableViewStylePlain];
         self.tableView.pullingDelegate = self;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;

@@ -7,7 +7,7 @@
 //
 
 #import "GoodTableViewCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface GoodTableViewCell (){
     CGRect rect;
 }

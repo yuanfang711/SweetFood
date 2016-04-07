@@ -12,8 +12,10 @@
 #import "ActivityViewController.h"
 #import "StoryViewController.h"
 #import "PullingRefreshTableView.h"
-#import "HWTools.h"
-
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 
 @interface GoodReadController ()<UITableViewDelegate,UITableViewDataSource,PullingRefreshTableViewDelegate>
 {
@@ -159,7 +161,7 @@
 #pragma mark ---------- 懒加载
 - (PullingRefreshTableView *)tableView{
     if ( _tableView == nil) {
-        _tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) style:UITableViewStylePlain];
+        _tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight-64) style:UITableViewStylePlain];
         self.tableView.pullingDelegate = self;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;

@@ -10,74 +10,64 @@
 #import "MianViewController.h"
 #import "MineViewController.h"
 #import "MovieViewController.h"
+#import "TabbarViewController.h"
+#import <BmobSDK/Bmob.h>
 
-#import "WeiboSDK.h"
-@interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate>
-@property(nonatomic, strong) WBMessageObject *messageToshare;
+@interface AppDelegate ()
+
 @end
 
 @implementation AppDelegate
-
+//@synthesize wbtoken;
+//@synthesize wbCurrentUserID;
+//@synthesize wbRefreshToken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //微博
-    [WeiboSDK enableDebugMode:YES];
-    [WeiboSDK registerApp:KAppkey];
-    
+//    //微博
+//    [WeiboSDK enableDebugMode:YES];
+//    [WeiboSDK registerApp:KAppkey];
+//    
     //创建BmobKoey
     [Bmob registerWithAppKey:@"b8c3db171106c6548b779c695ec730d2"];
-
+    
     //创建
-    self.tabbarC = [[UITabBarController alloc] init];
-    
-    //主页
-    UIStoryboard *mianB = [UIStoryboard storyboardWithName:@"MianVC" bundle:nil];
-    UINavigationController *mainNAV = mianB.instantiateInitialViewController;
-    mainNAV.tabBarItem.image = [UIImage imageNamed:@"ft_home_normal_ic.png"];
-
-    mainNAV.tabBarItem.title = @"菜谱";
-    
-    //到家
-    UIStoryboard *homeB = [UIStoryboard storyboardWithName:@"HomaVC" bundle:nil];
-    UINavigationController *homeNAV = homeB.instantiateInitialViewController;
-    homeNAV.tabBarItem.image = [UIImage imageNamed:@"home.png"];
-    
-    homeNAV.tabBarItem.title = @"视频";
-    
-    //我的
-    UIStoryboard *mineB = [UIStoryboard storyboardWithName:@"MineVC" bundle:nil];
-    UINavigationController *mineNAV = mineB.instantiateInitialViewController;
-    mineNAV.tabBarItem.image = [UIImage imageNamed:@"ft_person_normal_ic"];
-
-    mineNAV.tabBarItem.title = @"我的";
-    
-    //将所见的主界面添加到tabbar的视图上
-    self.tabbarC.viewControllers = @[mainNAV,homeNAV,mineNAV];
-    self.tabbarC.tabBar.backgroundColor = [UIColor orangeColor];
-    self.window.rootViewController = self.tabbarC;
+    TabbarViewController *tabbarC = [[TabbarViewController alloc] init];
+    self.window.rootViewController = tabbarC;
+    tabbarC.tabBar.tintColor = [UIColor orangeColor];
     self.window.backgroundColor = [UIColor clearColor];
     [self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.
     return YES;
 }
--(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
-    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-    [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"user1"];
-}
--(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
-    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-    [WeiboSDK logOutWithToken:myDelegate.wbtoken delegate:self withTag:@"user1"];
-}
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [WeiboSDK handleOpenURL:url delegate:self];
-}
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [WeiboSDK handleOpenURL:url delegate:self];
-    
-}
-
+//-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+//
+//}
+//-(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+//   
+//}
+//
+//-(void)onReq:(BaseReq *)req{
+//    
+//}
+//-(void)onResp:(BaseResp *)resp{
+//    
+//}
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+//    if ([WeiboSDK isCanShareInWeiboAPP]) {
+//        return [WeiboSDK handleOpenURL:url delegate:self];
+//        
+//    }
+//    return [WXApi handleOpenURL:url delegate:self];
+//    
+//}
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+//    if ([WeiboSDK isCanShareInWeiboAPP]) {
+//        return [WeiboSDK handleOpenURL:url delegate:self];
+//    }
+//    return [WXApi handleOpenURL:url delegate:self];
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

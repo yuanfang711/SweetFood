@@ -14,6 +14,10 @@
 #import "ColleMovieVController.h"
 #import "HotViewController.h"
 #import "HomeModel.h"
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 @interface MovieViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UITableView *tableViwe;
@@ -26,6 +30,7 @@
 @property (nonatomic, strong) UIButton *leftButton;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIView *blankView;
+@property (nonatomic, strong) NSString *name;
 @end
 @implementation MovieViewController
 - (void)viewDidLoad {
@@ -56,9 +61,11 @@
     [self.leftButton addTarget:self action:@selector(leftBarButtonAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftButton];
     self.navigationItem.rightBarButtonItem = leftItem;
+    
 }
 - (void)backView{
     self.blankView.hidden = YES;
+    
 }
 - (void)leftBarButtonAction{
     self.blankView.hidden = NO;

@@ -7,11 +7,10 @@
 //
 
 #import "RegisterViewController.h"
+#import "TabbarViewController.h"
+#import "UIViewController+Common.h"
 #import <BmobSDK/BmobUser.h>
-#import "LoginViewController.h"
-
-
-
+#import "ProgressHUD.h"
 @interface RegisterViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *uesrText;
@@ -34,19 +33,17 @@
     
     [self showBackButtonWithImage:@"back"];
     self.title = @"注册";
-//    self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
-
-
-    self.view.backgroundColor = kViewColor;
+    self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    self.uesrText = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWitch / 8, kScreenhight/3, kScreenWitch*0.75, 45)];
+    self.uesrText = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWitch / 8, kScreenhight/5, kScreenWitch*0.75, 45)];
     self.uesrText.backgroundColor = [UIColor whiteColor];
     self.uesrText.placeholder = @"请输入用户名";
     self.uesrText.borderStyle = UITextBorderStyleRoundedRect;
     self.uesrText.textAlignment = NSTextAlignmentCenter;
      [self.view addSubview:self.uesrText];
     
-    self.passText = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWitch / 8, kScreenhight/3 +50, kScreenWitch*0.75, 45)];
+    self.passText = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWitch / 8, kScreenhight/5 +50, kScreenWitch*0.75, 45)];
        self.passText.borderStyle = UITextBorderStyleRoundedRect;
     self.passText.textAlignment = NSTextAlignmentCenter;
     self.passText.backgroundColor = [UIColor whiteColor];
@@ -54,7 +51,7 @@
      [self.view addSubview:self.passText];
     
     
-    self.agssinpassText = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWitch / 8, kScreenhight/3 +100, kScreenWitch*0.75, 45)];
+    self.agssinpassText = [[UITextField alloc] initWithFrame:CGRectMake(kScreenWitch / 8, kScreenhight/5 +100, kScreenWitch*0.75, 45)];
     self.agssinpassText.backgroundColor = [UIColor whiteColor];
        self.agssinpassText.borderStyle = UITextBorderStyleRoundedRect;
     self.agssinpassText.textAlignment = NSTextAlignmentCenter;
@@ -62,7 +59,7 @@
     [self.view addSubview:self.agssinpassText];
     
     self.registerButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.registerButton.frame = CGRectMake(kScreenWitch / 8, kScreenhight/3 + 150, kScreenWitch*0.75, 45);
+    self.registerButton.frame = CGRectMake(kScreenWitch / 8, kScreenhight/5 + 150, kScreenWitch*0.75, 45);
     [self.registerButton setTitle:@"注册" forState:UIControlStateNormal];
     [self.registerButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     self.registerButton.backgroundColor = [UIColor whiteColor];
@@ -71,11 +68,6 @@
      [self.view addSubview:self.registerButton];
     self.passText.secureTextEntry = YES;
     self.agssinpassText.secureTextEntry = YES;
-    
-
-   
-   
-   
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -83,43 +75,25 @@
     [ProgressHUD dismiss];
 }
 
-
-//- (IBAction)passShowOrNo:(id)sender {
-//    UISwitch *swith = sender;
-//    if (swith.on) {
-//        self.passText.secureTextEntry = NO;
-//        self.agssinPass.secureTextEntry = NO;
-//    }else{
-//        self.passText.secureTextEntry = YES;
-//        self.agssinPass.secureTextEntry = YES;
-//
-//    }
-//}
-
 - (void)registerActtion {
     if (![self cieck]) {
         return ;
     }
     [ProgressHUD show:@"正在注册"];
-    
     BmobUser *bUser = [[BmobUser alloc] init];
     [bUser setUsername:self.uesrText.text];
     [bUser setPassword:self.passText.text];
     [bUser setObjectId:self.agssinpassText.text];
-    
     [bUser signUpInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您已注册成功，请返回登录界面，登录" preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *success = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                UIStoryboard *storyB = [UIStoryboard storyboardWithName:@"MineVC" bundle:nil];
-                LoginViewController *loginVC = [storyB  instantiateViewControllerWithIdentifier:@"Login"];
-                [self.navigationController pushViewController:loginVC animated:YES];
+                TabbarViewController *tabbarVC = [[TabbarViewController alloc] init];
+                tabbarVC.selectedIndex = 2;
+                self.view.window.rootViewController = tabbarVC;
             }];
-            UIAlertAction *canle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-            [alertController addAction:canle];
             [alertController addAction:success];
             [self presentViewController:alertController animated:YES completion:nil];
-
             NSLog(@"注册成功");
         }else{
             [ProgressHUD showError:@"注册失败"];
@@ -133,7 +107,7 @@
     //用户名不能为空且不可为空格
     if (self.uesrText.text.length <= 0 && [self.uesrText.text stringByReplacingOccurrencesOfString:@" " withString:@""].length <= 0) {
         
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"用户名不能为空且不能出现空格" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"用户名不能为空且不能出现空格" preferredStyle:UIAlertControllerStyleAlert];
         [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil]];
         [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alertC animated:YES completion:nil];
@@ -141,7 +115,7 @@
     }//
     if (![self.passText.text isEqualToString:self.agssinpassText.text]){
         //提示框
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"密码两次输入不同，请再次输入" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"密码两次输入不同，请再次输入" preferredStyle:UIAlertControllerStyleAlert];
         [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil]];
         [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alertC animated:YES completion:nil];
@@ -150,7 +124,7 @@
     }
     if (self.passText.text.length <= 0 && [self.passText.text stringByReplacingOccurrencesOfString:@" " withString:@""].length <= 0){
         //提示密码不为空
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"密码不能为空，请确认输入" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"密码不能为空，请确认输入" preferredStyle:UIAlertControllerStyleAlert];
         [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil]];
         [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alertC animated:YES completion:nil];

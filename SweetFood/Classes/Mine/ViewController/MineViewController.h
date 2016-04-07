@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MineViewController : UIViewController
-
+@property (nonatomic, strong) UIView *seleView;
+@property (weak, nonatomic) IBOutlet UIView *loginView;
 @end

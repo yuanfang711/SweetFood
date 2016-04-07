@@ -7,7 +7,6 @@
 //
 
 #import "MianViewController.h"
-#import "MianTableViewCell.h"
 #import "ChufangViewController.h"
 #import "GoodReadController.h"
 #import "ActivityViewController.h"
@@ -18,6 +17,11 @@
 #import "TodayViewController.h"
 #import "SDCycleScrollView.h"
 #import "ClassifyViewController.h"
+#import "MainTableViewCell.h"
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 @interface MianViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -29,27 +33,28 @@
 @property (nonatomic, strong) NSMutableArray *cellArray;
 @property (nonatomic, strong) NSMutableArray *cellTwoArray;
 
+@property (nonatomic, strong) NSString *name;
 @end
 
 @implementation MianViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     self.title = @"菜谱";
-    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0],NSForegroundColorAttributeName:[UIColor orangeColor]}];
     //设置tableView的头视图
     [self setTableViewHeadView];
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.userInteractionEnabled  = YES;
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
     //请求数据
     [self getDataLoad];
     [self.view addSubview:self.tableView];
-
+    [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
     //设置按钮
     //设置左导航栏
     self.leftButton =[UIButton buttonWithType:UIButtonTypeCustom];
@@ -61,6 +66,15 @@
     [self.leftButton addTarget:self action:@selector(leftBarButtonAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftButton];
     self.navigationItem.rightBarButtonItem = leftItem;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"name"] == nil) {
+        self.name = @"欢迎";
+    }else
+        self.name =[NSString stringWithFormat:@"用户:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"name"]];
+    NSString *sring = self.name;
+    UIBarButtonItem *rightIemt = [[UIBarButtonItem alloc] initWithTitle:sring style:UIBarButtonItemStylePlain target:self action:nil];
+    rightIemt.tintColor = [UIColor orangeColor];
+    self.navigationItem.leftBarButtonItem = rightIemt;
 }
 
 - (void)leftBarButtonAction{
@@ -90,7 +104,6 @@
         [ProgressHUD showSuccess:@"加载成功"];
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];
- 
         NSDictionary *event = result[@"recipe"];
         NSArray *listArray = event[@"list"];
         for (NSDictionary *listdic in listArray) {
@@ -113,11 +126,7 @@
 
 #pragma mark ********** 代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellstring = @"ios";
-    MianTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellstring];
-    if (cell == nil) {
-        cell = [[MianTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellstring];
-    }
+    MainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
         if (indexPath.row < self.cellArray.count ) {
             MianModel*mainModel = self.cellArray[indexPath.row];
             cell.model = mainModel;
@@ -147,11 +156,13 @@
     NSString *com = idarray[1];
     NSArray *celltype = [com componentsSeparatedByString:@"/"];
     if (celltype.count == 2) {
+        /*
+         http://api.haodou.com/index.php?appid=4&appkey=573bbd2fbd1a6bac082ff4727d952ba3&appsign=998e0ed00c3648e9bde4e6d7046fef46&channel=appstore&deviceid=0f607264fc6318a92b9e13c65db7cd3c%7C2F8CCE8D-7B19-4DFD-BA50-2B848362FE32%7C20562653-A42D-4206-AFAB-7933D37ECF7D&format=json&loguid=&method=Show.listing&nonce=1459854449&sessionid=1459853689&signmethod=md5&timestamp=1459854449&uuid=6c34fd8486aea35729d36d94864af09a&v=2&vc=47&vn=v6.1.0
+         */
         NSString *url = celltype[celltype.count - 1];
         NSArray *homeurl = [url componentsSeparatedByString:@"url="];
         NSString *Homeurl = homeurl[1];
         NSArray *htmlurl = [Homeurl componentsSeparatedByString:@"%2F"];
-        
         HotThemeController *hotVC = [[HotThemeController alloc] init];
         if ([celltype[0]isEqualToString:@"openurl"]) {
             hotVC.htmlUrl = [NSString stringWithFormat:@"http://%@/%@",htmlurl[htmlurl.count - 2],htmlurl[htmlurl.count - 1]];
@@ -161,7 +172,6 @@
             NSArray *htmlid = [homlid componentsSeparatedByString:@"&id"];
             hotVC.htmlUrl = [NSString stringWithFormat:@"http://%@/%@?_v=nohead",htmlurl[htmlurl.count - 2],htmlid[0]];
         }
-        
         hotVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:hotVC animated:YES];
         
@@ -178,6 +188,7 @@
         }if([celltype[0] isEqualToString:@"recipe"]){
             ActivityViewController *actiVC = [[ActivityViewController alloc ]init];
             actiVC.fooDid = mainID;
+            actiVC.hidesBottomBarWhenPushed = YES;
             actiVC.title = model.title;
             [self.navigationController pushViewController:actiVC animated:YES];
         }
@@ -190,10 +201,18 @@
         }
     }
 }
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat sectionHeaderHeight = 30;
+    if (scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y> 0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    }else
+        if(scrollView.contentOffset.y >= sectionHeaderHeight){
+            
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+        }
+}
 #pragma mark -----------  设置区头
 - (void)setTableViewHeadView{
-//    self.headView.backgroundColor = kViewColor;
     UIScrollView  *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight/3)];
     scrollView.contentSize = CGSizeMake(kScreenWitch, kScreenhight / 3);
     NSMutableArray *group = [NSMutableArray new];
@@ -219,9 +238,9 @@
 #pragma mark -------- 懒加载
 -(UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight-104)];
 
-        self.tableView.rowHeight = 210;
+        self.tableView.rowHeight = 240;
     }
     return _tableView;
 }

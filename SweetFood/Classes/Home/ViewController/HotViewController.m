@@ -10,6 +10,9 @@
 #import "PullingRefreshTableView.h"
 #import "MianTableViewCell.h"
 #import "StoryViewController.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 @interface HotViewController ()<PullingRefreshTableViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     NSInteger _pageNum;
 }
@@ -106,7 +109,7 @@
         _pullTbaleView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight-64) pullingDelegate:self];
         self.pullTbaleView.dataSource = self;
         self.pullTbaleView.delegate = self;
-        self.pullTbaleView.rowHeight = kScreenhight/3+20;
+        self.pullTbaleView.rowHeight = kScreenhight/3 ;
         self.pullTbaleView.separatorColor = [UIColor clearColor];
     }
     return _pullTbaleView;

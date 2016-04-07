@@ -7,6 +7,7 @@
 //
 
 #import "TodayTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface TodayTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;
 @property (weak, nonatomic) IBOutlet UILabel *titleL;

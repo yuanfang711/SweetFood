@@ -5,14 +5,13 @@
 //  Created by scjy on 16/3/3.
 //  Copyright © 2016年 范芳芳. All rights reserved.
 //
-/*
- http://api.haodou.com/mall/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1457322096694&vc=83&vn=6.1.0&loguid=0&deviceid=haodou866656021957511&uuid=e6cbc5ed186438c278364ed41078a110&channel=huawei_v610&method=collect.goodslist&virtual=&signmethod=md5&v=2&timestamp=1457322137&nonce=0.907562864652508&appsign=c378312a8d54542f3a00db6978c7af08
- */
 #import "TodayViewController.h"
 #import "TodayTableViewCell.h"
 #import "TodayModel.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
 
 @interface TodayViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;

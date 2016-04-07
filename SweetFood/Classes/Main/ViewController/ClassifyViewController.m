@@ -9,6 +9,10 @@
 #import "ClassifyViewController.h"
 #import "ClassTableViewCell.h"
 #import "ChufangViewController.h"
+#import "ProgressHUD.h"
+#import "UIViewController+Common.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 @interface ClassifyViewController ()<UITableViewDataSource,UITableViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 {
     NSInteger Number;
@@ -35,8 +39,7 @@ static NSString *collections = @"collection";
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"分类" style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonAction)];
     
     self.navigationItem.rightBarButtonItem = leftItem;
-    self.view.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:0.8];
-    //    self.tableView.hidden = YES;
+    self.view.backgroundColor = [UIColor whiteColor];
     self.blackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight)];
     self.blackView.hidden = YES;
     [self.view addSubview:self.blackView];
@@ -140,11 +143,11 @@ static NSString *collections = @"collection";
         //每一行的间距
         layout.minimumLineSpacing = 1;
         //设置item整体在屏幕的位置
-        layout.sectionInset = UIEdgeInsetsMake(1, 0, 0, 0);
+        layout.sectionInset = UIEdgeInsetsMake(1, 1, 0, 0);
         //每个设置的大小为
-        layout.itemSize = CGSizeMake(kScreenWitch/3-1 ,kScreenhight/20);
+        layout.itemSize = CGSizeMake(kScreenWitch/3-1 ,kScreenhight/18);
         //通过layout布局来创建一个collection
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 10, kScreenWitch, kScreenhight-70) collectionViewLayout:layout];
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         //注册item类型，与下item的设置要一致
@@ -156,7 +159,7 @@ static NSString *collections = @"collection";
 
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWitch - kScreenWitch/4, 64, kScreenWitch/4, kScreenhight-64) style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWitch - kScreenWitch/4, 0, kScreenWitch/4, kScreenhight-64) style:UITableViewStylePlain];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.rowHeight = 44;

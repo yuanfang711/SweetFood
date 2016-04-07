@@ -7,7 +7,7 @@
 //
 
 #import "MovieMainTableViewCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @implementation MovieMainTableViewCell
 
 - (void)awakeFromNib {
