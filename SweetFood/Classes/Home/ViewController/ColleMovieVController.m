@@ -111,7 +111,7 @@ static NSString *cellString = @"iOS";
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [ProgressHUD show:@"正在请求"];
     NSString *string = @"http://api.haodou.com/index.php?appid=4&appkey=573bbd2fbd1a6bac082ff4727d952ba3&appsign=6bb6c80200eb8cc4f1038eeac145fd45&channel=appstore&deviceid=0f607264fc6318a92b9e13c65db7cd3c%7C2F8CCE8D-7B19-4DFD-BA50-2B848362FE32%7C20562653-A42D-4206-AFAB-7933D37ECF7D&format=json&loguid=&method=Video.getNoviceVideoList%20&nonce=1459401436&sessionid=1459401425&signmethod=md5&timestamp=1459401436&uuid=6c34fd8486aea35729d36d94864af09a&v=2&vc=47&vn=v6.1.0&limit=20";
-    [manager GET:[NSString stringWithFormat:@"%@&offset=%ld",string,_offset] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@&offset=%ld",string,(long)_offset] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"请求成功"];
         NSDictionary *dic = responseObject;
@@ -137,7 +137,7 @@ static NSString *cellString = @"iOS";
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [ProgressHUD show:@"正在请求"];
     NSString *url = @"http://api.haodou.com/index.php?appid=4&appkey=573bbd2fbd1a6bac082ff4727d952ba3&appsign=ee58d9fa438df9d2d990c11b4b417b11&channel=appstore&deviceid=0f607264fc6318a92b9e13c65db7cd3c%7C2F8CCE8D-7B19-4DFD-BA50-2B848362FE32%7C20562653-A42D-4206-AFAB-7933D37ECF7D&format=json&loguid=&method=Video.getVideoListByCate&nonce=1459401877&sessionid=1459401425&signmethod=md5&timestamp=1459401877&uuid=6c34fd8486aea35729d36d94864af09a&v=2&vc=47&vn=v6.1.0";
-    [manager GET:[NSString stringWithFormat:@"%@&cate_id=%@&limit=20&offset=%ld&type=1",url,self.videoId,_offset] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@&cate_id=%@&limit=20&offset=%ld&type=1",url,self.videoId,(long)_offset] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"请求成功"];
         NSDictionary *dic = responseObject;

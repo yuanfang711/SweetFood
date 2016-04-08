@@ -37,7 +37,7 @@
 - (void)getHotData{
     AFHTTPSessionManager *manage = [[AFHTTPSessionManager alloc] init];
     manage.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
-    [manage GET:[NSString stringWithFormat:@"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1459306430161&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=e71175d3b66b1841965ba633bf00f834&channel=oppo_v603&method=Video.getHotRankList&virtual=&signmethod=md5&v=2&nonce=0.31540568068809427&appsign=f932d806c584e5f80549488bff5a685e&offset=%ld",_pageNum] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manage GET:[NSString stringWithFormat:@"http://api.haodou.com/index.php?appid=2&appkey=9ef269eec4f7a9d07c73952d06b5413f&format=json&sessionid=1459306430161&vc=82&vn=6.0.3&loguid=0&deviceid=haodou864301020205370&uuid=e71175d3b66b1841965ba633bf00f834&channel=oppo_v603&method=Video.getHotRankList&virtual=&signmethod=md5&v=2&nonce=0.31540568068809427&appsign=f932d806c584e5f80549488bff5a685e&offset=%ld",(long)_pageNum] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *root = responseObject;
         NSDictionary *datas = root[@"result"];

@@ -9,17 +9,20 @@
 #import "LoginViewController.h"
 #import "TabbarViewController.h"
 #import "LPLevelView.h"
+#import "AppDelegate.h"
+#import "WeiboSDK.h"
 #import "UIViewController+Common.h"
 #import <BmobSDK/BmobUser.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface LoginViewController ()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface LoginViewController ()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,WeiboSDKDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *cellArray;
 @property (nonatomic, strong) UIView *headview;
 @property (nonatomic, strong) UIView *score1;
 @property (nonatomic, assign) NSUInteger level;
 @property (nonatomic, strong) UIView *grayView;
+@property (nonatomic, strong) UIView *shareView;
 @end
 
 @implementation LoginViewController
@@ -37,6 +40,62 @@
     
     //刷新单行的cell
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    self.shareView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight - 64)];
+    self.shareView.backgroundColor = [UIColor colorWithRed:37.0/255.0 green:37.0/255.0 blue:37.0/255.0 alpha:0.2];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(5, 0, kScreenWitch-10, kScreenhight-64);
+    [button addTarget:self action:@selector(backView) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareView addSubview:button];
+    
+    self.shareView.hidden = YES;
+    [self.view addSubview:self.shareView];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(shareAction)];
+    rightItem.tintColor = [UIColor orangeColor];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+- (void)backView{
+    self.shareView.hidden = YES;
+}
+- (void)shareAction{
+            self.shareView.hidden = NO;
+        //提示框
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否将内容分享到新浪微博" preferredStyle:UIAlertControllerStyleAlert];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self shareWeiBoAction];
+        }]];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        [self presentViewController:alertC animated:YES completion:nil];
+}
+
+-(WBMessageObject *)messageToShare{
+    WBMessageObject *message = [WBMessageObject message];
+    NSString *str = @"甜馨美食，是一款不错的软件，快去看看吧！http://www.apple.com/cn/iphone/";
+    message.text = str;
+    return message;
+}
+- (void)shareWeiBoAction{
+    AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
+    authRequest.redirectURI = @"https://api.weibo.com/oauth2/default.html";
+    authRequest.scope = @"all";
+    WBSendMessageToWeiboRequest *request = [ WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest access_token:myDelegate.wbtoken];
+    request.userInfo = @{@"ShareMessageFrom": @"MeViewController",
+                         @"Other_Info_1": [NSNumber numberWithInt:123],
+                         @"Other_Info_2": @[@"obj1", @"obj2"],
+                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+    [WeiboSDK sendRequest:request];
+    
+    [self removeAction];
+}
+
+- (void)removeAction{
+    self.shareView.hidden = YES;
+}
+- (void)changeAction{
+    self.shareView.hidden = YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -154,6 +213,11 @@
             [self.score1 addSubview:lView];
         }
             break;
+        case 2:
+        {
+            
+        }
+            break;
         default:
             break;
     }
@@ -213,7 +277,13 @@
     [textField resignFirstResponder];
     return YES;
 }
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    
+}
 
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    
+}
 
 //点击空白处回收键盘
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

@@ -9,16 +9,20 @@
 #import "StoryViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "ProgressHUD.h"
+#import "AppDelegate.h"
+#import "WeiboSDK.h"
+#import "TabbarViewController.h"
 #import "UIViewController+Common.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
-@interface StoryViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface StoryViewController ()<UITableViewDataSource,UITableViewDelegate,WeiboSDKDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic)  UIView *showMoview;
 @property (strong, nonatomic)  UIView *showView;
 @property (nonatomic, strong) NSDictionary *infoDic;
 @property (nonatomic, strong) NSMutableArray *cellArray;
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
+@property (nonatomic, strong) UIView *shareView;
 @end
 
 @implementation StoryViewController
@@ -31,7 +35,88 @@
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.showMoview];
     [self getMenuData];
+    
+    self.shareView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWitch, kScreenhight - 64)];
+    self.shareView.backgroundColor = [UIColor colorWithRed:37.0/255.0 green:37.0/255.0 blue:37.0/255.0 alpha:0.2];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(5, 0, kScreenWitch-10, kScreenhight-64);
+    [button addTarget:self action:@selector(backView) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareView addSubview:button];
+    
+    self.shareView.hidden = YES;
+    
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"StepsTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(shareAction)];
+    rightItem.tintColor = [UIColor orangeColor];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
+- (void)backView{
+    self.shareView.hidden = YES;
+}
+- (void)shareAction{
+    NSUserDefaults *userDefault = [NSUserDefaults new];
+    NSString *name = [userDefault objectForKey:@"name"];
+    if (name ==nil) {
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"你还没有登录，是否先去登陆" preferredStyle:UIAlertControllerStyleAlert];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            TabbarViewController *tabbarVC = [[TabbarViewController alloc] init];
+            tabbarVC.selectedIndex = 2;
+            self.view.window.rootViewController = tabbarVC;
+        }]];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }else
+    {
+        self.shareView.hidden = NO;
+        //提示框
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否将内容分享到新浪微博" preferredStyle:UIAlertControllerStyleAlert];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self shareWeiBoAction];
+        }]];
+        [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }
+    
+}
+
+-(WBMessageObject *)messageToShare{
+    WBMessageObject *message = [WBMessageObject message];
+    NSString *string = self.infoDic[@"Cover"];
+    NSArray *array = [string componentsSeparatedByString:@"/l/"];
+    NSString *movie = array[1];
+    NSArray *urlsting = [movie componentsSeparatedByString:@"_"];
+    NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"http://v.hoto.cn/%@.mp4",urlsting[0]]];
+    NSString *str = [NSString stringWithFormat:@"甜馨美食应用分享：%@%@%@",self.infoDic[@"Title"],url,self.infoDic[@"Intro"]];
+    message.text = str;
+    return message;
+}
+- (void)shareWeiBoAction{
+    AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
+    authRequest.redirectURI = @"https://api.weibo.com/oauth2/default.html";
+    authRequest.scope = @"all";
+    WBSendMessageToWeiboRequest *request = [ WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest access_token:myDelegate.wbtoken];
+    request.userInfo = @{@"ShareMessageFrom": @"MeViewController",
+                         @"Other_Info_1": [NSNumber numberWithInt:123],
+                         @"Other_Info_2": @[@"obj1", @"obj2"],
+                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+    [WeiboSDK sendRequest:request];
+    
+    [self removeAction];
+}
+
+- (void)removeAction{
+    self.shareView.hidden = YES;
+}
+- (void)changeAction{
+    self.shareView.hidden = YES;
+}
+
 - (void)showMoviewImageView{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     button.frame = CGRectMake(0, 0, kScreenWitch, kScreenhight/2-80);
@@ -199,7 +284,13 @@
     return _cellArray;
 }
 
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    
+}
 
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

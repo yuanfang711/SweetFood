@@ -12,22 +12,22 @@
 #import "MovieViewController.h"
 #import "TabbarViewController.h"
 #import <BmobSDK/Bmob.h>
-
-@interface AppDelegate ()
+#import "WeiboSDK.h"
+@interface AppDelegate ()<WeiboSDKDelegate>
 
 @end
 
 @implementation AppDelegate
-//@synthesize wbtoken;
-//@synthesize wbCurrentUserID;
-//@synthesize wbRefreshToken;
+@synthesize wbtoken;
+@synthesize wbCurrentUserID;
+@synthesize wbRefreshToken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    //微博
-//    [WeiboSDK enableDebugMode:YES];
-//    [WeiboSDK registerApp:KAppkey];
-//    
+    //微博
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:KAppkey];
+
     //创建BmobKoey
     [Bmob registerWithAppKey:@"b8c3db171106c6548b779c695ec730d2"];
     
@@ -41,12 +41,12 @@
     // Override point for customization after application launch.
     return YES;
 }
-//-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
-//
-//}
-//-(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
-//   
-//}
+-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+
+}
+-(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+   
+}
 //
 //-(void)onReq:(BaseReq *)req{
 //    
@@ -54,20 +54,12 @@
 //-(void)onResp:(BaseResp *)resp{
 //    
 //}
-//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-//    if ([WeiboSDK isCanShareInWeiboAPP]) {
-//        return [WeiboSDK handleOpenURL:url delegate:self];
-//        
-//    }
-//    return [WXApi handleOpenURL:url delegate:self];
-//    
-//}
-//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-//    if ([WeiboSDK isCanShareInWeiboAPP]) {
-//        return [WeiboSDK handleOpenURL:url delegate:self];
-//    }
-//    return [WXApi handleOpenURL:url delegate:self];
-//}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+        return [WeiboSDK handleOpenURL:url delegate:self];
+}
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+        return [WeiboSDK handleOpenURL:url delegate:self];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

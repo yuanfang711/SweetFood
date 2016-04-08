@@ -56,7 +56,7 @@
 - (void)getDataLoad{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    [manager GET:[NSString stringWithFormat:@"%@%@&offset=%ld",kGoodTool,self.goodId,_pageNum] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:[NSString stringWithFormat:@"%@%@&offset=%ld",kGoodTool,self.goodId,(long)_pageNum] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *rootDic = responseObject;
         NSDictionary *result = rootDic[@"result"];

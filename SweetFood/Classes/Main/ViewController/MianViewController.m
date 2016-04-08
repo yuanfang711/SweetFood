@@ -72,6 +72,7 @@
     }else
         self.name =[NSString stringWithFormat:@"用户:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"name"]];
     NSString *sring = self.name;
+    
     UIBarButtonItem *rightIemt = [[UIBarButtonItem alloc] initWithTitle:sring style:UIBarButtonItemStylePlain target:self action:nil];
     rightIemt.tintColor = [UIColor orangeColor];
     self.navigationItem.leftBarButtonItem = rightIemt;

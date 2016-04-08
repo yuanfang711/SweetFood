@@ -97,7 +97,8 @@
     _imageView.frame = self.bounds;
     
     CGFloat titleLabelW = self.sd_width;
-    _titleLabel.frame = CGRectMake( titleLabelW/4-10, self.sd_height - 60, titleLabelW/2+20, 30);
+    
+    _titleLabel.frame = CGRectMake( titleLabelW/4-10, self.sd_height - 50, titleLabelW/2+20, 20);
     _titleLabel.layer.cornerRadius = 15;
     _titleLabel.layer.masksToBounds = YES;
     _titleLabel.hidden = !_titleLabel.text;

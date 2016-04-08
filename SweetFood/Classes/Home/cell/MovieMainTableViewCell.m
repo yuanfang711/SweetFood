@@ -27,7 +27,7 @@
     [self.ImageView  sd_setImageWithURL:[NSURL URLWithString:model.Image] placeholderImage:nil];
     self.nameLable.text = model.name;
     self.timeLable.text = model.time;
-    NSString *dting = [NSString stringWithFormat:@"%ld",model.playCount];
+    NSString *dting = [NSString stringWithFormat:@"%ld",(long)model.playCount];
     self.playLable.text = dting;
 }
 

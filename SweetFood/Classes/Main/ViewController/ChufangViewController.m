@@ -97,8 +97,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
     [ProgressHUD show:@"为你加载数据"];
-    [manager GET:[NSString stringWithFormat:@"%@%@&offset=%ld",kTodayAction,self.modelId,_pageNum] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
+    [manager GET:[NSString stringWithFormat:@"%@%@&offset=%ld",kTodayAction,self.modelId,(long)_pageNum] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"成功加载"];
         NSDictionary *dic = responseObject;
